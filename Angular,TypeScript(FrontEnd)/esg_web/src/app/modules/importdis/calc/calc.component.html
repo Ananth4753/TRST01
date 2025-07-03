@@ -1,0 +1,52 @@
+
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+      style="background-color: #1978ac !important;">
+      <div class="text-lg " style="font-weight: 900;">Unit Converter</div>
+      <button mat-icon-button (click)="onClose()" [tabIndex]="-1">
+          <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+      </button>
+  </div>
+  <form class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto" [formGroup]="liquidform">
+      <div class="flex flex-col md:flex-row gap-4">
+
+          <mat-form-field class="flex flex-col flex-auto">
+              <mat-label>Input</mat-label>
+              <input matInput  inputWithComma [formControlName]="'NoofUnits'">
+          </mat-form-field>
+
+          <mat-form-field class="flex flex-col flex-auto">
+            <mat-label>Units</mat-label>
+            <mat-select matInput [formControlName]="'Units'"  (selectionChange)="ProductChange($event.value)">
+                <mat-option *ngFor="let p of drop" [value]="p.Name">{{p.Name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+      </div>
+      <div class="flex flex-col md:flex-row gap-4" >
+        <div class="d-flex align-items-start gap-3 mt-4" style="margin:auto">
+            <button type="button" class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab" (click)="convert()" > Convert</button>
+            </div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-4" >
+        <mat-form-field class="flex flex-col flex-auto">
+            <mat-label>Measurement in Mega Litres</mat-label>
+            <input matInput  [formControlName]="'mega'" readonly style="text-align: right;">
+        </mat-form-field>
+
+    </div>
+  </form>
+
+  <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+      <div class="flex items-center mt-4 sm:mt-0">
+
+         
+          <button class="order-first sm:order-last" mat-flat-button [color]="'primary'"
+              style="background-color: #1978ac !important;" (click)="onSave()">
+              Submit
+          </button>
+      </div>
+  </div>
+</div>
+

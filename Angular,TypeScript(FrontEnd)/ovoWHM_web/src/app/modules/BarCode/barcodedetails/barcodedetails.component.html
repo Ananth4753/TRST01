@@ -1,0 +1,240 @@
+<div class="flex flex-col flex-auto p-6 sm:p-8 gap-4">
+
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary" style="background-color: #FCB713 !important;">
+    <div class="text-lg font-medium">{{title}}</div>
+    <button
+        mat-icon-button
+        (click)="onClose()" 
+        [tabIndex]="-1">
+        <mat-icon
+            class="text-current" 
+            [svgIcon]="'heroicons_outline:x'"></mat-icon>
+    </button>
+</div>
+
+    <form   class="flex flex-col flex-auto overflow-y-auto"
+
+      [formGroup]="barcodeForm">
+<!--batchfield-->
+<div class="flex flex-col md:flex-row gap-4">
+
+  <!-- Name -->
+  <!-- <mat-label  style="font-size:x-large;margin-left: 20px; margin-top:10px;" >Batch Id</mat-label>
+
+  <mat-form-field class="flex flex-col min-w-50" style="margin-left:150px">
+      <input id="barcode"
+
+          matInput
+
+          [formControlName]="'BatchId'">
+
+          <mat-error *ngIf="barcodeForm.get('BatchId').hasError('required')">
+
+            BatchId is required
+
+          </mat-error>
+
+  </mat-form-field> -->
+</div>
+
+<!--flockname-->
+
+<div class="flex flex-col md:flex-row gap-4">
+
+<mat-label  style="font-size:x-large" >Flock Name</mat-label>
+
+<mat-form-field class="flex flex-col min-w-50" style="margin-left:130px">
+
+<input
+
+id="barcode"
+
+matInput
+
+[formControlName]="'FlockName'">
+
+<mat-error *ngIf="barcodeForm.get('FlockName').hasError('required')">
+
+  Flock Name is required
+
+</mat-error>
+
+</mat-form-field>
+
+</div>
+
+<!--Weight range-->
+
+<div class="flex flex-col md:flex-row gap-4">
+
+<mat-label  style="font-size:x-large">Weight Range</mat-label>
+
+<mat-form-field class="flex flex-col min-w-50" style="margin-left:110px">
+
+<input
+
+id="barcode"
+
+matInput
+
+[formControlName]="'WeightRange'">
+
+<mat-error *ngIf="barcodeForm.get('WeightRange').hasError('required')">
+
+  WeightRange is required
+
+</mat-error>
+
+</mat-form-field>
+
+</div>
+
+<!--Farm location-->
+
+<div class="flex flex-col md:flex-row gap-4">
+
+<mat-label  style="font-size:x-large" >Farm Location</mat-label>
+
+<mat-form-field class="flex flex-col min-w-50" style="margin-left:100px">
+
+<input
+
+id="barcode"
+
+matInput
+
+[formControlName]="'FarmLocation'" >
+
+<mat-error *ngIf="barcodeForm.get('FarmLocation').hasError('required')">
+
+  FarmLocation is required
+
+</mat-error>
+
+</mat-form-field>
+
+</div>
+
+<!--date-->
+
+<div class="flex flex-col md:flex-row gap-4">
+
+<mat-label  style="font-size:x-large">Date</mat-label>
+
+<mat-form-field class="flex flex-col min-w-50" style="margin-left:200px" >
+
+<input      id="barcode"
+
+matInput [matDatepicker]="picker"      [formControlName]="'DateYear'" >
+
+<mat-hint>MM/DD/YYYY</mat-hint>
+
+<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+
+<mat-datepicker #picker></mat-datepicker>
+
+<mat-error *ngIf="barcodeForm.get('DateYear').hasError('required')">
+
+  Date is required
+
+</mat-error>
+
+</mat-form-field>
+
+</div>
+
+<!--no of packets-->
+
+<div class="flex flex-col md:flex-row gap-4">
+
+<mat-label  style="font-size:x-large" >No Of Packets</mat-label>
+
+<mat-form-field class="flex flex-col min-w-50" style="margin-left:100px"  >
+
+<input
+
+id="barcode"
+
+matInput
+
+[formControlName]="'NoOfPackets'">
+
+<mat-error *ngIf="barcodeForm.get('NoOfPackets').hasError('required')">
+
+  packets are required
+
+</mat-error>
+
+</mat-form-field>
+
+</div>
+
+<!--no of quantity-->
+
+<div class="flex flex-col md:flex-row gap-4">
+
+<mat-label   style="font-size:x-large;" >No of Quantity</mat-label>
+
+<mat-form-field class="flex flex-col min-w-50" style="margin-left:100px" >
+
+<input
+
+id="barcode"
+
+matInput
+
+[formControlName]="'NoOfQuantity'">
+
+<mat-error *ngIf="barcodeForm.get('NoOfQuantity').hasError('required')">
+
+  Quantity is required
+
+</mat-error>
+
+</mat-form-field>
+
+</div>
+
+<div class="flex flex-col md:flex-row gap-4">
+
+    <mat-label  style="font-size:x-large " >Url</mat-label>
+    
+    <mat-form-field class="flex flex-col min-w-50" style="margin-left:16%">
+    
+    <input
+    
+    id="barcode"
+    
+    matInput
+    
+    [formControlName]="'Url'" >
+    
+    <mat-error *ngIf="barcodeForm.get('Url').hasError('required')">
+    
+      Url is required
+    
+    </mat-error>
+    
+    </mat-form-field>
+    
+    </div>
+
+    <div class="flex flex-col flex-auto" id="barcode">
+      <span class="mb-4"> Status</span>
+
+      <mat-slide-toggle
+          [formControlName]="'IsActive'"
+          [color]="'primary'"  >
+          {{barcodeForm.get('IsActive')?.value === true ? 'Active' : 'Disabled'}}
+      </mat-slide-toggle>
+  </div>
+
+<br><br><br>
+
+          <button type="button" (click)="onSave()"  style="border: 1px solis black; background-color: yellow;">Generation of Barcode</button>
+
+</form>
+
+
+
+</div>

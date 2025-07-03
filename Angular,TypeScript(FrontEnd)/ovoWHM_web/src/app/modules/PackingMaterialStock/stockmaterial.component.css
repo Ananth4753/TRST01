@@ -1,0 +1,29 @@
+#datatable th, #datatable td{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 10px;
+    box-shadow: 0 0 1px #FCB713;
+  }
+  #datatable{
+    text-align: center;
+    width: 72.5%;
+    margin-left: 13%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    font-family: Arial, sans-serif;
+  }
+  #datatable1{
+    margin-left: 10.5%;
+  }
+  #datatable thead{
+    color: black;
+    background-color: #FCB713;
+  }
+ 
+
+  
+.sticky-header {
+  position: sticky;
+  top: 0;
+ 
+}

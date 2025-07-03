@@ -1,0 +1,74 @@
+.mat-ac-pannel{
+  padding:10px;
+  margin-bottom:20px;
+}
+mat-expansion-panel{
+  margin-bottom:20px !important; 
+}
+mat-panel-title {
+  color: #1c75bc !important;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+}
+mat-expansion-panel-body{
+  padding:0px !important;
+}
+mat-expansion-panel-body p{
+background: #1c75bc;
+color:#fff;
+}
+#main {
+margin: 50px 0;
+}
+
+#main #faq .card {
+margin-bottom: 30px;
+border: 0;
+}
+
+#main #faq .card .card-header {
+border: 0;
+-webkit-box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+        box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+border-radius: 2px;
+padding: 0;
+}
+
+#main #faq .card .card-header .btn-header-link {
+color: #fff;
+display: block;
+text-align: left;
+background: #8cc540;
+padding: 20px;
+}
+
+#main #faq .card .card-header .btn-header-link:after {
+content: "⮝";
+font-family: 'Font Awesome 5 Free';
+font-weight: 900;
+float: right;
+}
+
+#main #faq .card .card-header .btn-header-link.collapsed {
+  background: #8cc540;
+color: #fff;
+}
+
+#main #faq .card .card-header .btn-header-link.collapsed:after {
+content: "⮟";
+}
+
+#main #faq .card .collapsing {
+background: aliceblue;
+line-height: 30px;
+}
+
+#main #faq .card .collapse {
+border: 0;
+}
+
+#main #faq .card .collapse.show {
+background: aliceblue;
+line-height: 30px;
+color: #222;
+}

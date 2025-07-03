@@ -1,0 +1,922 @@
+<form [formGroup]="gdform">
+  <!-- gd1 -->
+  <div aria-label1="pdf-page-3">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+          <div class="card">
+  
+            <img class="bg-preview  card-img img-fluid pimg-height" [src]="imageUrl" alt="Card image">
+            <div class="card-img-overlay p-0 d-flex flex-column">
+  
+              <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                <span class="float-end">{{reportname}}</span>
+              </div>
+  
+  
+              <div class="row">
+                <h2 class="brsr-title">
+                  <b>Business Responsibility and Sustainability Report (BRSR)</b>
+                </h2>
+              </div>
+              <div class="row">
+                <h3 class="brsr-title-sub1"><b>Section A: General Disclosures</b></h3>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-9">
+                  <h3 class="brsr-title-sub2"><b>I. DETAILS OF THE LISTED ENTITY</b></h3>
+                </div>
+                <div class="col-xl-3">
+                  <button type="button"
+                  class="btn btn-sm btn-outline"
+                  style="font-size: 13px; float: right"
+                  (click)="openuploadimgcompo(this.reportid,'Corporate Identity Number (CIN) of the Listed Entity',this.orgId,'Corporate Identity Number (CIN) of the Listed Entity')">
+                  
+                  <i class="ri-file-upload-line"
+                      style="font-size: 12px"></i>
+              </button>
+                </div>
+
+              </div>
+          
+         
+  
+  
+  
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd1">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+            </div>
+            <footer class="footer sun col-xxl-12">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="">
+                    <div class=" align-items-center d-flex">
+  
+                      <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered
+                          by</span><img class="mypower1" src="./assets/img/trst_color.png"
+                          style="width:10%; margin-left: 5px;"></a>
+  
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="page-break-before:always">&nbsp;</div>
+  </div>
+  
+  <!-- gd2 and gd3-->
+  <div aria-label1="pdf-page-4"
+    *ngIf="((gd2table1.length >0) || (gd2table2.length >0) || (qaaobject[2]['one'] !=undefined))">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+          <div class="card">
+  
+            <img class="bg-preview  card-img img-fluid pimg-height" [src]="imageUrl" alt="Card image">
+            <div class="card-img-overlay p-0 d-flex flex-column">
+  
+              <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                <span class="float-end">{{reportname}}</span>
+              </div>
+  
+  
+  
+              <div class="row">
+                <h3 class="brsr-title-sub2"><b>II. PRODUCTS / SERVICES </b></h3>
+              </div>
+              <div *ngIf="gd2table1.length >0">
+              
+                <div class="row">
+                  <div class="col-xl-9">
+                    <h6 class="card-title mb-0 brsr-title-sub2"> 14. Details of business activities (accounting for 90% of
+                      the turnover):</h6>
+                  </div>
+                  <div class="col-xl-3">
+                    <button type="button"
+                    class="btn btn-sm btn-outline evidence-btn"
+                    style="font-size: 13px; float: right"
+                    (click)="openuploadimgcompo(this.reportid,'Details of business activities (accounting for 90% of the turnover)',this.orgId,'Details of business activities (accounting for 90% of the turnover)')">
+                    
+                    <i class="ri-file-upload-line"
+                        style="font-size: 12px"></i>
+                </button>
+                  </div>
+  
+                </div>
+              </div>
+  
+              <div class="row" *ngIf="gd2table1.length >0">
+  
+                <div class="col-md-8">
+  
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd214">
+  
+                </div>
+  
+                <div class="col-md-3">
+  
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                </div>
+  
+              </div>
+  
+  
+  
+  
+  
+  
+  
+              <div class=" jalsa brsr-top" *ngIf="gd2table2.length >0">
+                <div class="row">
+                  <div class="col-xl-12">
+                      <div class="d-flex align-items-center justify-content-between">
+                          <h6 class="card-title mb-0 brsr-title-sub2"> 15. Products/Services sold by the entity (accounting for 90% of the entity’s Turnover):</h6>
+
+                         
+                          <button type="button"
+                              class="btn btn-sm btn-outline evidence-btn"
+                              style="font-size: 13px; float: right"
+                              (click)="openuploadimgcompo(this.reportid,'Products/Services sold by the entity (accounting for 90% of the entity’s Turnover):',this.orgId,'Products/Services sold by the entity (accounting for 90% of the entity’s Turnover)')">
+                              
+                              <i class="ri-file-upload-line"
+                                  style="font-size: 12px"></i>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              </div >
+              
+  
+              <div class="row">
+  
+                <div class="col-md-8">
+  
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd215">
+  
+                </div>
+  
+                <div class="col-md-3">
+  
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                </div>
+  
+              </div>
+  
+  
+  
+  
+  
+  
+              <!-- gd3 -->
+  
+              <div class="row" *ngIf="qaaobject[2]['one'] !=undefined">
+                <h3 class="brsr-title-sub2"><b>III. Operations </b></h3>
+              </div>
+  
+  
+  
+              <div class=" jalsa brsr-top" *ngIf="qaaobject[2]['one'] !=undefined">
+                
+                  <div class="row">
+                    <div class="col-xl-12">
+                        <div class="d-flex align-items-center justify-content-between">
+                            
+                            <h6 class="card-title mb-0 brsr-title-sub2">16. Number of locations where plants and/or operations/offices of the entity are situated:</h6>
+                          
+                            <button type="button"
+                                class="btn btn-sm btn-outline evidence-btn"
+                                style="font-size: 13px; float: right"
+                                (click)="openuploadimgcompo(this.reportid,'Number of locations where plants and/or operations/offices of the entity are situated:',this.orgId,'Number of locations where plants and/or operations/offices of the entity are situated')">
+                                
+                                <i class="ri-file-upload-line"
+                                    style="font-size: 12px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+  
+  
+              <div class="row" *ngIf="qaaobject[2]['one'] !=undefined">
+  
+                <div class="col-md-8">
+  
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd316">
+  
+                </div>
+  
+                <div class="col-md-3">
+  
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                </div>
+  
+              </div>
+  
+  
+  
+            </div>
+            <footer class="footer sun col-xxl-12">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="">
+                    <div class=" align-items-center d-flex">
+  
+                      <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered
+                          by</span><img class="mypower1" src="./assets/img/trst_color.png"
+                          style="width:10%; margin-left: 5px;"></a>
+  
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="page-break-before:always">&nbsp;</div>
+  </div>
+  <!-- gd4 -->
+  
+  <div aria-label1="pdf-page-5"
+    *ngIf="((qaaobject[2]['ten'] !=undefined) || (qaaobject[2]['seven'] !=undefined) || (qaaobject[2]['nine'] !=undefined) || (qaaobject[3]['Question1'] !=undefined) || (qaaobject[3]['Question31'] !=undefined))">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+          <div class="card">
+  
+            <img class="bg-preview  card-img img-fluid pimg-height" [src]="imageUrl" alt="Card image">
+            <div class="card-img-overlay p-0 d-flex flex-column">
+  
+              <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                <span class="float-end">{{reportname}}</span>
+              </div>
+  
+  
+  
+              <div>
+                <div class=" jalsa brsr-top" *ngIf="qaaobject[2]['ten'] !=undefined">
+                  <div class="row">
+                    <div class="col-xl-12">
+                        <div class="d-flex align-items-center justify-content-between">
+                           
+                            <h6 class="card-title mb-0 brsr-title-sub2">17. Markets served by the entity:</h6>
+                           
+                            <button type="button"
+                                class="btn btn-sm btn-outline evidence-btn"
+                                style="font-size: 13px; float: right"
+                                (click)="openuploadimgcompo(this.reportid,'Markets served by the entity:',this.orgId,'Markets served by the entity')">
+                                
+                                <i class="ri-file-upload-line"
+                                    style="font-size: 12px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+  
+              <div *ngIf="qaaobject[2]['ten'] !=undefined">
+                <div class=" jalsa brsr-top">
+                  <h6 class="card-title mb-0 brsr-title-sub2"> a. Number of Locations:</h6>
+                </div>
+              </div>
+  
+  
+              <div class="row" *ngIf="qaaobject[2]['ten'] !=undefined">
+  
+                <div class="col-md-8">
+  
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd317a">
+  
+                </div>
+  
+                <div class="col-md-3">
+  
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                </div>
+  
+              </div>
+  
+  
+              <div *ngIf="qaaobject[2]['seven'] !=undefined">
+                <div class="row">
+                  <h3 class="brsr-title-sub2 "><b>b. What is the contribution of exports as a percentage of the total
+                      turnover of the entity? </b></h3>
+                </div>
+  
+  
+                <div class="row" *ngIf="qaaobject[2]['seven'] !=undefined">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd317b">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>
+  
+  
+  
+              <div *ngIf="qaaobject[2]['nine'] !=undefined">
+                <div class="row">
+                  <h3 class="brsr-title-sub2 question-text-1"><b>c. A brief on types of customers</b></h3>
+                </div>
+  
+  
+                <div class="row" *ngIf="qaaobject[2]['nine'] !=undefined">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd317c">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>
+              </div>
+  
+  
+  
+  
+              <div class="row" *ngIf="qaaobject[3]['Question1'] !=undefined">
+                <h3 class="brsr-title-sub2 brsrtext02 "><b>iv. Employees </b></h3>
+              </div>
+  
+  
+  
+              <div class="row" *ngIf="qaaobject[3]['Question1'] !=undefined">
+                <div class="row">
+                  <div class="col-xl-12">
+                      <div class="d-flex align-items-center justify-content-between">
+                          
+                          <h6 class="card-title mb-0 brsr-title-sub2">18. Employees at the end of Financial Year:</h6>
+                         
+                          <button type="button"
+                              class="btn btn-sm btn-outline evidence-btn"
+                              style="font-size: 13px; float: right"
+                              (click)="openuploadimgcompo(this.reportid,'Employees at the end of Financial Year:',this.orgId,'Employees at the end of Financial Year')">
+                             
+                              <i class="ri-file-upload-line"
+                                  style="font-size: 12px"></i>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              </div>
+  
+              <div class="row" *ngIf="qaaobject[3]['Question1'] !=undefined">
+                <h3 class="brsr-title-sub2 "><b>a. Employees and workers (including differently abled):</b></h3>
+              </div>
+  
+  
+              <div class="row" *ngIf="qaaobject[3]['Question1'] !=undefined">
+  
+                <div class="col-md-8">
+  
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd418a">
+  
+                </div>
+  
+                <div class="col-md-3">
+  
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                </div>
+  
+              </div>
+  
+  
+  
+  
+  
+  
+              <div class="row" *ngIf="qaaobject[3]['Question31'] !=undefined">
+                <h3 class="brsr-title-sub2 "><b>b. Differently abled Employees and workers: </b></h3>
+              </div>
+  
+  
+              <div class="row" *ngIf="qaaobject[3]['Question31'] !=undefined">
+  
+                <div class="col-md-8">
+  
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd418b">
+  
+                </div>
+  
+                <div class="col-md-3">
+  
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                </div>
+  
+              </div>
+  
+  
+  
+            </div>
+            <footer class="footer sun col-xxl-12">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="">
+                    <div class=" align-items-center d-flex">
+  
+                      <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered
+                          by</span><img class="mypower1" src="./assets/img/trst_color.png"
+                          style="width:10%; margin-left: 5px;"></a>
+  
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="page-break-before:always">&nbsp;</div>
+  </div>
+  </div>
+  
+  
+  
+  <div aria-label="pdf-page-11"
+    *ngIf="((qaaobject[3]['Question61'] !=undefined) || (qaaobject[3]['Question67'] !=undefined) || (gd5table1.length >0) || (qaaobject[5]['one']!=undefined))">
+    <div class="pagenumber">
+      <div aria-label1="pdf-page-3">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+  
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+  
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                  </div>
+  
+                  <div class="row" *ngIf="qaaobject[3]['Question61'] !=undefined">
+                    <div class="row">
+                      <div class="col-xl-12" >
+                          <div class="d-flex align-items-center justify-content-between">
+                              
+                              <h6 class="card-title mb-0 brsr-title-sub2">19. Participation/Inclusion/Representation of women:</h6>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,'Participation/Inclusion/Representation of women:',this.orgId,'Participation/Inclusion/Representation of women')">
+                                  
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+  
+                  <div class="row" *ngIf="qaaobject[3]['Question61'] !=undefined">
+  
+                    <div class="col-md-8">
+      
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd419">
+      
+                    </div>
+      
+                    <div class="col-md-3">
+      
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                    </div>
+      
+                  </div>
+  
+  
+  
+                  <div class="row" *ngIf="qaaobject[3]['Question67'] !=undefined">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              
+                              <h6 class="card-title mb-0 brsr-title-sub2">20. Turnover rate for permanent employees and workers:</h6>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,'Turnover rate for permanent employees and workers:',this.orgId,'Turnover rate for permanent employees and workers')">
+                                  
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+  
+                  <div class="row" *ngIf="qaaobject[3]['Question67'] !=undefined">
+  
+                    <div class="col-md-8">
+      
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd420">
+      
+                    </div>
+      
+                    <div class="col-md-3">
+      
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                    </div>
+      
+                  </div>
+  
+  
+  
+                  <div class="row" *ngIf="gd5table1.length >0">
+                    <h3 class="brsr-title-sub2 brsrtext02 "><b>V. Holding, Subsidiary and Associate Companies (including
+                        Joint Ventures) </b></h3>
+                  </div>
+  
+  
+  
+                  <div class="row" *ngIf="gd5table1.length >0">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              
+                              <h6 class="card-title mb-0 brsr-title-sub2">21. Names of holding / subsidiary / associate companies / joint ventures:</h6>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,'Names of holding / subsidiary / associate companies / joint ventures:',this.orgId,'Names of holding / subsidiary / associate companies / joint ventures')">
+                                  
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+  
+  
+                  <div class="row" *ngIf="gd5table1.length >0">
+  
+                    <div class="col-md-8">
+      
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd521">
+      
+                    </div>
+      
+                    <div class="col-md-3">
+      
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                    </div>
+      
+                  </div>
+  
+                  <div class="row" *ngIf="qaaobject[5]['one']!=undefined">
+                    <h3 class="brsr-title-sub2 brsrtext02 "><b>Vi. CSR Details </b></h3>
+                  </div>
+  
+                  <div class="row" *ngIf="qaaobject[5]['one']!=undefined ">
+  
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              
+                              <h6 class="card-title mb-0 brsr-title-sub2">22. i. Whether CSR is applicable as per section 135 of Companies Act, 2013:</h6>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,'Whether CSR is applicable as per section 135 of Companies Act, 2013:',this.orgId,'Whether CSR is applicable as per section 135 of Companies Act, 2013')">
+                                 
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                  <div class="row" *ngIf="qaaobject[5]['one']!=undefined ">
+  
+                    <div class="col-md-8">
+      
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd622">
+      
+                    </div>
+      
+                    <div class="col-md-3">
+      
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                    </div>
+      
+                  </div>
+  
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+  
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+  
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="page-break-before:always">&nbsp;</div>
+      </div>
+  
+  
+  
+  
+    </div>
+  </div>
+  
+  
+  
+  <div aria-label="pdf-page-11" *ngIf="(gd7table1.length >0)">
+    <div class="pagenumber">
+      <div aria-label1="pdf-page-3">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+  
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+  
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                  </div>
+  
+  
+  
+                  <div class="row" *ngIf="gd7table1.length >0">
+                    <h3 class="brsr-title-sub2 brsrtext02 "><b>VII. Transparency and Disclosures Compliances </b></h3>
+                  </div>
+  
+  
+  
+                  <div class="row" *ngIf="gd7table1.length >0">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              
+                              <h6 class="card-title mb-0 brsr-title-sub2">23. Complaints/Grievances on any of the principles (Principles 1 to 9) under the National Guidelines on Responsible Business Conduct:</h6>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,'Complaints/Grievances on any of the principles (Principles 1 to 9) under the National Guidelines on Responsible Business Conduct:',this.orgId,'Complaints/Grievances on any of the principles (Principles 1 to 9) under the National Guidelines on Responsible Business Conduct')">
+                                  
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+  
+  
+  
+  
+                  <div class="row" *ngIf="gd7table1.length >0">
+  
+                    <div class="col-md-8">
+      
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd723">
+      
+                    </div>
+      
+                    <div class="col-md-3">
+      
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                    </div>
+      
+                  </div>
+  
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+  
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+  
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="page-break-before:always">&nbsp;</div>
+      </div>
+  
+  
+  
+  
+    </div>
+  </div>
+  
+  
+  <div aria-label="pdf-page-11" *ngIf="(gd7table2.length >0)">
+    <div class="pagenumber">
+      <div aria-label1="pdf-page-3">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+  
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+  
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                  </div>
+  
+  
+                  <div class="row" *ngIf="gd7table2.length >0">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              
+                              <h6 class="card-title mb-0 brsr-title-sub2">24. Overview of the entity’s material responsible business conduct issues:</h6>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,'Overview of the entity’s material responsible business conduct issues:',this.orgId,'Overview of the entity’s material responsible business conduct issues')">
+                                  
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+  
+  
+                  <div class="row" *ngIf="gd7table2.length >0">
+  
+                    <div class="col-md-8">
+      
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="gd724">
+      
+                    </div>
+      
+                    <div class="col-md-3">
+      
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                    </div>
+      
+                  </div>
+  
+                  
+  
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+  
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+  
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="page-break-before:always">&nbsp;</div>
+      </div>
+  
+  
+  
+  
+    </div>
+  </div></form>

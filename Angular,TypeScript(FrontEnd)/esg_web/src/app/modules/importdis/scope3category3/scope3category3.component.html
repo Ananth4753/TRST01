@@ -1,0 +1,204 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+      style="background-color: #8cc540 !important;">
+      <div class="text-lg " style="font-weight: 900;">Category 3: Fuel & Energy related Emission Factors</div>
+      <button mat-icon-button (click)="onClose()" [tabIndex]="-1">
+          <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+      </button>
+  </div>
+  <form class="flex flex-col flex-auto p-6 sm:p-8" [formGroup]="scope3form">
+      <div class="flex flex-col md:flex-row gap-4" >
+        <mat-form-field class="flex flex-col flex-auto" >
+          <mat-label>Choose Calculator</mat-label>
+          <mat-select matInput [formControlName]="'DataType'" (selectionChange)="DataTypeChange($event.value)" >
+            <mat-option value="fuel" style="color: #1978ac !important;">WTT- Upstream emissions from Fuels</mat-option>
+            <mat-option value="elec" style="color: #1978ac !important;">WTT- Upstream emissions from Electricity</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+
+      <div class="col-xl-12 in-top overflow-y-auto" *ngIf="supplierspecific">
+        <div class="col-xl-12 in-top overflow-y-auto">
+          <div class="box-body table-responsive">
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+              <thead class="tableheader">
+                <tr>
+                  <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Fuel type</th>
+                  <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 3.6rem; border: 1px solid var(--border-color);">Unit</th>
+                  <th style="width: 8%; text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Quantity (tonnes)</th>
+                  <th style="width: 10%; text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Standard EF <br>(kgCO2e/unit)</th>
+                  <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 1.6rem; border: 1px solid var(--border-color);">User based EF <br>(kgCO2e/unit)</th>
+                  <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total Emissions (tCO2e)</th>
+                  <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; border: 0px solid var(--border-color);"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tpt of lookupdtl; let i=index">
+                  <td>
+                    <mat-form-field class="flex flex-col min-w-60">
+                      <mat-select id="fueltype{{i}}" (selectionChange)="goods($event.value, i)" [(ngModel)]="tpt.fueltype">
+                        <input matInput placeholder="Search" (input)="goodsfilter($event.target.value)" [matAutocomplete]="auto">
+                        <mat-option *ngFor="let c of filteredList6" [value]="c.Id">
+                          <mat-autocomplete #auto (optionSelected)="onOptionSelected($event,i)"></mat-autocomplete>
+                          {{c.FuelType}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <input id="Unit{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [value]="tpt.Unit" readonly>
+                  </td>
+                  <td>
+                    <input id="Quantity{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.Quantity" (keyup)="qu(i, $event)" type="text" inputWithComma>
+                  </td>
+                  <td>
+                    <input id="Emissionfactor{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [value]="tpt.Emissionfactor" readonly>
+                  </td>
+                  <td>
+                    <input id="User{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.User" (keyup)="uu(i, $event)" (keyup)="uuxff($event)" inputWithComma>
+                  </td>
+                  <td>
+                    <input id="Emi{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.Emi| number: '1.0-2'" readonly inputWithComma>
+                  </td>
+                  <td>
+                    <button style="padding-top:17px;" id="delete{{i}}" type="button" (click)="deleteQ102a(i)">
+                      <i style="color:red" class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr *ngIf="lookupdtl.length > 0">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td st><b>Total Emission:</b></td>
+                  <td style="text-align: right;">{{sumtotal | number: '1.0-2'}} tCO2e</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <style>
+              .table-bordered > :not(caption) >    {
+  border-width: 0 0px;
+}
+            </style>
+    </div>
+
+    <div class="d-flex align-items-start gap-3 mt-4">
+      <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+          data-nexttab="pills-experience-tab" (click)="addFieldValue()" id="disableButton" style="padding-left: 2.9rem;
+          padding-right: 45px;
+      "> Add</button>
+
+  </div>
+
+    <div>
+      Note:<br>
+      1.	This category captures the emissions that occur before the fuel is used by facilities, and the emissions associated with the grid losses.<br>
+      2.	The WTT emissions are calculated using DEFRA-based well-to-tank (WTT) emission factors for the extraction, refining, and transportation of primary fuels before their use in the generation of electricity.
+    </div>
+    </div></div>
+
+
+    
+    <div class="col-xl-12 in-top overflow-y-auto" *ngIf="averagedata">
+      <div class="col-xl-12 in-top overflow-y-auto">
+        <div class="box-body table-responsive">
+          <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+            <thead class="tableheader">
+              <tr>
+                <th style="text-align: center; font-size: 15px; padding: 27px; background-color: #1978ac; color: #fff;       white-space: nowrap;
+                    padding: 0.75rem 2.6rem;  border: 1px solid var(--border-color);">Country</th>
+                <th style="text-align: center; font-size: 15px; padding: 27px; background-color: #1978ac; color: #fff;         white-space: nowrap;
+                padding: 0.75rem 0.6rem;  border: 1px solid var(--border-color);">Standard Emission _ <br> Generation (kg CO2e/kWh)</th>
+                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Standard Emission _T&D<br>(kg CO2e/kWh)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff;        white-space: nowrap;
+                padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Electricity usage <br> (kWh)</th>
+                <th style="text-align: center; font-size: 15px; padding: 27px; background-color: #1978ac; color: #fff;        white-space: nowrap;
+                padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">WTT GHG emissions</th>
+                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;     border: 0px solid var(--border-color);"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tpt of lookupdtl1; let i=index">
+                <td>
+                  <mat-form-field class="flex flex-col min-w-80">                                                                           
+                    <mat-select  id="country{{i}}" (selectionChange)="goods1($event.value, i)" [(ngModel)]="tpt.country">
+                        <input matInput placeholder="Search" (input)="goodsfilter($event.target.value)" [matAutocomplete]="auto">
+                      <mat-option *ngFor="let c of filteredList7" [value]="c.Id">
+                        <mat-autocomplete #auto (optionSelected)="onOptionSelected($event,i)">
+                    </mat-autocomplete>
+                    {{c.Country}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>                    
+                </td>
+                <td>
+                  <input id="stdg{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.stdg" readonly>
+                </td>
+                <td>
+                  <input id="stdg1{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.stdg1" readonly>
+                </td>
+                <td>
+                  <input id="Quantity1{{i}}" class="form-control" [(ngModel)]="tpt.Quantity1" style="height: 48px; border: 1px solid #1c75bc;" (keyup)="qu1(i, $event)"  inputWithComma>
+                </td>
+                <td>
+                  <input id="Emi1{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.Emi1| number: '1.0-2'" readonly>
+                </td>
+                <td>
+                  <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="deleteQ102a1(i)"><i
+                          style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+              </td>
+              </tr>
+              <tr *ngIf="lookupdtl1.length>0">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total Emission:</b></td>
+                <td style="text-align: right;">{{sumtotal1 | number: '1.0-2'}} tCO2e</td>
+            </tr>
+            </tbody>
+            
+          </table>
+
+          <style>
+            .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+          </style>
+
+
+   
+
+  </div>
+
+  <div class="d-flex align-items-start gap-3 mt-4">
+    <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+        data-nexttab="pills-experience-tab"  (click)="addFieldValue1()" id="disableButton" style="padding-left: 2.9rem;
+        padding-right: 45px;
+    "> Add</button>
+
+</div>
+
+  <div style="text-align: left;">
+    Note:<br>
+    1.	This category captures the emissions that occur before the electricity is consumed by facilities, and the emissions associated with the grid losses.<br>
+    2.	The WTT emissions are calculated using DEFRA-based well-to-tank (WTT) emission factors for the extraction, refining, and transportation of primary fuels before their use in the generation of electricity.
+  </div>
+  </div></div>
+
+
+  <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+      <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+
+         
+          <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+            style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+              Submit
+          </button>
+      </div>
+  </div>
+  
+</div>

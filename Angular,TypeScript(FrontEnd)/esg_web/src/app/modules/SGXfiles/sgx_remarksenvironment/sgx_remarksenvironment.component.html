@@ -1,0 +1,1556 @@
+<div aria-label="pdf-page-3">
+  <div> 
+    <form [formGroup]="envform">
+  <div class="pagenumber">
+
+
+    <div aria-label1="pdf-page-3">
+      <ng-container *ngIf="((dynamicobj[0]['Question1'] !='') || (dynamicobj[0]['Question2'] !='') || (dynamicobj[0]['Question22'] !='') || (dynamicobj[0]['Question3'] !='') || (dynamicobj[0]['Question4'] !='') || (dynamicobj[0]['Question5'] !='') || (dynamicobj[0]['Question6'] !='') || (dynamicobj[0]['Question7'] !='') || (dynamicobj[0]['Question8'] !=''))">
+       
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                    <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #1c75bc; margin-left: 35px; ">Metrics and
+                        Disclosures </h6> -->
+                  </div>
+                
+                  <div role="alert" class="general-alert alert alert-success alert-border-left fade show ng-star-inserted" style="background-color: #d4edda;"><i ngcontent-frp-c157="" class="me-3 align-middle fs-16"></i><strong _ngcontent-frp-c157="" style="font-size: 20px; color: #1c75bc;">Environment</strong></div>
+
+                  <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 101 - Greenhouse Gases </h3></li></div>
+
+                  
+                  <div class="fa-text jalsa card-header">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">SGX 101 - 1 Absolute emissions</span> 
+                    </h6>
+                    </div>
+
+                
+
+                  <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question1'] !=''">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-1a</span> Total GHG Emissions:
+                    </h6>
+                    <button type="button"
+                    class="btn btn-sm btn-outline"
+                    style="font-size: 13px; float: right"
+                    (click)="openuploadimgcompo(this.reportid,'Total GHG Emissions',this.orgId,'Total GHG Emissions')">
+                    
+                    <i class="ri-file-upload-line"
+                        style="font-size: 12px"></i>
+                </button>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                    <div class="fa-text-1 jalsa card-header ng-star-inserted" *ngIf="dynamicobj[0]['Question1'] !=''">
+                      <div class="row">
+  
+                        <div class="col-md-8">
+        
+                          <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env1">
+        
+                        </div>
+        
+                        <div class="col-md-3">
+        
+                          <button type="button"
+                            class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                            data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+        
+                        </div>
+        
+                      </div>                    </div>
+
+              
+                  
+                 
+                    <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question2'] !=''">
+                      <div class="row">
+                        <div class="col-xl-12">
+                            <div class="d-flex align-items-center justify-content-between">
+                      <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-1b-1</span> Scope 1 Emissions:
+                      </h6>
+                      <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Scope 1 Emissions:',this.orgId,'Scope 1 Emissions:')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                      </div>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="fa-text-1 jalsa card-header ng-star-inserted" *ngIf="dynamicobj[0]['Question2'] !=''">
+                        <div class="row">
+  
+                          <div class="col-md-8">
+          
+                            <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env2">
+          
+                          </div>
+          
+                          <div class="col-md-3">
+          
+                            <button type="button"
+                              class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                              data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+          
+                          </div>
+          
+                        </div>
+                      </div>
+                    
+                  
+                      <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question22'] !=''">
+                        <div class="row">
+                          <div class="col-xl-12">
+                              <div class="d-flex align-items-center justify-content-between">
+                        <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-1b-2a</span> Scope 2 Emissions(Location Based):
+                        </h6>
+                        <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Scope 2 Emissions(Location Based):',this.orgId,'Scope 2 Emissions(Location Based):')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                        </button>
+                      </div>
+                      </div>
+                        </div>
+                      </div>
+                      <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question22'] !=''">
+                        <div class="row">
+  
+                          <div class="col-md-8">
+          
+                            <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env3">
+          
+                          </div>
+          
+                          <div class="col-md-3">
+          
+                            <button type="button"
+                              class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                              data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+          
+                          </div>
+          
+                        </div>                    </div>
+                     
+                   
+                    <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question3'] !=''">
+                      <div class="row">
+                        <div class="col-xl-12">
+                            <div class="d-flex align-items-center justify-content-between">
+                      <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-1b-2b</span> Scope 2 Emissions(Market Based):
+                      </h6>
+                      <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Scope 2 Emissions(Market Based)',this.orgId,'Scope 2 Emissions(Market Based)')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                    </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question3'] !=''">
+                      <div class="row">
+  
+                        <div class="col-md-8">
+        
+                          <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env4">
+        
+                        </div>
+        
+                        <div class="col-md-3">
+        
+                          <button type="button"
+                            class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                            data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+        
+                        </div>
+        
+                      </div>                  </div>
+                 
+
+              
+                  <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question4'] !=''">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-1c</span>Total Scope 3 Emissions:
+                    </h6>
+                    <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Total Scope 3 Emissions',this.orgId,'Total Scope 3 Emissions')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question4'] !=''">
+                    <div class="row">
+  
+                      <div class="col-md-8">
+      
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env5">
+      
+                      </div>
+      
+                      <div class="col-md-3">
+      
+                        <button type="button"
+                          class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                          data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                      </div>
+      
+                    </div>                </div>
+           
+
+                <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">Upstream categories</span> 
+                  </h6>
+                  </div>
+
+               
+                  <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question5'] !=''">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Purchased goods and services:
+                    </h6>
+                    <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Purchased goods and services',this.orgId,'Purchased goods and services')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question5'] !=''">
+                    <div class="row">
+  
+                      <div class="col-md-8">
+      
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env6">
+      
+                      </div>
+      
+                      <div class="col-md-3">
+      
+                        <button type="button"
+                          class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                          data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                      </div>
+      
+                    </div>                </div>
+                
+
+                
+                <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question6'] !=''">
+                  <div class="row">
+                    <div class="col-xl-12">
+                        <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Capital goods:
+                  </h6>
+                  <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Capital goods',this.orgId,'Capital goods')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                  </button>
+                </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question6'] !=''">
+                  <div class="row">
+  
+                    <div class="col-md-8">
+    
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env7">
+    
+                    </div>
+    
+                    <div class="col-md-3">
+    
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+    
+                    </div>
+    
+                  </div>              </div>
+            
+
+             
+              <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question7'] !=''">
+                <div class="row">
+                  <div class="col-xl-12">
+                      <div class="d-flex align-items-center justify-content-between">
+                <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Fuel- and energy-related activities (not included in Scope 1 or Scope 2):
+                </h6>
+                <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Fuel- and energy-related activities (not included in Scope 1 or Scope 2)',this.orgId,'Fuel- and energy-related activities (not included in Scope 1 or Scope 2)')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                </button>
+              </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question7'] !=''">
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env8">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>            </div>
+         
+
+      
+            <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question8'] !=''">
+              <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex align-items-center justify-content-between">
+              <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Upstream transportation and distribution:
+              </h6>
+              <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Upstream transportation and distribution',this.orgId,'Upstream transportation and distribution')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+              </button>
+            </div>
+                </div>
+              </div>
+            </div>
+            <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question8'] !=''">
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env9">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>          </div>
+               
+             
+                
+           
+
+
+           
+
+       
+
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+                          <h3 class="in-pages float-page" style="color: #000;
+                                      margin-top: 0px;     margin-left: 230px;"></h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+
+              <div style="page-break-before:always">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+
+      </ng-container>
+    </div>
+
+    <div aria-label1="pdf-page-4">
+      <ng-container *ngIf="((dynamicobj[0]['Question9'] !='') || (dynamicobj[0]['Question10'] !='') || (dynamicobj[0]['Question11'] !='') || (dynamicobj[0]['Question12'] !='') || (dynamicobj[0]['Question13'] !='') || (dynamicobj[0]['Question14'] !='') || (dynamicobj[0]['Question15'] !='') || (dynamicobj[0]['Question16'] !=''))">
+
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                    <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #1c75bc; margin-left: 35px; ">Metrics and
+                        Disclosures </h6> -->
+                  </div>
+                
+                  <div role="alert" class="general-alert alert alert-success alert-border-left fade show ng-star-inserted" style="background-color: #d4edda;"><i ngcontent-frp-c157="" class="me-3 align-middle fs-16"></i><strong _ngcontent-frp-c157="" style="font-size: 20px; color: #1c75bc;">Environment</strong></div>
+
+                  <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 101 - Greenhouse Gases </h3></li></div>
+
+                
+
+
+                
+                    <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question9'] !=''">
+                      <div class="row">
+                        <div class="col-xl-12">
+                            <div class="d-flex align-items-center justify-content-between">
+                      <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Waste generated in operations:
+                      </h6>
+                      <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Waste generated in operations',this.orgId,'Waste generated in operations')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                    </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question9'] !=''">
+                      <div class="row">
+  
+                        <div class="col-md-8">
+        
+                          <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env10">
+        
+                        </div>
+        
+                        <div class="col-md-3">
+        
+                          <button type="button"
+                            class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                            data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+        
+                        </div>
+        
+                      </div>                  </div>
+                 
+
+                
+                  <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question10'] !=''">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Business travel:
+                    </h6>
+                    <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Business travel',this.orgId,'Business travel')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question10'] !=''">
+                    <div class="row">
+  
+                      <div class="col-md-8">
+      
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env11">
+      
+                      </div>
+      
+                      <div class="col-md-3">
+      
+                        <button type="button"
+                          class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                          data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                      </div>
+      
+                    </div>                </div>
+               
+
+              
+                <div class="fa-text jalsa card-header" *ngIf="dynamicobj[0]['Question11'] !=''">
+                  <div class="row">
+                    <div class="col-xl-12">
+                        <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Employee commuting:
+                  </h6>
+                  <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Employee commuting',this.orgId,'Employee commuting')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                  </button>
+                </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question11'] !=''">
+                  <div class="row">
+  
+                    <div class="col-md-8">
+    
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env12">
+    
+                    </div>
+    
+                    <div class="col-md-3">
+    
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+    
+                    </div>
+    
+                  </div>              </div>
+              
+
+              <div *ngIf="dynamicobj[0]['Question12'] !=''">
+              <div class="fa-text jalsa card-header">
+                <div class="row">
+                  <div class="col-xl-12">
+                      <div class="d-flex align-items-center justify-content-between">
+                <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Upstream leased assets:
+                </h6>
+                <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Upstream leased assets',this.orgId,'Upstream leased assets')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                </button>
+              </div>  </div>
+                </div>
+              </div>
+              </div>
+              <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question12'] !=''">
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env13">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>            </div>
+         
+           
+
+            <div *ngIf="dynamicobj[0]['Question13'] !=''">
+            <div class="fa-text jalsa card-header">
+              <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex align-items-center justify-content-between">
+              <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Other upstream:
+              </h6>
+              <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Other upstream',this.orgId,'Other upstream')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                </button>
+            </div> </div>
+              </div>
+            </div>
+            </div>
+            <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question13'] !=''">
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env14">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>          </div>
+         
+
+          <div class="fa-text jalsa card-header">
+            
+            <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">Downstream categories</span> 
+            </h6>
+            
+            </div>
+            
+
+            <div *ngIf="dynamicobj[0]['Question14'] !=''">
+            <div class="fa-text jalsa card-header">
+              <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex align-items-center justify-content-between">
+              <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Downstream transportation and distribution:
+              </h6>
+              <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Downstream transportation and distribution',this.orgId,'Downstream transportation and distribution')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                </button>
+            </div> </div>
+              </div>
+            </div>
+            </div>
+            <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question14'] !=''">
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env15">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>          </div>
+          
+
+          <div *ngIf="dynamicobj[0]['Question15'] !=''">
+          <div class="fa-text jalsa card-header">
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+            <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Processing of sold products:
+            </h6>
+            <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Processing of sold products',this.orgId,'Processing of sold products')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                </button>
+          </div> </div>
+            </div>
+          </div>
+          </div>
+          <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question15'] !=''">
+            <div class="row">
+  
+              <div class="col-md-8">
+
+                <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env16">
+
+              </div>
+
+              <div class="col-md-3">
+
+                <button type="button"
+                  class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                  data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+              </div>
+
+            </div>        </div>
+       
+
+        <div *ngIf="dynamicobj[0]['Question16'] !=''">
+        <div class="fa-text jalsa card-header">
+          <div class="row">
+            <div class="col-xl-12">
+                <div class="d-flex align-items-center justify-content-between">
+          <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Use of sold products:
+          </h6>
+          <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Use of sold products',this.orgId,'Use of sold products')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                </button> 
+        </div>
+        </div>
+          </div>
+        </div>
+        </div>
+        <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question16'] !=''">
+          <div class="row">
+  
+            <div class="col-md-8">
+
+              <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env17">
+
+            </div>
+
+            <div class="col-md-3">
+
+              <button type="button"
+                class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+            </div>
+
+          </div>      </div>
+     
+                  
+
+               
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+                          <h3 class="in-pages float-page" style="color: #000;
+                                      margin-top: 0px;     margin-left: 230px;"></h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+
+              <div style="page-break-before:always">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+
+      </ng-container>
+    </div>
+
+    <div aria-label1="pdf-page-5">
+      <ng-container *ngIf="((dynamicobj[0]['Question17'] !='') || (dynamicobj[0]['Question18'] !='') || (dynamicobj[0]['Question19'] !='') || (dynamicobj[0]['Question20'] !='') || (dynamicobj[0]['Question21'] !='') || (dynamicobj[1]['env1bQuestion1'] !=undefined) || (dynamicobj[1]['env1bQuestion3'] !=undefined) || (dynamicobj[1]['env1bQuestion5'] !=undefined) || (dynamicobj[1]['env1bQuestion7'] !=undefined))">
+
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                    <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #1c75bc; margin-left: 35px; ">Metrics and
+                        Disclosures </h6> -->
+                  </div>
+                
+                  <div role="alert" class="general-alert alert alert-success alert-border-left fade show ng-star-inserted" style="background-color: #d4edda;"><i ngcontent-frp-c157="" class="me-3 align-middle fs-16"></i><strong _ngcontent-frp-c157="" style="font-size: 20px; color: #1c75bc;">Environment</strong></div>
+
+                  <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 101 - Greenhouse Gases </h3></li></div>
+
+                  <div *ngIf="dynamicobj[0]['Question17'] !=''">
+                  <div class="fa-text jalsa card-header">
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>End-of-life treatment of sold products:
+                    </h6>
+                    <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'End-of-life treatment of sold products',this.orgId,'End-of-life treatment of sold products')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+                  </div>
+                  </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question17'] !=''">
+                    <div class="row">
+  
+                      <div class="col-md-8">
+      
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env18">
+      
+                      </div>
+      
+                      <div class="col-md-3">
+      
+                        <button type="button"
+                          class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                          data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+      
+                      </div>
+      
+                    </div>                </div>
+              
+
+                <div *ngIf="dynamicobj[0]['Question18'] !=''">
+                <div class="fa-text jalsa card-header">
+                  <div class="row">
+                    <div class="col-xl-12">
+                        <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span>Downstream leased assets:
+                  </h6>
+                  <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Downstream leased assets',this.orgId,'Downstream leased assets')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+                </div> </div>
+                  </div>
+                </div>
+                </div>
+                <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question18'] !=''">
+                  <div class="row">
+  
+                    <div class="col-md-8">
+    
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env19">
+    
+                    </div>
+    
+                    <div class="col-md-3">
+    
+                      <button type="button"
+                        class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+    
+                    </div>
+    
+                  </div>              </div>
+             
+
+              <div *ngIf="dynamicobj[0]['Question19'] !=''">
+              <div class="fa-text jalsa card-header">
+                <div class="row">
+                  <div class="col-xl-12">
+                      <div class="d-flex align-items-center justify-content-between">
+                <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span> Franchises:
+                </h6>
+                <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Franchises',this.orgId,'Franchises')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+              </div> </div>
+                </div>
+              </div>
+              </div>
+              <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question19'] !=''">
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env20">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>            </div>
+            
+
+            <div *ngIf="dynamicobj[0]['Question20'] !=''">
+            <div class="fa-text jalsa card-header">
+              <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex align-items-center justify-content-between">
+              <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span> Investments:
+              </h6>
+              <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Investments',this.orgId,'Investments')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+            </div> </div>
+              </div>
+            </div>
+            </div>
+            <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question20'] !=''">
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env21">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>          </div>
+          
+
+          <div *ngIf="dynamicobj[0]['Question21'] !=''">
+          <div class="fa-text jalsa card-header">
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+            <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span> Other downstream:
+            </h6>
+            <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,' Other downstream',this.orgId,' Other downstream')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>
+          </div> </div>
+            </div>
+          </div>
+          </div>
+          <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[0]['Question21'] !=''">
+            <div class="row">
+  
+              <div class="col-md-8">
+
+                <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env22">
+
+              </div>
+
+              <div class="col-md-3">
+
+                <button type="button"
+                  class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                  data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+              </div>
+
+            </div>        </div>
+       
+                 
+                 
+               
+               
+              <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 101 - 2 Emission intensities </h3></li></div>
+             
+              <div *ngIf="dynamicobj[1]['env1bQuestion1'] !=undefined">
+              <div class="fa-text jalsa card-header">
+                <div class="row">
+                  <div class="col-xl-12">
+                      <div class="d-flex align-items-center justify-content-between">
+                <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-2a</span>Total emission intensity:
+                </h6>
+                <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Total emission intensity',this.orgId,'Total emission intensity')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>
+              </div> </div>
+                </div>
+              </div>
+              </div>
+              <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[1]['env1bQuestion1'] !=undefined">
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env23">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>            </div>
+            
+
+            <div *ngIf="dynamicobj[1]['env1bQuestion3'] !=undefined">
+            <div class="fa-text jalsa card-header">
+              <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex align-items-center justify-content-between">
+              <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-2b-1</span>Scope 1 Emission Intensity:
+              </h6>
+              <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Scope 1 Emission Intensity',this.orgId,'Scope 1 Emission Intensity')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+            </div>
+            </div>
+              </div>
+            </div>
+            </div>
+            <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[1]['env1bQuestion3'] !=undefined">
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env24">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>          </div>
+         
+
+          <div *ngIf="dynamicobj[1]['env1bQuestion5'] !=undefined">
+          <div class="fa-text jalsa card-header">
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+            <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-2b-2</span>Scope 2 Emission Intensity:
+            </h6>
+            <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Scope 2 Emission Intensity',this.orgId,'Scope 2 Emission Intensity')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+          </div> </div>
+            </div>
+          </div>
+          </div>
+          <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[1]['env1bQuestion5'] !=undefined">
+            <div class="row">
+  
+              <div class="col-md-8">
+
+                <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env25">
+
+              </div>
+
+              <div class="col-md-3">
+
+                <button type="button"
+                  class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                  data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+              </div>
+
+            </div>        </div>
+       
+
+        <div *ngIf="dynamicobj[1]['env1bQuestion7'] !=undefined">
+        <div class="fa-text jalsa card-header">
+          <div class="row">
+            <div class="col-xl-12">
+                <div class="d-flex align-items-center justify-content-between">
+          <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">101-2c</span>Scope 3 Emission Intensity:
+          </h6>
+          <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Scope 3 Emission Intensity',this.orgId,'Scope 3 Emission Intensity')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+        </div> 
+            </div>
+          </div>
+        </div>
+        <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[1]['env1bQuestion7'] !=undefined">
+          <div class="row">
+  
+            <div class="col-md-8">
+
+              <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env26">
+
+            </div>
+
+            <div class="col-md-3">
+
+              <button type="button"
+                class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+            </div>
+
+          </div>      </div>
+    </div>
+
+
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+                          <h3 class="in-pages float-page" style="color: #000;
+                                      margin-top: 0px;     margin-left: 230px;"></h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+
+              <div style="page-break-before:always">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+
+      </ng-container>
+    </div>
+
+    <div aria-label1="pdf-page-6">
+      <ng-container *ngIf="((dynamicobj[2]['env102aQuestion1'] !=undefined) || (dynamicobj[3]['env102bQuestion1'] !=undefined) || (dynamicobj[4]['env103aQuestion1'] !=undefined) || (dynamicobj[5]['env103bQuestion1'] !=undefined) || (dynamicobj[6]['env104Question1'] !=undefined) || (dynamicobj[6]['env104Question3'] !=undefined))">
+
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+              <div class="card">
+
+                <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+                <div class="card-img-overlay p-0 d-flex flex-column">
+
+                  <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+                    <span class="float-end">{{reportname}}</span>
+                    <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #1c75bc; margin-left: 35px; ">Metrics and
+                        Disclosures </h6> -->
+                  </div>
+                 
+
+                  <div role="alert" class="general-alert alert alert-success alert-border-left fade show ng-star-inserted" style="background-color: #d4edda;"><i ngcontent-frp-c157="" class="me-3 align-middle fs-16"></i><strong _ngcontent-frp-c157="" style="font-size: 20px; color: #1c75bc;">Environment</strong></div>
+
+                  <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 102 - Energy consumption </h3></li></div>
+
+                  <div class="fa-text jalsa card-header">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">SGX 102 - 1 Total energy consumption</span> 
+                    </h6>
+                    </div>
+
+
+         <div *ngIf="dynamicobj[2]['env102aQuestion1'] !=undefined">  
+        <div class="fa-text jalsa card-header">
+          <div class="row">
+            <div class="col-xl-12">
+                <div class="d-flex align-items-center justify-content-between">
+          <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">102-1</span>Total energy consumption
+          </h6>
+          <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Total energy consumption',this.orgId,'Total energy consumption')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+        </div> </div>
+          </div>
+        </div>
+         </div>
+        <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[2]['env102aQuestion1'] !=undefined">
+          <div class="row">
+  
+            <div class="col-md-8">
+
+              <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env27">
+
+            </div>
+
+            <div class="col-md-3">
+
+              <button type="button"
+                class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+            </div>
+
+          </div>      </div>
+      
+        
+
+
+                 
+           
+
+           
+                    <div class="fa-text jalsa card-header" *ngIf="dynamicobj[3]['env102bQuestion1'] !=undefined">
+                      <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">SGX 102 - 2 Energy consumption intensity</span> 
+                      </h6>
+                      </div>
+
+                      <div *ngIf="dynamicobj[3]['env102bQuestion1'] !=undefined">  
+                      <div class="fa-text jalsa card-header">
+                        <div class="row">
+                          <div class="col-xl-12">
+                              <div class="d-flex align-items-center justify-content-between">
+                        <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">102-2</span>Energy consumption intensity
+                        </h6>
+                        <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Energy consumption intensity',this.orgId,'Energy consumption intensity')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button> 
+                      </div> </div>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[2]['env102bQuestion1'] !=undefined">
+                        <div class="row">
+  
+                          <div class="col-md-8">
+          
+                            <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env28">
+          
+                          </div>
+          
+                          <div class="col-md-3">
+          
+                            <button type="button"
+                              class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                              data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+          
+                          </div>
+          
+                        </div>                    </div>
+               
+                  
+                  
+                    
+                 
+                 
+                
+                      <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 103 - Water consumption</h3></li></div>
+
+                    
+
+                      <div class="fa-text jalsa card-header" *ngIf="dynamicobj[4]['env103aQuestion1'] !=undefined">
+                        <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">SGX 103 - 1 Total water consumption</span> 
+                        </h6>
+                        </div>
+
+                        <div *ngIf="dynamicobj[4]['env103aQuestion1'] !=undefined">  
+                        <div class="fa-text jalsa card-header">
+                          <div class="row">
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                          <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">103-1</span> Total water consumption.
+                          </h6>
+                          <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Total water consumption',this.orgId,'Total water consumption')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>  
+                        </div>
+                        </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[4]['env103aQuestion1'] !=undefined">
+                          <div class="row">
+  
+                            <div class="col-md-8">
+            
+                              <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env29">
+            
+                            </div>
+            
+                            <div class="col-md-3">
+            
+                              <button type="button"
+                                class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                                data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+            
+                            </div>
+            
+                          </div>                      </div>
+                 
+    
+                     
+                
+                      
+
+                        
+                      <div class="fa-text jalsa card-header" *ngIf="dynamicobj[5]['env103bQuestion1'] !=undefined">
+                        <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">SGX 103 - 2 Water consumption intensity</span> 
+                        </h6>
+                        </div>
+
+                        <div *ngIf="dynamicobj[5]['env103bQuestion1'] !=undefined">
+                        <div class="fa-text jalsa card-header">
+                          <div class="row">
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                          <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">103-2</span> Water consumption intensity.
+                          </h6>
+                          <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Water consumption intensity',this.orgId,'Water consumption intensity')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>  
+                        </div> </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[5]['env103bQuestion1'] !=undefined">
+                          <div class="row">
+  
+                            <div class="col-md-8">
+            
+                              <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env30">
+            
+                            </div>
+            
+                            <div class="col-md-3">
+            
+                              <button type="button"
+                                class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                                data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+            
+                            </div>
+            
+                          </div>                      </div>
+                      
+                     
+                        
+                   
+
+                          <div  role="alert" class="general-alert alert alert-success-1 alert-border-left fade show" style="padding: 6px;"><li ngcontent-frp-c157="" class="preview-d-text ng-star-inserted" style="list-style: none;"><h3 ngcontent-frp-c157=""><span ngcontent-frp-c157="" class="pretext-1"></span> SGX 104 - Waste generation</h3></li></div>
+
+                       
+
+                          <div class="fa-text jalsa card-header" *ngIf="dynamicobj[6]['env104Question1'] !=undefined">
+                            <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">SGX 104 - 1 Total waste generated</span> 
+                            </h6>
+                            </div>
+
+                            <div *ngIf="dynamicobj[6]['env104Question1'] !=undefined">
+                            <div class="fa-text jalsa card-header">
+                              <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                              <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">104-1</span> Total waste generated.
+                              </h6>
+                              <button type="button"
+                          class="btn btn-sm btn-outline"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Total waste generated',this.orgId,'Total waste generated')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                    </button>  
+                            </div> </div>
+                              </div>
+                            </div>
+                            </div>
+                            <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[6]['env104Question1'] !=undefined">
+                              <div class="row">
+  
+                                <div class="col-md-8">
+                
+                                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env31">
+                
+                                </div>
+                
+                                <div class="col-md-3">
+                
+                                  <button type="button"
+                                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+                
+                                </div>
+                
+                              </div>                          </div>
+                      
+
+                          <div *ngIf="dynamicobj[6]['env104Question3'] !=undefined">
+                          <div class="fa-text jalsa card-header">
+                            <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                            <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"></span> Detailed information about waste composition.
+                            </h6>
+                            <button type="button"
+                            class="btn btn-sm btn-outline"
+                            style="font-size: 13px; float: right"
+                            (click)="openuploadimgcompo(this.reportid,'Detailed information about waste composition',this.orgId,'Detailed information about waste composition')">
+                            
+                            <i class="ri-file-upload-line"
+                                style="font-size: 12px"></i>
+                      </button>  
+                          </div> </div>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="fa-text-1 jalsa card-header" *ngIf="dynamicobj[6]['env104Question3'] !=undefined"> 
+                            <div class="row">
+  
+                              <div class="col-md-8">
+              
+                                <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="env32">
+              
+                              </div>
+              
+                              <div class="col-md-3">
+              
+                                <button type="button"
+                                  class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                                  data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+              
+                              </div>
+              
+                            </div>                        </div>
+                  
+      
+        
+                     
+                </div>
+                <footer class="footer sun col-xxl-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="">
+                        <div class=" align-items-center d-flex">
+
+                          <a style="display:flex;"><span class="mypower"
+                              style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                              src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+                          <h3 class="in-pages float-page" style="color: #000;
+                                      margin-top: 0px;     margin-left: 230px;"></h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+
+              <div style="page-break-before:always">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+
+      </ng-container>
+    </div>
+
+    </div>
+  </form>
+  </div>
+    </div>
+    

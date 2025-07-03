@@ -1,0 +1,499 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+        style="background-color: #8cc540 !important;">
+        <div class="text-lg " style="font-weight: 900;">Scope 1 Calculator</div>
+        <button mat-icon-button (click)="onClose()" [tabIndex]="-1">
+            <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+        </button>
+    </div>
+    <form class="flex flex-col flex-auto p-6 sm:p-8" [formGroup]="ghForm">
+        <!-- <div class="flex flex-col md:flex-row gap-4">
+            <mat-form-field class="flex flex-col flex-auto">
+                <mat-label>Fuel Type</mat-label>
+                <mat-select matInput [formControlName]="'FuelType'" (selectionChange)="ProductChange($event.value)">
+                    <mat-option *ngFor="let p of fueltype" [value]="p.Id">{{p.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="flex flex-col flex-auto">
+                <mat-label>No of Units</mat-label>
+               
+                <input matInput type="text" inputWithComma [formControlName]="'NoofUnits'">
+            </mat-form-field>
+
+        </div> -->
+        <div class="flex flex-col md:flex-row gap-4" >
+            <mat-form-field class="flex flex-col flex-auto" >
+              <mat-label>Choose Calculator</mat-label>
+              <mat-select matInput [formControlName]="'FuelType'" (selectionChange)="DataTypeChange($event.value)" >
+                <mat-option value="scope1ghemi" style="color: #1978ac !important;">Company Facilities </mat-option>
+                <mat-option value="scope1vehic" style="color: #1978ac !important;">Company Vehicles </mat-option>
+                <mat-option value="scope1fugu" style="color: #1978ac !important;">Fugitives</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-xl-12 in-top overflow-y-auto"  *ngIf="scope1ghemi" >
+            <div class="flex flex-col md:flex-row gap-4">
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Fuel Type</mat-label>
+                    <mat-select matInput [formControlName]="'FuelType'" (selectionChange)="ProductChange($event.value)">
+                        <mat-option *ngFor="let p of fueltype" [value]="p.Id">{{p.Name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>No of Units</mat-label>
+                   
+                    <input id="fullesc" matInput type="text" inputWithComma [formControlName]="'NoofUnits'">
+                </mat-form-field>
+    
+            </div> 
+            <div class="flex flex-col md:flex-row gap-4">
+
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Unit</mat-label>
+                    <mat-select matInput [formControlName]="'Unitselection'" (selectionChange)="unitchange($event.value)">
+                        <mat-option *ngFor="let p of unit" [value]="p.ConvertFrom">{{p.ConvertFrom}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>GWP Factor</mat-label>
+                    <mat-select matInput [formControlName]="'factor'" (selectionChange)="gwpchange($event.value)" [disabled]="isdisabled">
+                        <mat-option *ngFor="let p of arlist" [value]="p.Id">{{p.TypeName}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+            </div>
+            <div class="col-xl-12 in-top overflow-y-auto">
+                <div class="box-body table-responsive">
+        
+                    <table id="datatable" class="table table-striped table-bordered " style="width:100%; border: 2px solid #1978ac;">
+                        <thead class="tableheader">
+                            <tr>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 5.6rem;     border: 1px solid var(--border-color);">Fuel Type</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">No of Units</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">Unit</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">GWP Factor</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">Metric tonnes of CO2e</th>
+                                 <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                 padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);"></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tpt  of lookupdtl; let i=index">
+                                <td>
+                                    <input id="FuelType{{i}}" class="form-control" [value]="tpt.FuelType" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+                                <td>
+                                    <input id="noofunits{{i}}"  inputWithComma class="form-control" [value]="tpt.noofunits" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+        
+                                <td>
+                                    <input id="unitselection{{i}}" class="form-control" [value]="tpt.unitselection" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+                                <td>
+                                    <input id="gwpselection{{i}}" class="form-control" [value]="tpt.gwpselection" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+                                <td>
+                                    <input id="metricform{{i}}" type="text" inputWithComma class="form-control" [value]="tpt.metricform" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="deleteQ102a(i)"><i
+                                            style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                            <tr *ngIf="lookupdtl.length>0">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><b>Total Sum:</b></td>
+                                <td style="text-align: right;">{{sumtotal| number: '1.0-2'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+                    <style>
+                        .table-bordered > :not(caption) >    {
+            border-width: 0 0px;
+            }
+                      </style>
+                    
+                </div>
+        
+                <div class="d-flex align-items-start gap-3 mt-4">
+                    <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab"   (click)="addFieldValue()" id="disableButton" style="padding-left: 2.9rem;
+                        padding-right: 45px;
+                    " [disabled]="isInputDisabled"> Add</button>
+                
+                </div>
+        
+            </div> 
+            <div style="padding:10px">
+            
+                Note:<br>
+                1. Scope 1 emissions are direct greenhouse (GHG) emissions that occur from sources that are controlled or owned by an organization (e.g., emissions associated with fuel combustion in boilers, furnaces, vehicles).<br>
+                2. The emission factors utilized for Scope 1 calculations are sourced from the EPA (Environmental Protection Agency), while the GWP (Global Warming Potential) factors are extracted from the authoritative guidance provided by the IPCC (Intergovernmental Panel on Climate Change).
+              </div>
+        
+             <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+                <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+            
+                   
+                    <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+                      style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+                        Submit
+                    </button>
+                </div>
+            </div> 
+          </div>
+
+        <div class="col-xl-12 in-top overflow-y-auto"  *ngIf="scope1vehic" >
+            <div class="flex flex-col md:flex-row gap-4">
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Vehicle</mat-label>
+                    <mat-select matInput [formControlName]="'FuelType1'" (selectionChange)="unitchange1($event.value)">
+                        <mat-option *ngFor="let p of foods3" [value]="p.value">{{p.viewValue}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Type</mat-label>
+                   
+                    <mat-select matInput [formControlName]="'Unitselection1'" (selectionChange)="unitchange2($event.value)">
+                        <mat-option *ngFor="let p of store" [value]="p.value">{{p.viewValue}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+            </div> 
+            <div class="flex flex-col md:flex-row gap-4">
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Fuel</mat-label>
+                    <mat-select matInput [formControlName]="'NoofUnits1'" (selectionChange)="unitchange3($event.value)">
+                        <mat-option *ngFor="let p of store1" [value]="p.value">{{p.viewValue}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Std. Emission Factors per km</mat-label>
+                    <input id="yolo1" matInput type="text" readonly [formControlName]="'yolo1'">
+                </mat-form-field>
+    
+            </div>
+            <div class="flex flex-col md:flex-row gap-4">
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Distance (km)</mat-label>
+                    <input matInput type="text" inputWithComma [formControlName]="'yolo2'" (keyup)="Distance($event)">
+                </mat-form-field>
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>tCO2e</mat-label>
+                    <input matInput type="text" inputWithComma [formControlName]="'yolo3'" style="text-align: right;">
+                </mat-form-field>
+    
+            </div>
+            <div class="col-xl-12 in-top overflow-y-auto">
+                <div class="box-body table-responsive">
+        
+                    <table id="datatable" class="table table-striped table-bordered " style="width:100%; border: 2px solid #1978ac;">
+                        <thead class="tableheader">
+                            <tr>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 5.6rem;     border: 1px solid var(--border-color);">Vehicle</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">Type</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">Fuel</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">Std. Emission Factors per km</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">Distance (km)</th>
+                                 <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                 padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">tCO2e</th>
+                                  <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                  padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);"></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tpt  of lookupdtl1; let i=index">
+                                <td>
+                                    <input id="FuelType1{{i}}" class="form-control" [value]="tpt.FuelType1" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+                                <td>
+                                    <input id="noofunits1{{i}}"  inputWithComma class="form-control" [value]="tpt.noofunits1" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+        
+                                <td>
+                                    <input id="unitselection1{{i}}" class="form-control" [value]="tpt.unitselection1" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+                                <td>
+                                    <input id="gwpselection1{{i}}" class="form-control" [value]="tpt.gwpselection1" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <input id="metricform1{{i}}" type="text" inputWithComma class="form-control" [value]="tpt.metricform1" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <input id="metric1{{i}}" type="text" inputWithComma class="form-control" [value]="tpt.metric1" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="deleteQ102a3(i)"><i
+                                            style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                            <tr *ngIf="lookupdtl1.length>0">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><b>Total tCO2e:</b></td>
+                                <td style="text-align: right;">{{sumtotal| number: '1.0-2'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+                    <style>
+                        .table-bordered > :not(caption) >    {
+            border-width: 0 0px;
+            }
+                      </style>
+                    
+                </div>
+        
+                <div class="d-flex align-items-start gap-3 mt-4">
+                    <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab"   (click)="addFieldValue1()" id="disableButton" style="padding-left: 2.9rem;
+                        padding-right: 45px;
+                    " [disabled]="isInputDisabled"> Add</button>
+                
+                </div>
+        
+            </div> 
+            <div style="padding:10px">
+            
+                Note:<br>
+                1. Scope 1 emissions are direct greenhouse (GHG) emissions that occur from sources that are controlled or owned by an organization (e.g., emissions associated with fuel combustion in boilers, furnaces, vehicles).<br>
+                2. The emission factors utilized for Scope 1 calculations are sourced from the EPA (Environmental Protection Agency), while the GWP (Global Warming Potential) factors are extracted from the authoritative guidance provided by the IPCC (Intergovernmental Panel on Climate Change).
+              </div>
+        
+             <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+                <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+            
+                   
+                    <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+                      style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+                        Submit
+                    </button>
+                </div>
+            </div> 
+          </div>
+          <div class="col-xl-12 in-top overflow-y-auto" *ngIf="scope1fugu">
+            <div class="flex flex-col md:flex-row gap-4">
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Emission</mat-label>
+                    <mat-select matInput [formControlName]="'FuelType11'" (selectionChange)="unitchange11($event.value)">
+                        <mat-option *ngFor="let p of fugiwara" [value]="p" >{{p.Emission}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+              
+    
+            </div> 
+            <div class="flex flex-col md:flex-row gap-4">
+    
+               
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Factor per kg</mat-label>
+                    <input id="yolo11" matInput type="text" readonly [formControlName]="'yolo11'" style="text-align: right;">
+                </mat-form-field>
+    
+            </div>
+            <div class="flex flex-col md:flex-row gap-4">
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Amount (Kg)</mat-label>
+                    <input matInput type="text" inputWithComma [formControlName]="'yolo22'" (keyup)="Distance1($event)">
+                </mat-form-field>
+    
+                <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>tCO2e</mat-label>
+                    <input matInput type="text" inputWithComma [formControlName]="'yolo33'" style="text-align: right;">
+                </mat-form-field>
+    
+            </div>
+            <div class="col-xl-12 in-top overflow-y-auto">
+                <div class="box-body table-responsive">
+        
+                    <table id="datatable" class="table table-striped table-bordered " style="width:100%; border: 2px solid #1978ac;">
+                        <thead class="tableheader">
+                            <tr>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 5.6rem;     border: 1px solid var(--border-color);">Vehicle</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">Std. Emission Factors per km</th>
+                                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">Distance (km)</th>
+                                 <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                 padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">tCO2e</th>
+                                  <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                                  padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);"></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tpt  of lookupdtl2; let i=index">
+                                <td>
+                                    <input id="FuelType2{{i}}" class="form-control" [value]="tpt.FuelType2" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                                </td>
+                                <td>
+                                    <input id="gwpselection2{{i}}" class="form-control" [value]="tpt.gwpselection2" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <input id="metricform2{{i}}" type="text" inputWithComma class="form-control" [value]="tpt.metricform2" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <input id="metric2{{i}}" type="text" inputWithComma class="form-control" [value]="tpt.metric2" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;" readonly>
+                                </td>
+                                <td>
+                                    <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="deleteQ102a4(i)"><i
+                                            style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                            <tr *ngIf="lookupdtl2.length>0">
+                                <td></td>
+                                <td></td>
+                                <td><b>Total tCO2e:</b></td>
+                                <td style="text-align: right;">{{sumtotal| number: '1.0-2'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+                    <style>
+                        .table-bordered > :not(caption) >    {
+            border-width: 0 0px;
+            }
+                      </style>
+                    
+                </div>
+        
+                <div class="d-flex align-items-start gap-3 mt-4">
+                    <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                        data-nexttab="pills-experience-tab"   (click)="addFieldValue2()" id="disableButton" style="padding-left: 2.9rem;
+                        padding-right: 45px;
+                    " > Add</button>
+                
+                </div>
+        
+            </div> 
+            <div style="padding:10px">
+            
+                Note:<br>
+                Fugitive emissions of refrigerants entail the inadvertent discharge of potent greenhouse gases used in various applications such as air conditioning, refrigeration, and heat pumps. These emissions can occur during manufacturing, installation, maintenance, and disposal of refrigeration systems, including leaks within the system.
+              </div>
+        
+             <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+                <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+            
+                   
+                    <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+                      style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+                        Submit
+                    </button>
+                </div>
+            </div> 
+          </div>
+    </form>
+    
+      
+    <!-- <div class="col-xl-12 in-top overflow-y-auto">
+        <div class="box-body table-responsive">
+
+            <table id="datatable" class="table table-striped table-bordered " style="width:100%; border: 2px solid #1978ac;">
+                <thead class="tableheader">
+                    <tr>
+                        <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                        padding: 0.75rem 5.6rem;     border: 1px solid var(--border-color);">Fuel Type</th>
+                        <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                        padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">No of Units</th>
+                        <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                        padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">Unit</th>
+                        <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                        padding: 0.75rem 1.6rem;     border: 1px solid var(--border-color);">GWP Factor</th>
+                        <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                        padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);">Metric tonnes of CO2e</th>
+                         <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                         padding: 0.75rem 0.6rem;     border: 1px solid var(--border-color);"></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tpt  of lookupdtl; let i=index">
+                        <td>
+                            <input id="FuelType{{i}}" class="form-control" [value]="tpt.FuelType" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                        </td>
+                        <td>
+                            <input id="noofunits{{i}}"  inputWithComma class="form-control" [value]="tpt.noofunits" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                        </td>
+
+                        <td>
+                            <input id="unitselection{{i}}" class="form-control" [value]="tpt.unitselection" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                        </td>
+                        <td>
+                            <input id="gwpselection{{i}}" class="form-control" [value]="tpt.gwpselection" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                        </td>
+                        <td>
+                            <input id="metricform{{i}}" type="text" inputWithComma class="form-control" [value]="tpt.metricform" style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;" readonly>
+                        </td>
+                        <td>
+                            <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="deleteQ102a(i)"><i
+                                    style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="lookupdtl.length>0">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>Total Sum:</b></td>
+                        <td>{{sumtotal| number: '1.0-2'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <style>
+                .table-bordered > :not(caption) >    {
+    border-width: 0 0px;
+    }
+              </style>
+            
+        </div>
+
+        <div class="d-flex align-items-start gap-3 mt-4">
+            <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                data-nexttab="pills-experience-tab"   (click)="addFieldValue()" id="disableButton" style="padding-left: 2.9rem;
+                padding-right: 45px;
+            " [disabled]="isInputDisabled"> Add</button>
+        
+        </div>
+
+    </div> -->
+    <!-- <div style="padding:10px">
+    
+        Note:<br>
+        1. Scope 1 emissions are direct greenhouse (GHG) emissions that occur from sources that are controlled or owned by an organization (e.g., emissions associated with fuel combustion in boilers, furnaces, vehicles).<br>
+        2. The emission factors utilized for Scope 1 calculations are sourced from the EPA (Environmental Protection Agency), while the GWP (Global Warming Potential) factors are extracted from the authoritative guidance provided by the IPCC (Intergovernmental Panel on Climate Change).
+      </div> -->
+
+    <!-- <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+        <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+    
+           
+            <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+              style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+                Submit
+            </button>
+        </div>
+    </div> -->
+</div>

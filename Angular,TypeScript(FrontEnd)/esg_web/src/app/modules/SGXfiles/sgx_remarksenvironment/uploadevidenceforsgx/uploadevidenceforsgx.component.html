@@ -1,0 +1,156 @@
+
+<div *ngIf="uploadedLinks.length > 0" class="row">
+  <div class="col-12">
+    <h3 style="color: #1c75bc;">Uploaded Files:</h3>
+
+    <div class="" style="     overflow-y: auto;
+    height: 300px;">
+      <ul style="list-style: none; padding-left: 0px !important;">
+        <li *ngFor="let file of uploadedLinks">
+          <ng-container *ngIf="file?.UploadedObj.includes('.png')">
+            <div class="" style="border: solid 1px #bfc1c2 !important;
+      margin-top: 5px;">
+              <div class="d-flex p-2">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar-sm rounded">
+                    <a href="{{ file?.UploadedObj }}" target="_blank"><img [src]="file?.UploadedObj"
+                        style="width: 50px;height:50px;"></a>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="pt-1">
+                    <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                    <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="file?.UploadedObj.includes('.jpeg')">
+            <div class=" " style="border: solid 1px #bfc1c2 !important;
+      margin-top: 5px;">
+              <div class="d-flex p-2">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar-sm rounded">
+                    <a href="{{ file?.UploadedObj }}" target="_blank"><img [src]="file?.UploadedObj"
+                        style="width: 50px;height:50px;"></a>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="pt-1">
+                    <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                    <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="file?.UploadedObj.includes('.jpg')">
+            <div class="" style="border: solid 1px #bfc1c2 !important;
+      margin-top: 5px;">
+              <div class="d-flex p-2">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar-sm rounded">
+                    <a href="{{ file?.UploadedObj }}" target="_blank"><img [src]="file?.UploadedObj"
+                        style="width: 50px;height:50px;"></a>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="pt-1">
+                    <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                    <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="file?.UploadedObj.includes('.pdf')">
+            <div class="" style="border: solid 1px #bfc1c2 !important;
+      margin-top: 5px;">
+              <div class="d-flex p-2">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar-sm rounded">
+                    <a href="{{ file?.UploadedObj }}" target="_blank">
+                      <img data-dz-thumbnail class="img-fluid rounded d-block" src="assets/images/pdf_01.png"
+                        alt="Dropzone-Image" style="margin-left: -8px;" />
+                    </a>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="pt-1">
+                    <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                    <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="file?.UploadedObj.includes('.doc')">
+            <div class="" style="border: solid 1px #bfc1c2 !important;
+      margin-top: 5px;">
+              <div class="d-flex p-2">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar-sm rounded">
+                    <a href="{{ file?.UploadedObj }}" target="_blank">
+                      <img data-dz-thumbnail class="img-fluid rounded d-block" src="assets/images/doc_1.png"
+                        alt="Dropzone-Image" style="margin-left: -8px;" />
+                    </a>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="pt-1">
+                    <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                    <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="file?.UploadedObj.includes('.xlsx')">
+            <div class="" style="border: solid 1px #bfc1c2 !important;
+      margin-top: 5px;">
+              <div class="d-flex p-2">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar-sm rounded">
+                    <a href="{{ file?.UploadedObj }}" target="_blank">
+                      <img data-dz-thumbnail class="img-fluid rounded d-block" src="assets/images/xl.png"
+                        alt="Dropzone-Image" style="margin-left: -8px;" />
+                    </a>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="pt-1">
+                    <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                    <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </ng-container>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="row">
+    <img *ngFor="let preview of previews" [src]="preview" class="preview"
+      style="height: 150px; width: 150px; margin: 2px;" />
+  </div>
+</div>
+
+<div *ngIf="uploadedLinks.length <= 0" class="row">
+<h3>No evidence !</h3>
+</div>

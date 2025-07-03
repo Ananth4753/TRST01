@@ -1,0 +1,588 @@
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0  bg-card dark:bg-transparent">
+
+<mat-tab-group class="m-4 demo-tab-group" mat-align-tabs="center" backgroundColor="primary" style="height:95% !important;" >
+        <mat-tab label="Overall Stock" >
+          
+          <div *ngIf="ShowDetails" class="card sticky-header"  >
+            <div style="height:8% !important">
+              <div class=" card WareHouse m-1 " >
+                
+            
+                  <form class="date-block" [formGroup]="filterForm">
+                    <div class="row m-1">
+                     <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                    <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-50">
+                   <mat-select formControlName="WareHouseId"  [placeholder]="'Select WareHouse'">
+                  
+                              <mat-option value="null">All Warehouses</mat-option>
+                  
+                              <mat-option *ngFor="let role of WareHouseData" [value]="role.Id">
+                  
+                                  {{role.Name}}
+                  
+                              </mat-option>
+                  
+                          </mat-select>
+                  
+                      </mat-form-field>
+                     
+                      </div>
+                      
+                      <div class="col-md-1"></div>
+                   <div class="col-md-2"> 
+                    <div class="date-block__list">
+                  
+                    <mat-form-field>
+                    <input matInput 
+                      [matDatepicker]="ChooseDate" 
+                      placeholder="Choose Date" 
+                      formControlName="FromDate"
+                      [matDatepicker]="" [max]="maxDate">
+                    <mat-datepicker-toggle matSuffix [for]="ChooseDate"></mat-datepicker-toggle>
+                    <mat-datepicker #ChooseDate></mat-datepicker>
+                  </mat-form-field>
+            
+                </div>
+            
+             
+            </div>
+            <div class="col-md-2">     
+              <div class="date-block__list">
+            
+              <mat-form-field>
+              <input matInput 
+                [matDatepicker]="ToDate" 
+                placeholder="Choose To Date" 
+                formControlName="ToDate"
+                [matDatepicker]="" [max]="maxDate">
+              <mat-datepicker-toggle matSuffix [for]="ToDate"></mat-datepicker-toggle>
+              <mat-datepicker #ToDate></mat-datepicker>
+            </mat-form-field>
+            
+            </div>
+            </div>
+               
+               <div class="col-md-1">  <td style="padding-left:20px;padding-bottom: 15px;vertical-align:middle "> 
+                <button mat-button color="" style="background-color:#FCB713;"  class="primary" (click)="getDateRange(filterForm.value)">Search</button>
+                
+                </td></div>
+                <div class="col-md-1"> <td style="padding-left:30px;vertical-align:middle "> 
+                  <button mat-raised-button style="background-color: #FCB713;color:#eefdff;" (click)="ExportTOExcel2()">Export To Excel</button>
+                 </td></div>
+                <div class="col-md-2"></div>
+              </div>
+                </form>
+               </div>
+            
+             </div>
+           <div class="card m-2 WareHouse " style="height:15% !important">
+      <div class="row m-1" >
+    <div class="col-md-4">
+     <div class="card">
+       <div class="card-header" style="background-color:lightsalmon;padding: 5px;text-align: center;"><strong>Current Available Stock</strong></div>
+       <div class="card-body">
+         <div class="row">
+           <div class="col-md-8" style="text-align: left;font-size: 12px;"> <strong> All Warehouses</strong></div>
+
+           <div class="col-md-4" style="text-align: left;font-size: 12px;">{{WareHouseTotal}}</div>
+         </div>
+       </div>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="card">
+       <div class="card-header" style="background-color:lightsalmon;padding: 5px;text-align: center;"><strong>Current Available Stock</strong></div>
+       <div class="card-body" style="padding: 2px;" >
+         <div class="row" *ngFor="let k of CategoertCount">
+           <div class="col-md-6" style="text-align: left;font-size: 12px;"><strong>{{k.Name}} </strong></div>
+           <div class="col-md-2">-</div>
+           <div class="col-md-4" style="text-align: left;font-size: 12px;">{{k.TotalStock}}</div>
+         </div>
+      
+       </div>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="card">
+       <div class="card-header" style="background-color:lightsalmon;padding: 5px;text-align: center;"><strong>Packing Material Stock</strong></div>
+       <div class="card-body" style="padding: 2px;">
+         <div class="row" *ngFor="let k of PackingMaterils" >
+           <div class="col-md-4" style="text-align: left;font-size: 12px;"><strong>{{k.Type}}</strong></div>
+           <div class="col-md-2">-</div>
+           <div class="col-md-5" style="text-align: left;font-size: 12px;">{{k.AvailableStock}}</div>
+
+         
+         </div>
+      
+      
+       </div>
+     </div>
+    </div>
+  <div class="col-md-2"> <td style="padding-right: 20px!important; " > 
+    <div>
+     
+    </div>
+    </td></div>
+ <div class="col-md-2">     <td style="padding-right: 20px; ">
+
+</td> 
+
+</div>
+
+
+
+
+</div>
+  </div>
+        
+           
+<div  class="card m-2 overflow-hidden overflow-y-auto" style="height:350px !important">
+<div class="row m-2">
+  <div class="col-md-12">
+  <table   style="margin-top:10px;width: 100%;margin-left: 1% !important" class="table table-striped overflow-hidden overflow-y-auto">
+  <thead style="background-color: #FCB713;"  class="sticky-header">
+  <tr>
+                            <th>Warehouse</th>
+                             <th>Date</th>
+                             <th>Production</th>
+                          
+                             <th>Sales</th>
+                             <th>Carton Packing </th>
+                             <th>Non-Carton Packing </th>
+                             <th>Damage Qty</th>
+                        
+                             <th>Leakage Qty</th>
+                          
+                          
+                             
+                         </tr>
+                     </thead>
+            
+                     <tbody style="font-size: 15px;">
+                         <tr *ngFor="let k of DashBoardData " style="padding: 2px !important;">
+                           <td scope="col">{{k.WareHouseName}}</td>
+                           <td scope="col">{{k.CalendarDate|date:'MMM d, y'}}</td>
+                           <td scope="col">{{k.PerDayProduct}}</td>
+                  
+                           <td scope="col">{{k.PerDaySales}}</td>
+                           <td scope="col">{{k.CartonPackings | number : '1.2-2'}}</td>
+                           <td scope="col">{{k.NonCartonPackings| number : '1.2-2'}}</td>
+                          
+                           <td scope="col">{{k.DamageQty}}</td>
+                      
+                           <td scope="col">{{k.LeakageQty}}</td>
+                      
+                          
+                          
+                         </tr>
+                       </tbody>
+                 </table>
+  </div>
+
+</div>
+</div>
+
+<div class="card m-2" >
+  <div class="row" >
+    <div class="col-md-12">
+      <div id="chart">
+        <div class="toolbar" >
+          <form class="date-block" [formGroup]="SelectMonthChart" style="text-align: center !important;">
+       
+
+   
+          <td style="padding-bottom: 15px;vertical-align:middle "> 
+            <mat-form-field id="all" class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-50 m-2">
+              <mat-select  formControlName="Year"  [placeholder]="'Select Year'">
+               <mat-option *ngFor="let role of YearsData" [value]="role">{{role}}</mat-option>
+             </mat-select>
+            </mat-form-field>
+            <mat-form-field id="all" class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-50 m-2">
+              <mat-select  formControlName="Month"  [placeholder]="'Select Month'">
+               <mat-option *ngFor="let role of monthNames" [value]="role.Id">{{role.Name}}</mat-option>
+             </mat-select>
+            </mat-form-field>
+            <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-50 m-2">
+              <mat-select formControlName="WareHouseId"  [placeholder]="'Select WareHouse'">
+             <mat-option value="null">All Warehouses</mat-option>
+             <mat-option *ngFor="let role of WareHouseData" [value]="role.Id">{{role.Name}}</mat-option>
+             
+                     </mat-select>
+             
+                 </mat-form-field>
+          <button mat-button color="" style="background-color:#FCB713;"  class="primary" (click)="getMothFilter(SelectMonthChart.value)">Search</button>
+          
+          </td>
+          </form>
+  </div>
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions"
+        [yaxis]="chartOptions.yaxis"
+        [legend]="chartOptions.legend"
+        [fill]="chartOptions.fill"
+        [stroke]="chartOptions.stroke"
+        [tooltip]="chartOptions.tooltip"
+        [xaxis]="chartOptions.xaxis"
+      ></apx-chart>
+    </div>
+    </div>
+  
+  </div>
+  
+  </div>
+                 
+            
+            
+          
+           </div>
+        
+         </mat-tab>
+        <mat-tab    label="Product Stock">
+          <div *ngIf="ShowDetails" class="card m-2">
+         
+          <div>
+           <div class=" card WareHouse ">
+             
+         
+               <form class="date-block" [formGroup]="filterForm">
+                 <div class="row m-2">
+                  <div class="col-md-1"></div>
+                 <div class="col-md-2 ">
+                 
+                     <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-50">
+           
+                       <mat-select formControlName="WareHouseId"  [placeholder]="'Select WareHouse'">
+               
+                           <mat-option value="null">All Select</mat-option>
+               
+                           <mat-option *ngFor="let role of WareHouseData" [value]="role.Id">
+               
+                               {{role.Name}}
+               
+                           </mat-option>
+               
+                       </mat-select>
+               
+                   </mat-form-field>
+                  
+                   </div>
+                   
+                   <div class="col-md-1"></div>
+                <div class="col-md-2"> 
+                 <div class="date-block__list">
+               
+                 <mat-form-field>
+                 <input matInput 
+                   [matDatepicker]="ChooseDate" 
+                   placeholder="Choose Date" 
+                   formControlName="FromDate"
+                   [matDatepicker]="" [max]="maxDate">
+                 <mat-datepicker-toggle matSuffix [for]="ChooseDate"></mat-datepicker-toggle>
+                 <mat-datepicker #ChooseDate></mat-datepicker>
+               </mat-form-field>
+         
+             </div>
+         
+      
+         </div>
+         <div class="col-md-2">     
+           <div class="date-block__list">
+         
+           <mat-form-field>
+           <input matInput 
+             [matDatepicker]="ToDate" 
+             placeholder="Choose To Date" 
+             formControlName="ToDate"
+             [matDatepicker]="" [max]="maxDate">
+           <mat-datepicker-toggle matSuffix [for]="ToDate"></mat-datepicker-toggle>
+           <mat-datepicker #ToDate></mat-datepicker>
+         </mat-form-field>
+         
+         </div>
+         </div>
+            
+            <div class="col-md-1">  <td style="padding-left:20px;padding-bottom: 15px;vertical-align:middle "> 
+             <button mat-button color="" style="background-color:#FCB713;"  class="primary" (click)="getDateRange(filterForm.value)">Search</button>
+             
+             </td></div>
+
+             <div class="col-md-1"> <td style="padding-left:30px;vertical-align:middle "> 
+              <button mat-raised-button style="background-color: #FCB713;color:#eefdff;" (click)="ExportTOExcel()">Export To Excel</button>
+             </td></div>
+             <div class="col-md-3"></div>
+           </div>
+             
+             
+             </form>
+            
+              
+             
+           
+             </div>
+         
+          </div>
+          <div class="card-body">
+            <div>
+              <table class="table table-striped">
+                <thead style="background-color: #FCB713;" class="sticky-header">
+                    <tr >
+                        <th style="width: 20%;">Product</th>
+                        <th style="text-align: center;">Opening Balance(in pkt)</th>
+                        <th style="text-align: center;">Stock-In(in pkt)</th>
+                        <th style="text-align: center;">Stock-Out(in pkt)</th>
+                        <th style="text-align: center;">Closing Balance(in pkt)</th>
+                       
+                    </tr>
+                </thead>
+                <tbody style="font-size: 15px;height: 350px !important" class="overflow-hidden sm:overflow-y-auto" >
+                    <tr *ngFor="let d of stackdetails">
+                      <td scope="col">{{d.productname}}</td>
+                      <td scope="col">{{d.openingbalancepackets| number : '1.2-2'}}</td>
+                      <td scope="col">{{d.stockinpackets| number : '1.2-2'}}</td>
+                      <td scope="col">{{d.stockoutpackets| number : '1.2-2'}}</td>
+                     
+                      <td scope="col">{{d.closingbalancepackets| number : '1.2-2'}}</td>
+                     
+                      
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+           
+        </div>
+          
+         
+         </div>  
+        </mat-tab>
+        <mat-tab label="Packing Material Stock">
+          <div >   <div *ngIf="ShowDetails" class="card m-2">
+        <div>
+           <div class=" card WareHouse ">
+          <form class="date-block" [formGroup]="filterForm1" style="text-align: center !important;">
+                 <div class="row m-2">
+                  <div class="col-md-1"></div>
+                 <div class="col-md-2">  
+                   <div>
+                     <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-50">
+           
+                       <mat-select formControlName="WareHouseId2"  [placeholder]="'Select WareHouse'">
+               
+                           <mat-option value="null">All Select</mat-option>
+               
+                           <mat-option *ngFor="let role of WareHouseData" [value]="role.Id">
+               
+                               {{role.Name}}
+               
+                           </mat-option>
+               
+                       </mat-select>
+               
+                   </mat-form-field>
+                   </div>
+                   </div>
+                   <div class="col-md-1"></div>
+                <div class="col-md-2">    
+                 <div class="date-block__list">
+               
+                 <mat-form-field>
+                 <input matInput 
+                   [matDatepicker]="ChooseDate" 
+                   placeholder="Choose Date" 
+                   formControlName="FromDate2"
+                   [matDatepicker]="" [max]="maxDate">
+                 <mat-datepicker-toggle matSuffix [for]="ChooseDate"></mat-datepicker-toggle>
+                 <mat-datepicker #ChooseDate></mat-datepicker>
+               </mat-form-field>
+         
+             </div>
+           
+          
+         </div>
+         <div class="col-md-2">    
+           <div class="date-block__list">
+         
+           <mat-form-field>
+           <input matInput 
+             [matDatepicker]="ToDate" 
+             placeholder="Choose To Date" 
+             formControlName="ToDate2"
+             [matDatepicker]="" [max]="maxDate">
+           <mat-datepicker-toggle matSuffix [for]="ToDate"></mat-datepicker-toggle>
+           <mat-datepicker #ToDate></mat-datepicker>
+         </mat-form-field>
+         
+         </div>
+          </div>
+            
+            <div class="col-md-2">  <td style="padding-left:20px;padding-bottom: 15px;vertical-align:middle "> 
+             <button mat-button color="" style="background-color:#FCB713;"  class="primary" (click)="getDateRange1(filterForm1.value)">Search</button>
+             
+             </td></div>
+             <div class="col-md-1"> <td style="padding-left:30px;vertical-align:middle "> 
+              <button mat-raised-button style="background-color: #FCB713;color:#eefdff;" (click)="ExportTOExcel1()">Export To Excel</button>
+             </td></div>
+             
+           </div>
+             </form>
+           </div>
+         
+          </div>
+           <div class="card-body overflow-hidden sm:overflow-y-auto" style="height:380px !important;">
+               <table   style="margin-top:10px;width: 80%;margin-left: 10%;" class="table table-striped">
+                   <thead style="background-color: #FCB713;"  class="sticky-header">
+                       <tr>
+                         
+                           <th style="width: 20%;">Packing Material </th>
+                           <th>Opening Balance</th>
+                           <th style="text-align: center;">Stock-In</th>
+                           <th style="text-align: center;">Stock-Out</th>
+                    
+                           <th>Closing Balance</th>
+                        
+                           
+                       </tr>
+                   </thead>
+          
+                   <tbody style="font-size: 15px;" class="card-body overflow-hidden sm:overflow-y-auto"  >
+                       <tr *ngFor="let d of PackingDetails">
+                        
+                     
+                         <td  style="width: 20%;"scope="col">{{d.packingmaterialname}}</td>
+                         <td style="text-align: center;" scope="col">{{d.openingbalance| number : '1.2-2'}}</td>
+                         <td style="text-align: center;" scope="col">{{d.stockin | number : '1.2-2'}}</td>
+                         <td style="text-align: center;" scope="col">{{d.stockout | number : '1.2-2'}}</td>
+                         <td style="text-align: center;" scope="col">{{d.closingbalance | number : '1.2-2'}}</td>
+                         
+                        
+                        
+                       </tr>
+                     </tbody>
+               </table>
+           </div>
+          
+         
+         </div> </div>
+        
+        </mat-tab>
+        <mat-tab label="Product Tracking" >
+     
+        
+              
+        
+            
+          <!-- <mat-form-field>
+            <input matInput
+                   [formControl]="filterControl"
+                   type="text"
+                   name="filter-options"
+                   id="filter-options"
+                   placeholder="Search">
+                   
+            </mat-form-field>
+            <mat-form-field>
+            <mat-select [formControl]="custonDropdown" (selectionChange)='onProductChange($event)' >
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.Id"    
+             >
+              {{option.Name}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+          
+          <div class="ng-autocomplete" >
+       
+             <ng-autocomplete 
+             [data]="customerList"
+             [searchKeyword]="keyword"
+             placeholder="Select Product"
+             (selected)='onProductChange($event.Id)'
+             [(ngModel)]="selectedUser"
+             [itemTemplate]="itemTemplate"
+             [notFoundTemplate]="notFoundTemplate">                                 
+           </ng-autocomplete>
+       
+             
+
+            <ng-template #itemTemplate let-item class="Serchdata" > 
+              <a [innerHTML]="item.Name"></a>
+              </ng-template>
+              
+              <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+                </ng-template>
+               
+        </div> 
+     <hr>
+ 
+     
+             
+      <!-- <div *ngIf="IsNoAvailableStock" class=" m-1" style="text-align: center;">
+        <h2> no  stock available for {{ProductName}}</h2>
+      </div> -->
+      <div  class="col-md-12 m-1" *ngIf="IsNoAvailableStock" style="height: 250px;">
+   
+        <h2 style="text-align: center;"> no stock available for {{ProductName}}</h2>
+       
+    </div>
+      <div   class="card" style="position:relative    !important;" >
+        <div class="row m-1">
+      <div  class="col-md-3 m-1" *ngFor="let k of AvailableStockDtl;let i = index">
+   
+        
+          <div class="card btn  btn-sm" [style.background-color]="k.Color" [style.background-color]="k.Color" [style.border-color]="k.Color" style="color: #000;font-size: 14px;background-color:rgb(253, 216, 129) ;" id="btn{{k.WareHouseId}}"  (click)="ShowProducts(k.ProductId,k.WareHouseId)">
+         
+            <div class="card-body">
+              <strong> WareHouse : </strong>  
+              <strong>{{k.WarehouseName}}</strong><br>
+              <strong> Available Stock : </strong>
+              <strong> {{k.TotalAvailableStock}}</strong> 
+                       
+            </div>
+          </div>
+      </div>
+      <div  class="col-md-12 m-1" *ngIf="initialLoad.length==0" style="height: 250px;">
+   
+        <h2 style="text-align: center;"> Please select Product</h2>
+       
+    </div>
+      
+    </div>
+      </div>
+      <div class="card m-1 overflow-hidden sm:overflow-y-auto"  style="height: 280px !important;"  *ngIf="Stackdetails" >
+        <div class="card-header" style="text-align: center;"><strong>Stack Details</strong></div>
+        <div class="row m-1" >
+        <div  class="col-md-3" *ngFor="let k of ProductsStacks;let i = index">
+            
+
+            <div class="card m-1" style="border: 1px solid orange;" >
+          
+              <div class="card-body">
+                <strong> Stack Name  : </strong>  
+                <strong>{{k.StackName}}</strong><br>
+                <strong> BatchId  : </strong>  
+                <strong>{{k.BatchId}}</strong><br>
+                <strong> Available Stock : </strong>
+                <strong> {{k.AvailableStock}}</strong> 
+                
+              </div>
+            </div>
+        </div>
+      </div>
+       
+        </div>
+    
+   
+     </mat-tab>
+
+
+      </mat-tab-group>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,325 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+      style="background-color: #8cc540 !important;">
+      <div class="text-lg " style="font-weight: 900;">Category 1- Purchased Goods and Services</div>
+      <button mat-icon-button (click)="onClose()" [tabIndex]="-1">
+          <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+      </button>
+  </div>
+  <form class="flex flex-col flex-auto p-6 sm:p-8" [formGroup]="scope3form">
+      <div class="flex flex-col md:flex-row gap-4" >
+        <mat-form-field class="flex flex-col flex-auto" >
+          <mat-label>Choose Calculator</mat-label>
+          <mat-select matInput [formControlName]="'DataType'" (selectionChange)="DataTypeChange($event.value)" >
+            <mat-option value="supplier-specific" style="color: #1978ac !important;">Supplier specific</mat-option>
+            <mat-option value="average-data" style="color: #1978ac !important;">Average data</mat-option>
+            <mat-option value="spend-based" style="color: #1978ac !important;">Spend-based</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+
+      <div class="col-xl-12 in-top overflow-y-auto" *ngIf="supplierspecific">
+        <div class="col-xl-12 in-top overflow-y-auto">
+          <div class="box-body table-responsive">
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;" >
+              <thead class="tableheader">
+                <tr>
+                  <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                  padding: 0.75rem 2.6rem;     border: 1px solid var(--border-color);">Supplier Name</th>
+                  <th style="text-align: center; font-size: 15px;       background-color: #1978ac; color: #fff;          white-space: nowrap;
+                  padding: 0.75rem 0.6rem;  border: 1px solid var(--border-color);">Purchased goods</th>
+                  <th style="width: 10%; text-align: center; font-size: 15px;     background-color: #1978ac; color: #fff;          white-space: nowrap;
+                  padding: 0.75rem 0.6rem;   border: 1px solid var(--border-color);">Standard EF (tCO2e/t)</th>
+                  <th style="width: 8%; text-align: center; font-size: 15px;     background-color: #1978ac; color: #fff;          white-space: nowrap;
+                  padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Quantity (tonnes)</th>
+                  <th style="text-align: center; font-size: 15px;      background-color: #1978ac; color: #fff;          white-space: nowrap;
+                  padding: 0.75rem 1.6rem;   border: 1px solid var(--border-color);">User based EF  (tCO2e/t)</th>
+                  <th style="text-align: center; font-size: 15px;      background-color: #1978ac; color: #fff;         white-space: nowrap;
+                  padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total Emissions (tCO2e)</th>
+                  <th style="text-align: center; font-size: 15px;      background-color: #1978ac; color: #fff;     border: 0px solid var(--border-color);"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tpt of lookupdtl; let i=index">
+                  <td>
+                    <input id="Supplier{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;" [(ngModel)]="tpt.Supplier">
+                  </td>
+                  <td>
+                    <mat-form-field class="flex flex-col min-w-80" >                                                                         
+                      <mat-select  id="Purchased{{i}}" (selectionChange)="goods($event.value, i)" [(ngModel)]="tpt.Purchased" >
+                          <input matInput placeholder="Search" (input)="goodsfilter($event.target.value)" [matAutocomplete]="auto" >
+                        <mat-option *ngFor="let c of filteredList6" [value]="c.Id" >
+                          <mat-autocomplete #auto (optionSelected)="onOptionSelected($event,i)">
+                      </mat-autocomplete>
+                      {{c.Purchasedgoods}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>                
+                  </td>
+                  <td>
+                    <input id="Emissionfactor{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.Emissionfactor" readonly inputWithComma>
+                  </td>
+                  <td>
+                    <input id="Quantity{{i}}" class="form-control" style="height: 48px; width: 110%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.Quantity" (keyup)="qu(i, $event)" type="text" inputWithComma >
+                  </td>
+                  <td>
+                    <input id="User{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;" [(ngModel)]="tpt.User" (keyup)="uu(i, $event)" (keyup)="uuxff($event)"  inputWithComma> 
+                  </td>
+                  <td>
+                    <input id="Emi{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.Emi | number: '1.0-2'" readonly inputWithComma>
+                  </td>
+                  <td>
+                    <button style="padding-top:17px; " id="delete{{i}}" type="button" (click)="deleteQ102a(i)"><i
+                            style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+                </td>
+                </tr>
+
+                
+                
+                <tr *ngIf="lookupdtl.length>0">
+                  
+                  <td ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td st><b>Total Emission:</b></td>
+                  <td style="text-align: right;">{{sumtotal | number: '1.0-2'}} tCO2e</td>
+              </tr>
+              </tbody>
+              
+            </table>
+
+
+            <style>
+              .table-bordered > :not(caption) >    {
+  border-width: 0 0px;
+}
+            </style>
+
+
+
+          
+      
+    </div>
+
+    <div class="d-flex align-items-start gap-3 mt-4">
+      <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+          data-nexttab="pills-experience-tab" (click)="addFieldValue()" id="disableButton" style="padding-left: 2.9rem;
+          padding-right: 45px;
+      "> Add</button>
+
+  </div>
+
+    <div>
+      Note:<br>
+      1.	This method collects product-level cradle-to-gate GHG inventory data from goods or services suppliers.<br>
+      2.	The standard emission factors are sourced from UNFCCC.
+    </div>
+    </div></div>
+
+
+    
+    <div class="col-xl-12 in-top overflow-y-auto" *ngIf="averagedata">
+      <div class="col-xl-12 in-top overflow-y-auto">
+        <div class="box-body table-responsive">
+          <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+            <thead class="tableheader">
+              <tr>
+                <th style="text-align: center; font-size: 15px; padding: 27px; background-color: #1978ac; color: #fff;       white-space: nowrap;
+                    padding: 0.75rem 2.6rem;  border: 1px solid var(--border-color);">Supplier Name</th>
+                <th style="text-align: center; font-size: 15px; padding: 27px; background-color: #1978ac; color: #fff;         white-space: nowrap;
+                padding: 0.75rem 0.6rem;  border: 1px solid var(--border-color);">Purchased goods</th>
+                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;          white-space: nowrap;
+                padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">User based EF (tCO2e/Piece or unit)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff;        white-space: nowrap;
+                padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Mass of purchased good or  service (piece)</th>
+                <th style="text-align: center; font-size: 15px; padding: 27px; background-color: #1978ac; color: #fff;        white-space: nowrap;
+                padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total Emissions (tCO2e)</th>
+                <th style="text-align: center; font-size: 15px;  background-color: #1978ac; color: #fff;     border: 0px solid var(--border-color);"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tpt of lookupdtl1; let i=index">
+                <td>
+                  <input id="Supplier1{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;" [(ngModel)]="tpt.Supplier1">
+                </td>
+                <td>
+                  <mat-form-field class="flex flex-col min-w-80">                                                                           
+                    <mat-select  id="Purchased1{{i}}" (selectionChange)="goods1($event.value, i)" [(ngModel)]="tpt.Purchased1">
+                        <input matInput placeholder="Search" (input)="goodsfilter($event.target.value)" [matAutocomplete]="auto">
+                      <mat-option *ngFor="let c of filteredList7" [value]="c.Id">
+                        <mat-autocomplete #auto (optionSelected)="onOptionSelected($event,i)">
+                    </mat-autocomplete>
+                    {{c.ProductType}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>                    
+                </td>
+                <td>
+                  <input id="User1{{i}}" class="form-control" [(ngModel)]="tpt.User1" style="height: 48px; border: 1px solid #1c75bc;" (keyup)="uuxff($event)" inputWithComma>
+                </td>
+                <td>
+                  <input id="Quantity1{{i}}" class="form-control" [(ngModel)]="tpt.Quantity1" style="height: 48px; border: 1px solid #1c75bc;" (keyup)="qu1(i, $event)"  inputWithComma>
+                </td>
+                <td>
+                  <input id="Emi1{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.Emi1| number: '1.0-2'" readonly>
+                </td>
+                <td>
+                  <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="deleteQ102a1(i)"><i
+                          style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+              </td>
+              </tr>
+              <tr *ngIf="lookupdtl1.length>0">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total Emission:</b></td>
+                <td style="text-align: right;">{{sumtotal1 | number: '1.0-2'}} tCO2e</td>
+            </tr>
+            </tbody>
+            
+          </table>
+
+          <style>
+            .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+          </style>
+
+
+   
+
+  </div>
+
+  <div class="d-flex align-items-start gap-3 mt-4">
+    <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+        data-nexttab="pills-experience-tab"  (click)="addFieldValue1()" id="disableButton" style="padding-left: 2.9rem;
+        padding-right: 45px;
+    "> Add</button>
+
+</div>
+
+  <div style="text-align: left;">
+    Note:<br>
+    1.	Average-data method – estimates emissions for goods and services by collecting data on the mass, or other relevant units of goods or services purchased and multiplying by the relevant emission factors.<br>
+    2.	The user should enter the baseline emission factor, as the piece unit doesn’t have universal definition (It varies from one entity to another)..
+  </div>
+  </div></div>
+
+
+
+  <div class="col-xl-12 in-top overflow-y-auto" *ngIf="spendbaseddata">
+    <div class="col-xl-12 in-top overflow-y-auto">
+      <div class="box-body table-responsive">
+
+      
+        <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+          <thead class="tableheader">
+            <tr>
+              <th style="text-align: center; font-size: 15px;      white-space: nowrap;
+              padding: 0.75rem 0.6rem;  background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);">Commodity</th>
+              <th style="text-align: center; font-size: 15px;      white-space: nowrap;
+              padding: 0.75rem 2.6rem;  background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);">Value</th>
+              <th style="text-align: center; font-size: 15px;      white-space: nowrap;
+              padding: 0.75rem 0.6rem;  background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);">Currency Type</th>
+              <!-- <th>Exchange rate</th> -->
+              <th style="text-align: center; font-size: 15px;      white-space: nowrap;
+              padding: 0.75rem 0.6rem;   background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);">Standard EF (tCO2e/USD)</th>
+              <th style="text-align: center; font-size: 15px;     white-space: nowrap;
+              padding: 0.75rem 0.6rem;   background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);">User based EF (tCO2e/USD)</th>
+              <th style="text-align: center; font-size: 15px;       white-space: nowrap;
+              padding: 0.75rem 0.6rem;  background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);">Total Emissions (tCO2e)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff;     border: 1px solid var(--border-color);"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tpt of lookupdtl2; let i=index">
+              <td>
+                <mat-form-field class="flex flex-col min-w-80">                                                                            
+                  <mat-select  id="Commodity{{i}}" (selectionChange)="modity($event.value, i)" [(ngModel)]="tpt.Commodity">
+                      <input matInput placeholder="Search" (input)="commoditysearch($event.target.value)" [matAutocomplete]="auto">
+                    <mat-option *ngFor="let c of filteredList" [value]="c.Id">
+                      <mat-autocomplete #auto (optionSelected)="onOptionSelected($event,i)">
+                  </mat-autocomplete>
+                  {{c.CommodityCodeName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>   
+              </td>
+              <td>
+                <input id="curr{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;" [(ngModel)]="tpt.curr" inputWithComma>                   
+              </td>
+              <td>
+                <mat-form-field class="flex flex-col min-w-40">                                                                           
+                  <mat-select  id="currtype{{i}}" (selectionChange)="coomo($event.value, i)" [(ngModel)]="tpt.currtype">
+                      <input matInput placeholder="Search" (input)="commosearch($event.target.value)" [matAutocomplete]="auto">
+                    <mat-option *ngFor="let c of filteredList1" [value]="c.Id">
+                      <mat-autocomplete #auto (optionSelected)="onOptionSelected($event,i)">
+                  </mat-autocomplete>
+                  {{c.Currency}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>  
+              </td>
+              <!-- <td>
+                <input id="Exchangerate{{i}}" class="form-control" [value]="tpt.Exchangerate">
+              </td> -->
+              <td>
+                <input id="ef{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.ef" readonly>  
+              </td>
+              <td>
+                <input id="userbased3{{i}}" class="form-control" [(ngModel)]="tpt.userbased3" style="height: 48px; border: 1px solid #1c75bc;" (keyup)="userbased3(i, $event)" (keyup)="uuxff($event)" inputWithComma>  
+              </td>
+              <td>
+                <input id="emis3{{i}}" class="form-control" style="height: 48px; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.emis3| number: '1.0-2'" readonly>
+              </td>
+              <td>
+                <button style="padding-top:17px" id="delete{{i}}" type="button" (click)="delete3rd(i)"><i
+                        style="color:red" class="fa fa-trash" aria-hidden="true"></i></button>
+            </td>
+            </tr>
+            <tr *ngIf="lookupdtl2.length>0">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><b>Total Emission:</b></td>
+              <td style="text-align: right;">{{sumtotal2 | number: '1.0-2'}} tCO2e</td>
+          </tr>
+          </tbody>
+          
+        </table>
+
+
+
+
+</div>
+
+<div class="d-flex align-items-start gap-3 mt-4">
+  <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+      data-nexttab="pills-experience-tab"   (click)="addFieldValue2()" id="disableButton" style="padding-left: 2.9rem;
+      padding-right: 45px;
+  "> Add</button>
+
+</div>
+<div>
+  Note:<br>
+  1.	This method estimates emissions for goods and services by collecting data on the economic value of goods and services purchased and multiplying it by relevant industry-based emission factors.<br>
+  2.	The spend-based emission factor (EF) is sourced from the Supply Chain Greenhouse Gas Emission Factors for US Industries and Commodities.
+</div>
+</div></div>
+
+  <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+      <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+
+         
+          <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+            style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+              Submit
+          </button>
+      </div>
+  </div>
+  
+</div>

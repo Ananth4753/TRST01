@@ -1,0 +1,149 @@
+<div class="container-fluid h-100 align-items-center align-middle d-flex justify-content-center">
+  <div class="row">
+
+
+      <div class="row dash-nft h-100 ">
+          <div class="col-xl-12 mx-auto mt-5">
+              <div class="frame-card-1 card">
+
+
+
+
+
+
+
+                  
+                       <form [formGroup]="reportform">
+                        <div class="d-flex md-frame align-items-center">
+                            <div class="gri-auto mx-auto  ">
+                          
+                                <div class=" d-flex md-frame align-items-center">
+                                    <div class="frame-img flex-shrink-0">
+                                        
+                                <div style="margin-bottom: 30px;">
+                                    <p style="font-weight: 900;font-size: 20px;">Report Name</p>
+                                    <input style="padding:20px;font-size: 15px; border: 1px solid rgb(120, 119, 119);" type="text" class="form-control" id="steparrow-gen-info-email-input" placeholder="Name" formControlName="ReportName">
+                                </div>
+                                      
+                                    </div>
+                                    <div class="flex-grow-1 ms-2">
+
+                                        
+                                        <div style="margin-bottom: 30px;">
+                                            <p style="font-weight: 900;font-size: 20px;">Current Year</p>
+                                            <input style="padding:20px;font-size: 15px; " type="text" class="form-control" id="steparrow-gen-info-email-input" formControlName="currentYear" readonly >
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                          
+                            </div>
+
+                        </div>
+
+                        <div class="accordion custom-accordionwithicon" id="accordionWithplusicon">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="accordionwithplusExample1">
+                                    <button class="custom accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accor_plusExamplecollapse1" aria-expanded="false" aria-controls="accor_plusExamplecollapse1">
+                                        <p >Custom Report Period</p>
+                                    </button>
+                                </h2>
+
+                        
+                                <div id="accor_plusExamplecollapse1" class="accordion-collapse collapse " aria-labelledby="accordionwithplusExample1" data-bs-parent="#accordionWithplusicon">
+                                    <div class="accordion-body">
+
+                                        
+                        <div class="md-frame d-flex  align-items-center">
+                            <div class="gri-auto mx-auto  ">
+
+                                <div class=" d-flex md-frame align-items-center">
+                                    <div class="frame-img flex-shrink-0">
+                                        
+                                <div style="margin-bottom: 30px;">
+                                    <p style="font-weight: 400;font-size: 15px;">Start Date:</p>
+                        
+                                    <input type="date" id="start" name="trip-start" style="padding:10px;font-size: 15px;border-radius: 10px;     border: 1px solid rgb(120, 119, 119);"
+                                    formControlName="StartDate"   >  
+                                </div>
+                                      
+                                    </div>
+                                    <div class="flex-grow-1 ms-2">
+
+                                        
+                                <div style="margin-bottom: 30px;">
+                                    <p style="font-weight: 400;font-size: 15px;">End Date:</p>
+                        
+                                    <input type="date" id="start" name="trip-start"
+                                            style="padding:10px;font-size: 15px;border-radius: 10px;  border: 1px solid rgb(120, 119, 119);" formControlName="EndDate">
+                                </div>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        
+                        </div>
+                   
+
+
+
+
+                          
+
+
+                 
+
+
+                        <div class="d-flex mb-4 align-items-center">
+                            <div class="mr-card rb-1 gri-auto mx-auto  ">
+                                <button type="button" class="btn dash-btn-1 mx-auto" style="  padding: 10px 32px 10px 28px;    
+                        font-size: 16px;" (click)="next()" [disabled]="reportform.invalid">Next</button>
+                            </div>
+                           
+                        </div>  </form>
+
+
+
+                
+
+
+              </div>
+          </div>
+      </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--start back-to-top-->
+<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+<i class="ri-arrow-up-line"></i>
+</button>
+<!--end back-to-top-->
+

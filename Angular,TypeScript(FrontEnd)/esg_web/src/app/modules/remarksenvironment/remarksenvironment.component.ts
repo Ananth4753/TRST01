@@ -1,0 +1,561 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UpdatereportService } from '../updatereport/updatereport.service';
+import { ImagereportService } from '../imagereport/imagereport.service';
+import { DashboardService } from '../dashboard/dashboard.service';
+import { AuthService } from 'app/core/auth/auth.service';
+import { ImportdisService } from '../importdis/importdis.service';
+import { SelectdisService } from '../selectdis/selectdis.service';
+import { CreatereportService } from '../createreport/createreport.service';
+import { DynamiccontentService } from '../dynamiccontent/dynamiccontent.service';
+import  Questions   from '../../../assets/questions.json'
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ValidatingreportscreenService } from '../validatingreportscreen/validatingreportscreen.service';
+import { AppService } from 'app/app.service';
+
+
+@Component({
+  selector: 'app-remarksenvironment',
+  templateUrl: './remarksenvironment.component.html',
+  styleUrls: ['./remarksenvironment.component.scss']
+})
+export class RemarksenvironmentComponent implements OnInit {
+
+  enviform:FormGroup;
+  tsarray:any[];
+  tsarray1:any[];
+  reportid:any;
+  reportname:any
+  templatemenu: any;
+  qaa:any;
+  qa:any;
+  keys:any;
+  vals:any;
+  entries:any;
+  questions:any;
+  answers:any;
+  name:any;
+  answer1:any;
+  answer2:any;
+  answer3:any;
+  answer4:any;
+  htmlContent:any;
+  answer5:any;
+  pagenumber:any;
+  dynamicobj:any;
+  str:any[];
+  dynamicTable:any[];
+  dynamicTable1:any[];
+  designtemplate:any;
+  dynamicTable10261:any[];
+  dynamicTable10262:any[];
+  dynamicTable7th:any[];
+  dynamicTable2021:any[];
+  dynamicTable2022:any[];
+  dynamicTable2041:any[];
+  dynamicTable2052:any[];
+  dynamicTable20523:any[];
+  dynamicTable20525:any[];
+  dynamicTable20526:any[];
+
+  dynamicTable20534:any[];
+
+  dynamicTable20712:any[];
+
+  dynamicTable3011i:any[];
+  dynamicTable3011ii:any[];
+  dynamicTable3012:any[];
+  dynamicTable3013:any[];
+  dynamicTable3021:any[];
+
+  dynamicTable4031:any[];
+  dynamicTable4043:any[];
+  dynamicTable4051:any[];
+  dynamicTable4052:any[];
+
+  dynamicTable4121:any[];
+  dynamicTable4151:any[];
+  dynamicTable20212:any[];
+  dynamicTable20213:any[];
+  dynamicTable20214:any[];
+  dynamicTable20131:any[];
+  dynamicTable20132:any[];
+  dynamicTable20133:any[];
+  dynamicTable20134:any[];
+  dynamicTable20135:any[];
+  dynamicTable20137:any[];
+  dynamicTable20141:any[];
+  dynamicTable20142:any[];
+  dynamicTable20143:any[];
+  dynamicTable20144:any[];
+  dynamicTable20145:any[];
+  dynamicTable20146:any[];
+  dynamicTable20147:any[];
+  dynamicTable20148:any[];
+  dynamicTable201410:any[];
+  dynamicTable201411:any[];
+  dynamicTable201412:any[];
+  dynamicTable201413:any[];
+  dynamicTable201414:any[];
+  dynamicTable201415:any[];
+  dynamicTable201416:any[];
+  dynamicTable201417:any[];
+  dynamicTable20321:any[];
+  dynamicTable20322:any[];
+  dynamicTable2052b:any[];
+  dynamicTable2061b:any[];
+
+  dynamicTable30415:any[];
+
+
+  dynamicTable3034b1:any[];
+  dynamicTable3034b2:any[];
+  dynamicTable3034b3:any[];
+  dynamicTable3034b4:any[];
+  dynamicTable3063:any[];
+  dynamicTable3064:any[];
+  onlyval:any;
+
+  dynamicTableturnover1:any[];
+  dynamicTableturnover2:any[];
+  dynamicTable4122:any[];
+  startdate:any;
+  enddate:any;
+  firstimage="https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp1.png";
+  secondimage="https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp2.png";
+  thirdimage="https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp3.png";
+  fourthimage="https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp4.png";
+  fifthimage="https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp5.png";
+  imageUrl:any;
+  constructor(private route:ActivatedRoute,private aa:ActivatedRoute,private AuthService:AuthService,
+    private importservice:ImportdisService,private vrs:ValidatingreportscreenService,private apps:AppService,
+    private fb:FormBuilder,private dds:DynamiccontentService,private ss:SelectdisService,private crs:CreatereportService,private us:UpdatereportService,private is:ImagereportService,private ds:DashboardService) { }
+  finalobj:any={}
+  ngOnInit() {
+
+    this.tsarray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    this.tsarray1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    //console.log(this.tsarray.length);
+
+    this.reportid=this.aa.snapshot.paramMap.get('reportId')
+    this.us.getReportDetailsByReportId(this.reportid).subscribe(res=>{
+      this.reportname=res[0].ReportName
+      this.startdate=res[0].StartDate
+      this.enddate=res[0].EndDate
+     this.qaa=JSON.parse(res[0].InitialDraftReport) 
+     this.dynamicobj = JSON.parse(res[0].InitialDraftReport) 
+     if(this.dynamicobj==null){
+      this.importservice.getReportTemplateMenuSubIdByReportId(this.reportid).subscribe((data:any)=>{
+            for(let i=0;i<data.length;i++)
+            {
+               let yoy=data[i]["TemplateMenuId"];
+                if(Questions[yoy] != undefined)
+                 {
+                   if (JSON.stringify(this.finalobj) == '{}')
+                   {
+                     this.finalobj = Questions[yoy][0];
+                    }
+                     else{
+                       Object.assign(this.finalobj,Questions[yoy][0])
+                       }
+                       }
+                        if (data.length-1 ==i)
+                         {
+                          this.dynamicobj=this.finalobj
+                          // console.log(this.finalobj)
+                           } 
+                          }
+      }) 
+     }
+
+         //100 Series 
+        if(this.dynamicobj["102-2AddTable2x"] == null || this.dynamicobj["102-2AddTable2x"] =='' || this.dynamicobj["102-2AddTable2x"]=='[]'|| this.dynamicobj["102-2AddTable2x"] == undefined)
+        {
+         this.dynamicTable1=null
+        }
+        else{
+         this.dynamicTable1 =JSON.parse(this.dynamicobj['102-2AddTable2x']);
+         var dynamicTable1len=this.dynamicTable1.length;
+  
+        }
+        if(this.dynamicobj["102-2AddTable"] == null || this.dynamicobj["102-2AddTable"] =='' || this.dynamicobj["102-2AddTable"]=='[]'|| this.dynamicobj["102-2AddTable"] == undefined)
+        {
+         this.dynamicTable=null
+        }
+        else{
+         this.dynamicTable =JSON.parse(this.dynamicobj['102-2AddTable']);
+         var dynamicTablelen=this.dynamicTable.length;
+        }
+        if(this.dynamicobj["102-6T1AddTable"] == null || this.dynamicobj["102-6T1AddTable"] =='' || this.dynamicobj["102-6T1AddTable"]=='[]'|| this.dynamicobj["102-6T1AddTable"] == undefined)
+        {
+         this.dynamicTable10261=null
+        }
+        else{
+         this.dynamicTable10261 =JSON.parse(this.dynamicobj['102-6T1AddTable']);
+         var dynamicTable10261len=this.dynamicTable10261.length;
+        }
+        if(this.dynamicobj["102-6AddTable"] == null || this.dynamicobj["102-6AddTable"] =='' || this.dynamicobj["102-6AddTable"]=='[]'|| this.dynamicobj["102-6AddTable"] == undefined)
+        {
+         this.dynamicTable10262=null
+        }
+        else{
+         this.dynamicTable10262 =JSON.parse(this.dynamicobj['102-6AddTable']);
+         var dynamicTable10262len=this.dynamicTable10262.length;
+        }
+         if(this.dynamicobj["102-7A-Table"] == null || this.dynamicobj["102-7A-Table"] =='' || this.dynamicobj["102-7A-Table"]=='[]'|| this.dynamicobj["102-7A-Table"] == undefined)
+         {
+          this.dynamicTable7th=null
+         }
+         else{
+          this.dynamicTable7th =JSON.parse(this.dynamicobj['102-7A-Table']);
+          //console.log(this.dynamicTable7th);
+          var dynamicTable7thlen=this.dynamicTable7th.length;
+         }
+
+
+     this.keys=Object.keys(this.qaa)
+    this.vals=Object.values(this.qaa)
+    this.entries=Object.entries(this.qaa)
+
+     })
+ 
+  this.dds.getPreviewReportById(this.reportid).subscribe((data)=>{
+
+    this.templatemenu=data;
+    
+  })
+     this.is.getFinalReportDetailsByReportId(this.reportid).subscribe(res=>{
+      var size=Object.keys(res).length;
+      
+      this.designtemplate=res[0].DesignTemplate
+      if(this.designtemplate==1){
+        this.imageUrl=this.firstimage;
+      }
+      else if(this.designtemplate==2){
+        this.imageUrl=this.secondimage;
+      }
+      else if(this.designtemplate==3){
+        this.imageUrl=this.thirdimage;
+      }
+      else if(this.designtemplate==4){
+        this.imageUrl=this.fourthimage;
+      }
+else{
+  this.imageUrl=this.fifthimage;
+}
+
+
+    
+  })
+  this.enviform = this.fb.group({
+    //1
+    Environment1	: [''],
+Environment2	: [''],
+Environment3	: [''],
+Environment4	: [''],
+Environment5	: [''],
+Environment6	: [''],
+Environment7	: [''],
+Environment8	: [''],
+Environment9	: [''],
+Environment10	: [''],
+Environment11	: [''],
+Environment12	: [''],
+Environment13	: [''],
+Environment14	: [''],
+Environment15	: [''],
+Environment16	: [''],
+Environment17	: [''],
+Environment18	: [''],
+Environment19	: [''],
+Environment20	: [''],
+Environment21	: [''],
+Environment22	: [''],
+Environment23	: [''],
+Environment24	: [''],
+Environment25	: [''],
+Environment26	: [''],
+Environment27	: [''],
+Environment28	: [''],
+Environment29	: [''],
+Environment30	: [''],
+Environment31	: [''],
+Environment32	: [''],
+Environment33	: [''],
+Environment34	: [''],
+Environment35	: [''],
+Environment36	: [''],
+Environment37	: [''],
+Environment38	: [''],
+Environment39	: [''],
+Environment40	: [''],
+Environment41	: [''],
+Environment42	: [''],
+Environment43	: [''],
+Environment44	: [''],
+Environment45	: [''],
+Environment46	: [''],
+Environment47	: [''],
+Environment48	: [''],
+Environment49	: [''],
+Environment50	: [''],
+Environment51	: [''],
+Environment52	: [''],
+Environment53	: [''],
+Environment54	: [''],
+Environment55	: [''],
+Environment56	: [''],
+Environment57	: [''],
+Environment58	: [''],
+Environment59	: [''],
+Environment60	: [''],
+Environment61	: [''],
+Environment62	: [''],
+Environment63	: [''],
+Environment64	: [''],
+Environment65	: [''],
+Environment66	: [''],
+Environment67	: [''],
+Environment68	: [''],
+Environment69	: [''],
+Environment70	: [''],
+Environment71	: [''],
+Environment72	: [''],
+Environment73	: [''],
+Environment74	: [''],
+Environment75	: [''],
+Environment76	: [''],
+Environment77	: [''],
+Environment78	: [''],
+Environment79	: [''],
+Environment80	: [''],
+Environment81	: [''],
+Environment82	: [''],
+Environment83	: [''],
+Environment84	: [''],
+Environment85	: [''],
+Environment86	: [''],
+Environment87	: [''],
+Environment88	: [''],
+Environment89	: [''],
+Environment90	: [''],
+Environment91	: [''],
+Environment92	: [''],
+Environment93	: [''],
+Environment94	: [''],
+Environment95	: [''],
+Environment96	: [''],
+Environment97	: [''],
+Environment98	: [''],
+Environment99	: [''],
+Environment100	: [''],
+Environment101	: [''],
+Environment102	: [''],
+Environment103	: [''],
+Environment104	: [''],
+Environment105	: [''],
+Environment106	: [''],
+Environment107	: [''],
+Environment108	: [''],
+Environment109	: [''],
+Environment110	: [''],
+Environment111	: [''],
+Environment112	: [''],
+Environment113	: [''],
+Environment114	: [''],
+Environment115	: [''],
+Environment116	: [''],
+Environment117	: [''],
+Environment118	: [''],
+Environment119	: [''],
+Environment120	: [''],
+Environment121	: [''],
+Environment122	: [''],
+Environment123	: [''],
+Environment124	: [''],
+Environment125	: [''],
+Environment126	: [''],
+Environment127	: [''],
+Environment128	: [''],
+Environment129	: [''],
+Environment130	: [''],
+Environment131	: [''],
+Environment132	: [''],
+Environment133	: [''],
+Environment134	: [''],
+Environment135	: [''],
+Environment136	: [''],
+Environment137	: [''],
+Environment138	: [''],
+Environment139	: [''],
+Environment140	: [''],
+Environment141	: [''],
+Environment142	: [''],
+Environment143	: [''],
+Environment144	: [''],
+Environment145	: [''],
+Environment146	: [''],
+Environment147	: [''],
+Environment148	: [''],
+Environment149	: [''],
+Environment150	: [''],
+Environment151	: [''],
+Environment152	: [''],
+Environment153	: [''],
+Environment154	: [''],
+Environment155	: [''],
+Environment156	: [''],
+Environment157	: [''],
+Environment158	: [''],
+Environment159	: [''],
+Environment160	: [''],
+Environment161	: [''],
+Environment162	: [''],
+Environment163	: [''],
+Environment164	: [''],
+Environment165	: [''],
+Environment166	: [''],
+Environment167	: [''],
+Environment168	: [''],
+Environment169	: [''],
+Environment170	: [''],
+Environment171	: [''],
+Environment172	: [''],
+Environment173	: [''],
+Environment174	: [''],
+Environment175	: [''],
+Environment176	: [''],
+Environment177	: [''],
+Environment178	: [''],
+Environment179	: [''],
+Environment180	: [''],
+Environment181	: [''],
+Environment182	: [''],
+Environment183	: [''],
+Environment184	: [''],
+Environment185	: [''],
+Environment186	: [''],
+Environment187	: [''],
+Environment188	: [''],
+Environment189	: [''],
+Environment190	: [''],
+Environment191	: [''],
+Environment192	: [''],
+Environment193	: [''],
+Environment194	: [''],
+Environment195	: [''],
+Environment196	: [''],
+Environment197	: [''],
+Environment198	: [''],
+Environment199	: [''],
+Environment200	: [''],
+Environment201	: [''],
+Environment202	: [''],
+Environment203	: [''],
+Environment204	: [''],
+Environment205	: [''],
+Environment206	: [''],
+Environment207	: [''],
+Environment208	: [''],
+Environment209	: [''],
+Environment210	: [''],
+Environment211	: [''],
+Environment212	: [''],
+Environment213	: [''],
+Environment214	: [''],
+Environment215	: [''],
+Environment216	: [''],
+Environment217	: [''],
+Environment218	: [''],
+Environment219	: [''],
+Environment220	: [''],
+Environment221	: [''],
+Environment222	: [''],
+Environment223	: [''],
+Environment224	: [''],
+Environment225	: [''],
+Environment226	: [''],
+Environment227	: [''],
+Environment228	: [''],
+Environment229	: [''],
+Environment230	: [''],
+Environment231	: [''],
+Environment232	: [''],
+Environment233	: [''],
+Environment234	: [''],
+Environment235	: [''],
+Environment236	: [''],
+Environment237	: [''],
+Environment238	: [''],
+Environment239	: [''],
+Environment240	: [''],
+Environment241	: [''],
+Environment242	: [''],
+Environment243	: [''],
+Environment244	: [''],
+Environment245	: [''],
+Environment246	: [''],
+Environment247	: [''],
+Environment248	: [''],
+Environment249	: [''],
+Environment250	: [''],
+Environment251	: [''],
+Environment252	: [''],
+Environment253	: [''],
+Environment254	: [''],
+Environment255	: [''],
+Environment256	: [''],
+Environment257	: [''],
+Environment258	: [''],
+Environment259	: [''],
+Environment260	: [''],
+
+})
+}
+Save(){
+  let formva=this.enviform.value
+  //console.log(formva);
+      this.vrs.GetValidatingFinalReportByReportId(this.reportid,this.AuthService.user.id).subscribe((data)=>{
+       // console.log(data);
+        const resdata = data[0];
+        const existingRemarks = JSON.parse(resdata.Remarks); // Assuming the existing Remarks data is stored in JSON format
+        const newRemarks = {
+          ...existingRemarks,
+          ...formva // Assuming the 'value' is an object containing new data to be added
+        };
+        const boxes: any = {
+          Id: resdata.Id,
+          ReportId: resdata.ReportId,
+          OrgId: resdata.OrgId,
+          UserId: resdata.UserId,
+          IsValidate: 1,
+          Remarks: newRemarks,
+          IsActive: resdata.IsActive,
+          UpdatedByUserId: resdata.UpdatedByUserId,
+          UpdatedDate: resdata.UpdatedDate,
+          CreatedByUserId: resdata.CreatedByUserId,
+          CreatedDate: resdata.CreatedDate,
+        };
+        this.vrs.addfinalreportvalidation(boxes).subscribe((final) => {
+          //console.log(final);
+        });
+      })
+  }
+  counter(i: number) {
+    return new Array(i);
+    console.log(i);
+    
+    
+}
+hello1(index:number,change:any){
+  this.tsarray[index]=change;
+  //  console.log(this.apps.counter);
+  // this.store=1;
+  for(var i=0;i<this.tsarray.length;i++){
+    if(this.tsarray[i]==1){
+      this.tsarray1[i]=this.apps.counter1+i;
+    }
+  }
+  // console.log(this.tsarray1);
+}
+}

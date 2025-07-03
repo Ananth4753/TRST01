@@ -1,0 +1,74 @@
+
+// Do not add padding-left to the first column
+.mat-column-Edit {
+    width: 10%;
+    padding-right: 5px !important;
+   
+
+}
+
+.mat-column-SKU {
+    width: 20%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+}
+
+.mat-column-Code {
+    width: 5%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+
+}
+.mat-column-Description {
+    width: 15%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+
+}
+.mat-column-ProductName {
+    width: 15%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+
+}
+
+.mat-column-UOM {
+    width: 5%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+
+}
+.mat-column-Size {
+    width: 10%;
+ 
+
+}
+.mat-column-Price {
+    width: 5%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+
+}
+
+
+
+
+.mat-column-IsActive {
+    width: 5%;
+    padding: 0px 5px !important;
+    word-wrap: break-word;
+}
+
+
+
+// Do not add padding-right to the last column
+.mat-column-UpdatedDate {
+    width: 10%;
+    padding-left: 5px !important;
+    word-wrap: break-word;
+}
+
+th.mat-header-cell {
+    color:black !important;
+    background-color:#FCB713  !important;
+  }
