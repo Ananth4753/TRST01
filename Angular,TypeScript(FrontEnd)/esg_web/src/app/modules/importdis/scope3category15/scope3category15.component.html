@@ -1,0 +1,391 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+      style="background-color: #8cc540 !important;">
+      <div class="text-lg " style="font-weight: 900;">Category 15: Investments</div>
+      <button mat-icon-button (click)="onClose()" [tabIndex]="-1">
+          <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+      </button>
+  </div>
+  <form class="flex flex-col flex-auto p-6 sm:p-8" [formGroup]="scope3form">
+    <div class="flex flex-col md:flex-row gap-4" >
+      <mat-form-field class="flex flex-col flex-auto" >
+        <mat-label>Choose Calculator</mat-label>
+        <mat-select matInput [formControlName]="'DataType'" (selectionChange)="DataTypeChange($event.value)" >
+          <mat-option value="lessor" style="color: #1978ac !important;">Investment-specific method for calculating emissions from equity investments</mat-option>
+          <mat-option value="floorspace" style="color: #1978ac !important;">Average-data method for calculating emissions from equity investments</mat-option>
+          <mat-option value="unavail" style="color: #1978ac !important;">Project-specific method for calculating emissions from project finance and debt investments with known use of proceeds</mat-option>
+          <mat-option value="unavail2" style="color: #1978ac !important;">Average-data method for calculating emissions from project finance and debt investments with known use of proceeds</mat-option>
+          <mat-option value="unavail3" style="color: #1978ac !important;">Projected total lifetime emissions from project finance and debt investments with known use of proceeds</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+
+    <div class="col-xl-12 in-top overflow-y-auto" *ngIf="firstdrop">
+      <div class="col-xl-12 in-top overflow-y-auto">
+        <div class="box-body table-responsive">
+          <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+            <thead class="tableheader">
+              <tr>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Investment details</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Scope 1 and scope 2 emissions <br>of investee company in <br>reporting year (tCO2 e)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Reporting company’s <br>share of equity (%)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total Emissions (tCO2e)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; border: 0px solid var(--border-color);"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tpt of lookupdtl; let i=index">
+                <td>
+                  <input id="first{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.first"  type="text">
+                </td>
+                <td>
+                  <input id="second{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.second"  type="text" inputWithComma>
+                </td>
+                <td>
+                  <input id="third{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" (keyup)="firstcal(i, $event)" [(ngModel)]="tpt.third"  type="text" inputWithComma>
+                </td>
+                <td>
+                  <input id="fourth{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.fourth| number: '1.0-2'" readonly inputWithComma>
+                </td>
+                <td>
+                  <button style="padding-top:17px;" id="delete{{i}}" type="button" (click)="deleteQ102a(i)">
+                    <i style="color:red" class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="lookupdtl.length > 0">
+                <td></td>
+                <td></td>
+                <td st><b>Total Emission:</b></td>
+                <td style="text-align: right;">{{sumtotal | number: '1.0-2'}} tCO2e</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <style>
+            .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+          </style>
+  </div>
+
+  <div class="d-flex align-items-start gap-3 mt-4">
+    <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+        data-nexttab="pills-experience-tab" (click)="addFieldValue()" id="disableButton" style="padding-left: 2.9rem;
+        padding-right: 45px;
+    "> Add</button>
+
+</div>
+
+  <div>
+    Note:
+    Investment-specific method, which involves collecting scope 1 and scope 2 emissions from the investee company and allocating the emissions based upon the share of investment.
+  </div>
+  </div></div>
+  <div class="col-xl-12 in-top overflow-y-auto" *ngIf="secdrop">
+    <div class="col-xl-12 in-top overflow-y-auto">
+      <div class="box-body table-responsive">
+        <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+          <thead class="tableheader">
+            <tr>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Investee company</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Revenue of investee company ($)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Reporting company’s <br>share of equity(%)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Investee company’s <br>sector(s) of operation</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Investee company’s <br>revenue in sector (%)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Scope 1 and scope 2<br> emission factor of <br>sector (kg CO2e/$ revenue)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total emissions (tCo2e)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; border: 0px solid var(--border-color);"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tpt of lookupdtl1; let i=index">
+              <td>
+                <input id="uno{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno"  type="text">
+              </td>
+              <td>
+                <input id="uno1{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;"  [(ngModel)]="tpt.uno1"  type="text" inputWithComma>
+              </td>
+              <td>
+                <input id="uno2{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno2"  type="text" inputWithComma>
+              </td>
+              <td>
+                <input id="uno3{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno3"  type="text" >
+              </td>
+              <td>
+                <input id="uno4{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;"  [(ngModel)]="tpt.uno4"  type="text" inputWithComma>
+              </td>
+              <td>
+                <input id="uno5{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" (keyup)="secondcal(i, $event)" [(ngModel)]="tpt.uno5"  type="text" inputWithComma>
+              </td>
+              <td>
+                <input id="uno6{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.uno6| number: '1.0-2'" readonly inputWithComma>
+              </td>
+              <td>
+                <button style="padding-top:17px;" id="delete{{i}}" type="button" (click)="deleteQ102a11(i)">
+                  <i style="color:red" class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="lookupdtl1.length > 0">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td st><b>Total Emission:</b></td>
+              <td style="text-align: right;">{{sumtotal1 | number: '1.0-2'}} tCO2e</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <style>
+          .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+        </style>
+</div>
+
+<div class="d-flex align-items-start gap-3 mt-4">
+  <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+      data-nexttab="pills-experience-tab" (click)="addFieldValue1()" id="disableButton" style="padding-left: 2.9rem;
+      padding-right: 45px;
+  "> Add</button>
+
+</div>
+
+<div>
+  Note:<br>
+  1.	The average-data method uses revenue data to estimate the scope 1 and scope 2 emissions from the investee company and allocating emissions based upon share of investment.
+</div>
+</div></div> 
+<div class="col-xl-12 in-top overflow-y-auto" *ngIf="thirddrop">
+  <div class="col-xl-12 in-top overflow-y-auto">
+    <div class="box-body table-responsive">
+      <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+        <thead class="tableheader">
+          <tr>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Investee company</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Scope 1 and scope 2<br> emissions of project in<br> reporting year (tCO2e)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total project costs<br> (total equity plus debt) ($)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Share of total <br>project costs(%)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total emissions (tCo2e)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; border: 0px solid var(--border-color);"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tpt of lookupdtl2; let i=index">
+            <td>
+              <input id="one{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.one"  type="text">
+            </td>
+            <td>
+              <input id="two{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.two"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="three{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.three"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="four{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" (keyup)="thrdca(i, $event)" [(ngModel)]="tpt.four"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="five{{i}}" class="form-control"  style="height: 48px; width: 100%; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.five| number: '1.0-2'" readonly inputWithComma>
+            </td>
+            <td>
+              <button style="padding-top:17px;" id="delete{{i}}" type="button" (click)="delete3rd(i)">
+                <i style="color:red" class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="lookupdtl2.length > 0">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td st><b>Total Emission:</b></td>
+            <td style="text-align: right;">{{sumtotal2 | number: '1.0-2'}} tCO2e</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <style>
+        .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+      </style>
+</div>
+
+<div class="d-flex align-items-start gap-3 mt-4">
+<button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+    data-nexttab="pills-experience-tab" (click)="addFieldValue2()" id="disableButton" style="padding-left: 2.9rem;
+    padding-right: 45px;
+"> Add</button>
+
+</div>
+
+<div>
+Note:<br>
+1.	Project-specific method, which involves collecting scope 1 and scope 2 emissions for the relevant project(s) and allocating these emissions based on the investor’s proportional share of total project costs (total equity plus debt)
+</div>
+</div></div>
+<div class="col-xl-12 in-top overflow-y-auto" *ngIf="fourthdrop">
+  <div class="col-xl-12 in-top overflow-y-auto">
+    <div class="box-body table-responsive">
+      <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+        <thead class="tableheader">
+          <tr>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Type of project</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Project phase</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Project construction cost<br> or project revenue in <br>reporting year ($ million)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Relevant EEIO sector</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">EEIO emission factor<br> (scope 1 and scope 2 emissions only)<br> (tCO2e / $ millions)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Share of total project costs<br> (value of debt investment / total equity plus debt) (%)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total emissions (tCo2e)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; border: 0px solid var(--border-color);"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tpt of lookupdtl3; let i=index">
+            <td>
+              <input id="uno{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno"  type="text" >
+            </td>
+            <td>
+              <input id="uno1{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno1"  type="text" >
+            </td>
+            <td>
+              <input id="uno2{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno2"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="uno3{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno3"  type="text" >
+            </td>
+            <td>
+              <input id="uno4{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno4"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="uno5{{i}}" class="form-control"  (keyup)="last(i, $event)" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno5"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="uno6{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.uno6| number: '1.0-2'" readonly inputWithComma>
+            </td>
+            <td>
+              <button style="padding-top:17px;" id="delete{{i}}" type="button" (click)="delete4th(i)">
+                <i style="color:red" class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="lookupdtl3.length > 0">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td st><b>Total Emission:</b></td>
+            <td style="text-align: right;">{{sumtotal3 | number: '1.0-2'}} tCO2e</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <style>
+        .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+      </style>
+</div>
+
+<div class="d-flex align-items-start gap-3 mt-4">
+<button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+    data-nexttab="pills-experience-tab" (click)="addFieldValue3()" id="disableButton" style="padding-left: 2.9rem;
+    padding-right: 45px;
+"> Add</button>
+
+</div>
+
+<div>
+Note:<br>
+1.	The average-data method, which involves using EEIO data to estimate the scope 1 and scope 2 emissions from the investee company and allocating emissions based on share of total project costs (total equity plus debt).
+2.  EEIO emission factors for the sectors of the economy that the investments are related to (t CO2e/$ revenue).
+</div>
+</div></div>
+<div class="col-xl-12 in-top overflow-y-auto" *ngIf="fifthdrop">
+  <div class="col-xl-12 in-top overflow-y-auto">
+    <div class="box-body table-responsive">
+      <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+        <thead class="tableheader">
+          <tr>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Type of project</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Expected annual emissions (tonnes)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Expected lifetime of <br>project (Years)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Share of total project<br> costs (Total equity plus debt)(%)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Total emissions (tCo2e)</th>
+            <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; border: 0px solid var(--border-color);"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tpt of lookupdtl4; let i=index">
+            <td>
+              <input id="uno{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno"  type="text" >
+            </td>
+            <td>
+              <input id="uno1{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno1"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="uno2{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.uno2"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="uno3{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;"(keyup)="lastact(i, $event)"  [(ngModel)]="tpt.uno3"  type="text" inputWithComma>
+            </td>
+            <td>
+              <input id="uno4{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;text-align: right;" [value]="tpt.uno4| number: '1.0-2'" readonly inputWithComma>
+            </td>
+            <td>
+              <button style="padding-top:17px;" id="delete{{i}}" type="button" (click)="delete5th(i)">
+                <i style="color:red" class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="lookupdtl4.length > 0">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td st><b>Total Emission:</b></td>
+            <td style="text-align: right;">{{sumtotal4 | number: '1.0-2'}} tCO2e</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <style>
+        .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+      </style>
+</div>
+
+<div class="d-flex align-items-start gap-3 mt-4">
+<button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+    data-nexttab="pills-experience-tab" (click)="addFieldValue4()" id="disableButton" style="padding-left: 2.9rem;
+    padding-right: 45px;
+"> Add</button>
+
+</div>
+
+<div>
+Note:<br>
+1.	Total projected lifetime emissions are reported in the initial year the project is financed, not in subsequent years, and emissions should not be amortized or discounted.
+2.  Calculating projected lifetime emissions typically requires making assumptions about the operation of the asset and its expected lifetime.
+</div>
+</div></div>
+
+
+
+  <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+    <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+
+       
+        <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+          style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+            Submit
+        </button>
+    </div>
+</div>
+
+</div>

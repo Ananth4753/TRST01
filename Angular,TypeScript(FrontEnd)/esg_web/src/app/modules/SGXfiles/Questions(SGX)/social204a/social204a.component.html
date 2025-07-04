@@ -1,0 +1,112 @@
+<div class="mx-n3" >
+  <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="success" style="max-height: 330px;" #scroll>
+      <ul class="list-group list-group-flush">
+          <li class="hero-line list-group-item py-3">
+              <div class="row">
+
+<div class="row" *ngIf="soc7">
+  <form [formGroup]="socialform">
+      <div class="col-xxl-12">
+          <div class="card"
+              style="margin-right: -20px; margin-top: 30px;">
+              <h3 class="sub-text" style="text-align: center;"> SGX 204 Development & training
+              </h3>
+              <div class="col-xxl-12 accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-secondary"
+              id="accordionBordered" style="margin-top: 25px;" #containerrow>
+              <div class="row accordion-item " data-toggle="collapse"
+                  href="#multiCollapseExample1">
+                  <h2 class="accordion-header new-guidance-1"
+                      id="accordionborderedExample1">
+                      <button class="accordion new-guidance" role="button"
+                          aria-expanded="false"
+                          aria-controls="multiCollapseExample1"
+                          (click)="isExpand =!isExpand">
+                          Reporting Guidance
+
+                          <i class="bx bx-down-arrow-alt"
+                              style="margin-left: 600px;" *ngIf="isExpand"
+                              data-toggle="collapse"
+                              href="#multiCollapseExample1"></i>
+                          <i class="bx bx-right-arrow-alt"
+                              style="margin-left: 600px;" *ngIf="!isExpand"
+                              data-toggle="collapse"
+                              href="#multiCollapseExample1"></i>
+
+                      </button>
+
+
+                  </h2>
+              </div>
+              <div #element class="collapse multi-collapse"
+              id="multiCollapseExample1">
+              <div class="accordion-body"
+                  style="    box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);">
+                  <table class="table" style="text-align: left;">
+                    <tbody>
+                        <tr>
+                            <th>{{guidance}}</th>
+                            <td
+                            [innerHTML]="description.split('\r\n').join('<br>')">
+                        </td>
+                        </tr>
+                </tbody>
+                  </table>
+              </div>
+
+          </div>
+
+          </div> 
+              <div class="card-body">
+                  <div id="contact-existing-list">
+                      <div class="row mb-2">
+
+
+                          <div class="card-footer">
+                              <div class="row">
+                                
+                                  <div class="col-xl-12">
+                                      <p class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                              (click)="scrollTop()">204-1</button>Average training hours per employee.</p>
+                                              <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px; float: right"
+                                              (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Average training hours per employee.')">
+                                              Evidence
+                                              <i class="ri-file-upload-line"
+                                                  style="font-size: 12px"></i>
+                                          </button>
+                                            </div>
+                              
+                                    <div class="col-xl-12">
+                                      <input
+                                          class="new-control form-control fpinput-01 col-xl-12 number-right"
+                                          id="meassageInput" inputWithComma
+                                          placeholder="" 
+                                          formControlName="social1">
+                                      </div>
+                                   </div>
+                             </div>
+
+                          <div>
+                             
+                          </div>
+
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="d-flex align-items-start gap-3 mt-4">
+        <!-- <button type="button" class="esg-back-btn btn dash-btn-1 btn8-label right nexttab nexttab" (click)="onprevdisclosure()" data-nexttab="pills-experience-tab">Previous</button> -->
+<button type="button" class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab" style="margin:auto" (click)="onSave()" data-nexttab="pills-experience-tab">Save</button>
+<!-- <button type="button" class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab" (click)="onNextdisclosure()" data-nexttab="pills-experience-tab">Next </button> -->
+</div>
+      
+      
+  </form>
+</div></div></li></ul></div></div>

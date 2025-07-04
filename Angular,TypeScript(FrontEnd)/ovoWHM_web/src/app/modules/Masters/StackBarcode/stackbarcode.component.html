@@ -1,0 +1,238 @@
+ <!-- <mat-icon svgIcon="print">Print</mat-icon> -->
+  <!-- <div    >
+ 
+<button  style=" margin-left: 50%; font-size: 20px;padding: 20px;"(click)="printPage()"> Print
+</button>
+ 
+
+
+
+    <table>
+        <tr>
+     <td>
+       <canvas style="margin-left: 5px;margin-top :1.5%;height:110px;width:270px" id="barcode"   > 
+       </canvas>
+       <h4 style="text-align:center;margin-bottom:-2%;">SGFHJBKL574561</h4>
+          </td>
+ <td>
+           <canvas style="  margin-left: 10px;margin-top :1.5%;height: 110px;width:275px;" id="bar" ></canvas>
+           <h4 style=" text-align:center;margin-bottom:-2%;">SGFHJBKL574561</h4>
+     </td>
+       </tr>
+       </table> 
+
+</div>
+   -->
+
+   <div   class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+    <div *ngIf="!barcodescreen0" >
+        <!-- Header -->
+        <div       class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+            <!-- Loader -->
+            <div class="absolute inset-x-0 bottom-0">
+                
+            </div>
+            <!-- Title -->
+            <div class="text-4xl font-extrabold tracking-tight">Stack</div>
+            <!-- Actions -->
+            <div class="flex flex-shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+                <!-- Search -->
+                <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
+                    <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:search'"></mat-icon>
+                    <input matInput [formControl]="searchInputControl" [autocomplete]="'off'"
+                        [placeholder]="'Search Product'">
+                </mat-form-field>
+            
+                <button class="ml-4" mat-flat-button [color]="'primary'" style="background-color:#FCB713  !important;" (click)="createStack()" >
+                    <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                    <span class="ml-2 mr-1">Stack In</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex flex-auto overflow-hidden">
+    
+            <div class="sm:col-span-6 flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto" style="height: 400px;">
+                <div class="flex flex-col flex-auto overflow-x-auto">
+                    <ng-container *ngIf="( StackItems$ | async) as StackItem">
+                        <ng-container *ngIf="StackItem.length > 0; else noStackItems">
+                            <table mat-table [dataSource]="StackdataSource"
+                                class="min-w-240 overflow-y-visible" matSort matSortActive="Name" matSortDirection="asc">
+      
+                                <!-- Edit -->
+                                <!-- <ng-container matColumnDef="Edit" sticky>
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 50px;"></th>
+                                    <td mat-cell *matCellDef="let StackItem" style="width: 50px;">
+                                        <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                                            (click)="onEditStack(StackItem.Id)">
+                                            <mat-icon class="icon-size-5" svgIcon="mat_solid:edit">
+                                            </mat-icon>
+                                        </button>
+                                    </td>
+                                </ng-container> -->
+      
+                                  <!--Code -->
+                                  <ng-container matColumnDef="WareHouseId">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>WareHouse </th>
+                                    <td mat-cell *matCellDef="let StackItem">{{StackItem.WareHouseName }}</td>
+                                </ng-container>
+      
+                                <!-- Name -->
+                                <ng-container matColumnDef="Name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header >Stack Name</th>
+                                    <td mat-cell *matCellDef="let StackItem">{{StackItem.Name}}</td>
+                                </ng-container>
+      
+                                <ng-container matColumnDef="Area">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header >Area</th>
+                                  <td mat-cell *matCellDef="let StackItem">{{StackItem.Area}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="Location">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header >Location  </th>
+                                  <td mat-cell *matCellDef="let StackItem">{{StackItem.Location}}</td>
+                              </ng-container>
+      
+                              <ng-container matColumnDef="URL">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header >Barcode&nbsp;&nbsp;<mat-icon>print</mat-icon></th>
+                                <td mat-cell *matCellDef="let StackItem">
+                                    <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-raised-button color="primary"
+                                    (click)="toggleStatus2(StackItem.Id)">
+                                    <i><b>L2</b></i>
+
+                                </button>
+                              &nbsp; &nbsp;  <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-raised-button color="secondary"
+                                (click)="toggleStatus(StackItem.Id)">
+                                <i><b>L3</b></i>
+
+                            </button>
+                                </td>
+                            </ng-container>
+                           
+                            <!-- (click)="Showbarcode(StackItem.URL) -->
+      
+        <!-- Active -->
+        <ng-container class="hidden lg:block" matColumnDef="IsActive">
+          <th mat-header-cell *matHeaderCellDef>Active</th>
+          <td mat-cell *matCellDef="let StackItem">
+              <ng-container *ngIf="StackItem.IsActive">
+                  <mat-icon class="text-green-400 icon-size-5" [svgIcon]="'heroicons_solid:check'"></mat-icon>
+              </ng-container>
+              <ng-container *ngIf="!StackItem.IsActive">
+                  <mat-icon class="text-gray-400 icon-size-5" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+              </ng-container>
+          </td>
+      </ng-container>
+        <!-- Created Date -->
+        <ng-container class="hidden sm:block" matColumnDef="UpdatedDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
+          <td mat-cell *matCellDef="let StackItem">{{StackItem.UpdatedDate| date:"dd-MMM-yyyy"}}</td>
+      </ng-container>
+      
+      <!-- Created By User -->
+      <!-- <ng-container class="hidden sm:block" matColumnDef="CreatedByUser">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Created By User</th>
+          <td mat-cell *matCellDef="let StackItem">{{StackItem.CreatedByUserId}}</td>
+      </ng-container> -->
+                             
+      
+      
+                                <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true" class="bg-gray-50"></tr>
+                                <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+      
+                            </table>
+      
+                            <mat-paginator
+                                class="sm:absolute sm:inset-x-0 sm:bottom-0 border-b sm:border-t sm:border-b-0 z-10 bg-gray-50 dark:bg-transparent"
+                                [ngClass]="{'pointer-events-none': isLoading}" [pageSize]="pageSize"
+                                [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons
+                                aria-label="Select page of menu items">
+                            </mat-paginator>
+      
+                        </ng-container>
+                    </ng-container>
+                </div>
+      
+                <ng-template #noStackItems>
+                    <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">
+                        There are no products    !
+                    </div>
+                </ng-template>
+      
+            </div>
+      
+        </div>
+      
+      </div>
+    
+    
+      
+      <div   *ngIf="barcodescreen">
+    
+        
+        <button style=" margin-left: 50%; font-size: 20px;margin-top: 30px;"(click)="printPage()">Print &nbsp;
+            <mat-icon svgIcon="print" ></mat-icon>
+        </button>
+         
+        <button  (click)="refreshes()" style=" margin-left: 37%;"><u>Back</u> </button>
+                       <!-- Two barcodes -->
+        <table>
+
+ <tr>
+            
+        <td>
+            
+  
+            
+         <canvas style="margin-left: 5px;margin-top :12.5%;height:70px;width:270px;" id="bar1" >
+            
+         </canvas>
+            
+            
+       <!-- <h4 style="text-align:center;margin-bottom:-2%;font-weight: 700;">{{(barcodeId[0].WareHouseName) + '/' + (barcodeId[0].Name) }} </h4> -->
+            
+            </td>
+            
+    <td>
+            
+          <canvas style="margin-left: 13px;margin-top :12.5%;height: 70px;width:270px;" id="bar2" ></canvas>
+            
+          <!-- <h4 style="text-align:center;margin-bottom:-2%;font-weight: 700;">{{(barcodeId[0].WareHouseName) + '/' + (barcodeId[0].Name) }} </h4> -->
+            
+
+            
+        
+            
+         </td>
+            
+       
+            
+            </tr></table>
+            </div>
+        <!-- Three barcodes -->
+        
+<div *ngIf="barcodescreen3">
+    <button style=" margin-left: 50%; font-size: 20px;margin-top: 30px;"(click)="printPage()">Print &nbsp;
+        <mat-icon svgIcon="print" ></mat-icon>
+    </button>
+     
+    <button  (click)="refreshes()" style=" margin-left: 37%;"><u>Back</u> </button>
+        <table>
+            <tr>         
+                   <td>           
+                    <canvas style="margin-left: 5px;margin-top :7.3%;height:59px;width:180px;" id="barcode" >  
+                    </canvas>         
+                  <!-- <h4 style="text-align:center;margin-bottom:-2%;font-weight: 700;">{{(barcodeId[0].WareHouseName) + '/' + (barcodeId[0].Name) }} </h4>             -->
+                       </td>  
+                     <td>  
+                     <canvas style="margin-left: 13px;margin-top :7.3%;height: 59px;width:180px;" id="barcode2" ></canvas>
+                     <!-- <h4 style="text-align:center;margin-bottom:-2%;font-weight: 700;">{{(barcodeId[0].WareHouseName) + '/' + (barcodeId[0].Name) }} </h4> -->
+                    </td>
+
+                    <td>  
+                        <canvas style="margin-left: 17px;margin-top :7.3%;height: 59px;width:180px;" id="barcode3" ></canvas>
+                        <!-- <h4 style="text-align:center;margin-bottom:-2%;font-weight: 700;">{{(barcodeId[0].WareHouseName) + '/' + (barcodeId[0].Name) }} </h4> -->
+                    </td>
+            </tr>
+</table>
+        </div>
+        </div>

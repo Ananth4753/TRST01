@@ -1,0 +1,287 @@
+<div class="">
+  
+  <div class="row sticky-content " *ngIf="princi9l" #scroll>
+    <div class="col-xl-12">
+        <div class="d-flex align-items-center justify-content-between" style="margin-right: 20px;">
+           
+
+            <h4 style="text-align: left; color: #1076bc;"> PRINCIPLE 9<b></b></h4>
+
+            
+            <div class="d-flex align-items-start gap-3 ">
+              <!-- <button type="button"
+              class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab"
+              style="font-size: 13px; float: right"
+             >
+              Back
+              
+          </button> -->
+          <button type="button"
+          class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab"
+          style="font-size: 13px; float: right" (click)="onSave()" 
+         >
+          Save
+          
+      </button>
+
+      <!-- <button type="button"
+      class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab evidence-btn"
+      style="font-size: 13px; float: right"
+     >
+      Next
+      
+  </button> -->
+      
+            </div>
+       
+
+        </div>
+    </div>
+</div>
+
+
+<div class="" *ngIf="princi9l">  
+  <form [formGroup]="principalform">
+    <div class="col-xxl-12">
+        <div class="card" style="box-shadow: 0 8px 20px -2px rgb(158 152 153 / 0%);"  >
+            <div class="card-body">
+                <div id="contact-existing-list" >
+                    <div class="row mb-2" >
+                        <div class="card-footer">
+                            <div class="row">
+                            
+                              <h4 style="text-align: center;"><b>Businesses should engage with and provide value to their consumers in a responsible manner (Leadership Indicators)</b></h4>
+                                
+                                <div class="row">
+                                  <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <p class="org-in-text text-muted mb-0">
+                                        <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">1</button>Channels / platforms where information on products and services of the entity can be accessed (provide web link, if available):
+                                      </p>
+                                      <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                                        (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Channels / platforms where information on products and services of the entity can be accessed (provide web link, if available):')">
+                                        Evidence
+                                        <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-xl-12">
+                                     <input style="text-transform: capitalize;" class="new-control form-control"
+                                        id="meassageInput"
+                              style="text-transform: capitalize;  height: auto;
+                              resize: vertical;"         placeholder="" formControlName="action1" > 
+                                </div>
+                               
+                                <div class="row">
+                                  <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <p class="org-in-text text-muted mb-0">
+                                        <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">2</button>Steps taken to inform and educate consumers about safe and responsible usage of products and/or services:
+                                      </p>
+                                      <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                                        (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Steps taken to inform and educate consumers about safe and responsible usage of products and/or services:')">
+                                        Evidence
+                                        <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-xl-12">
+                                     <input style="text-transform: capitalize;" class="new-control form-control"
+                                        id="meassageInput"
+                              style="text-transform: capitalize;  height: auto;
+                              resize: vertical;"         placeholder="" formControlName="action2" > 
+                                </div>
+                                
+                                <div class="row">
+                                  <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <p class="org-in-text text-muted mb-0">
+                                        <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">3</button>Mechanisms in place to inform consumers of any risk of disruption/discontinuation of essential services.
+                                      </p>
+                                      <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                                        (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Mechanisms in place to inform consumers of any risk of disruption/discontinuation of essential services.')">
+                                        Evidence
+                                        <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-xl-12">
+                                     <input style="text-transform: capitalize;" class="new-control form-control"
+                                        id="meassageInput"
+                              style="text-transform: capitalize;  height: auto;
+                              resize: vertical;"         placeholder="" formControlName="action3" > 
+                                </div>
+                                
+                                <div class="row">
+                                  <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <p class="org-in-text text-muted mb-0">
+                                        <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">4-a</button>Does the entity display product information on the product over and above what is mandated as per local laws?
+                                      </p>
+                                      <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                                        (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Does the entity display product information on the product over and above what is mandated as per local laws?')">
+                                        Evidence
+                                        <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-xl-12">
+                                  <div class="flex flex-col md:flex-row gap-4">
+                                      <mat-form-field class="flex flex-col flex-auto">       
+                                  <mat-select  formControlName="action4a" (selectionChange)="Changeaction4a($event)">
+                                      <mat-option *ngFor="let c of YesorNowithNA" [value]="c.Name">
+                                          {{c.Name}}
+                                      </mat-option>
+                                      </mat-select></mat-form-field></div>
+                              </div>
+                              <div class="row" *ngIf="ifyesChangeaction4a">
+                                <div class="col-xl-12">
+                                  <p class="org-in-text text-muted mb-0"> If yes, provide details in brief.</p>
+                              </div>
+                             
+                                <div class="col-xl-12">
+                                  <div class="flex flex-col md:flex-row gap-4">
+                                      <input formControlName="ifyesaction4a" class="form-control  fpinput-01">
+                                     </div>
+                                    
+                                </div>
+                                </div>
+                              
+                              <div class="row">
+                                <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                    <p class="org-in-text text-muted mb-0">
+                                      <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">4-b</button>Did your entity carry out any survey with regard to consumer satisfaction relating to the major products / services of the entity, significant locations of operation of the entity or the entity as a whole?.
+                                    </p>
+                                    <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                                      (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Did your entity carry out any survey with regard to consumer satisfaction relating to the major products / services of the entity, significant locations of operation of the entity or the entity as a whole?.')">
+                                      Evidence
+                                      <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-12">
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <mat-form-field class="flex flex-col flex-auto">       
+                                <mat-select  formControlName="action4b" (selectionChange)="Changeaction4b($event)">
+                                    <mat-option *ngFor="let c of YesorNo" [value]="c.Name">
+                                        {{c.Name}}
+                                    </mat-option>
+                                    </mat-select></mat-form-field></div>
+                            </div>
+                            <div class="row" *ngIf="ifyesChangeaction4b">
+                              <div class="col-xl-12">
+                                <p class="org-in-text text-muted mb-0"> If yes, provide details in brief.</p>
+                            </div>
+                           
+                              <div class="col-xl-12">
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <input formControlName="ifyesaction4b" class="form-control  fpinput-01">
+                                   </div>
+                                  
+                              </div>
+                              </div>
+                                <div class="col-xl-12">
+                                  <p class="org-in-text text-muted mb-0"> <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;" (click)="scrollTop()">5</button>Provide the following information relating to data breaches:
+                                   </p>
+                                  </div>
+                                  
+                              
+                              <div class="row">
+                                <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                    <p class="org-in-text text-muted mb-0">
+                                      <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">5-a</button>Number of instances of data breaches along-with impact.
+                                    </p>
+                                    <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                                      (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Number of instances of data breaches along-with impact.')">
+                                      Evidence
+                                      <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-10">
+                              <div *ngIf="action5abool=='Nil'" class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                <mat-select formControlName="action5a" (selectionChange)="changeaction5abool($event)" >
+                           
+                                 <mat-option *ngFor="let c of filteredList1" [value]="c.Name">
+                 
+                                     {{c.Name}}
+                 
+                                 </mat-option>
+                 
+                             </mat-select>
+                           </div>
+                           <div *ngIf="action5abool=='Numeric Field'">
+                            <input  class="form-control" formControlName="action5ayes" appIndiansystem style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;"  >
+                          </div>
+                           </div>
+                           <div class="col-md-2">
+                           <div class="flex items-center  sm:mt-0" style="float: right;">
+                            <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'" style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;margin-top: 15px;" (click)="resetaction5abool()"> reset </button>
+                        </div>
+                      </div>
+                      <div class="col-xl-12" *ngIf="action5abool=='Numeric Field'">
+                        <input class="form-control new-control fpinput-01" placeholder="" formControlName="action5aDetails">                     
+                       </div>
+                      </div>
+  
+                      
+                      <div class="row">
+                        <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <p class="org-in-text text-muted mb-0">
+                              <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px;">5-b</button>Percentage of data breaches involving personally identifiable information of customers.
+                            </p>
+                            <button type="button" class="btn btn-sm btn-outline" style="font-size: 13px; float: right"
+                              (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Percentage of data breaches involving personally identifiable information of customers.')">
+                              Evidence
+                              <i class="ri-file-upload-line" style="font-size: 12px"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-10">
+                      <div *ngIf="action5bbool=='Nil'" class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                        <mat-select formControlName="action5b" (selectionChange)="changeaction5bbool($event)" >
+                         <mat-option *ngFor="let c of filteredList2" [value]="c.Name">
+                        {{c.Name}}
+                       </mat-option>
+                    </mat-select>
+                   </div>
+                   <div *ngIf="action5bbool=='Percentage'">
+                    <input class="form-control" formControlName="action5byes" appPercentageDirective style="height: 48px; border: 1px solid #1c75bc; background-color: #fff;text-align: right;"  >
+                  </div>
+                   </div>
+                   <div class="col-md-2">
+                   <div class="flex items-center  sm:mt-0" style="float: right;">
+                    <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'" style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;margin-top: 15px;" (click)="resetaction5bbool()"> reset </button>
+                </div>
+              </div>
+              <div class="col-xl-12" *ngIf="action5bbool=='Percentage'">
+                <input class="form-control new-control fpinput-01" placeholder="" formControlName="action5bdetails">                     
+               </div>
+              </div>
+                       </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+</div>
+
+</div>
+

@@ -1,0 +1,112 @@
+
+
+@page {
+
+  size: auto;
+  margin: 0;
+}
+
+@media print {
+
+          button {
+
+            display: none;
+           
+          }
+          
+
+        }
+
+
+      
+// Do not add padding-left to the first column
+
+
+.mat-column-WareHouse {
+width: 3%;
+
+
+}
+
+.mat-column-BatchId {
+width: 5%;
+
+
+}
+
+.mat-column-FlockName {
+width: 5%;
+padding: 0px 5px !important;
+word-wrap: break-word;
+}
+
+.mat-column-Stackname {
+width: 5%;
+padding: 0px 5px !important;
+}
+
+.mat-column-Product {
+width: 7% !important;
+padding: 0px 5px !important;
+
+}
+
+.mat-column-Skuname {
+width: 5%;
+padding: 0px 5px !important;
+
+}
+
+.mat-column-UOM {
+width: 4%;
+padding: 0px 5px !important;
+}
+
+.mat-column-EggLayDate {
+width: 10%;
+padding: 0px 5px !important;
+}
+
+.mat-column-PackedDate {
+width: 8%;
+padding: 0px 5px !important;
+}
+
+.mat-column-ExpireDate1 {
+width: 8%;
+padding: 0px 5px !important;
+
+}
+
+.mat-column-Expiredate {
+width: 8%;
+padding: 0px 5px !important;
+}
+
+// Do not add padding-right to the last column
+.mat-column-NoOfQuantity {
+width: 5%;
+padding-left: 5px !important;
+word-wrap: break-word;
+}
+.mat-column-EggQuantity {
+  width: 5%;
+  padding-left: 5px !important;
+  word-wrap: break-word;
+  }
+.mat-column-ToExpireNoOfDays {
+width: 5%;
+padding-left: 5px !important;
+word-wrap: break-word;
+}
+.mat-column-URL {
+width: 5%;
+padding-left: 5px !important;
+word-wrap: break-word;
+}
+
+th.mat-header-cell {
+color:black !important;
+background-color:#FCB713  !important;
+}
+

@@ -1,0 +1,153 @@
+<div class="card " style="width: 100%;">
+<div style="background-color: #FCB713;width: 100% ;padding-top: 20px;padding-bottom: 20px;">
+
+            <div style="margin-left: 10px;" class="text-lg font-medium">InHouse Stack Change</div>
+
+       
+
+           
+
+        </div>
+
+   
+
+            <form style="width: 80%;border: 1px solid black;margin-left: 10% !important;"
+
+            class="p-6 m-1 sm:p-8"
+
+            [formGroup]="StackForm">
+            <div class="flex flex-col md:flex-row gap-4" >
+              <mat-form-field class="flex flex-col w-25">
+
+                <mat-label>WareHouse</mat-label>
+    
+                <mat-select matInput [formControlName]="'WareHouseId'" (selectionChange)="OnWarehouseChange($event)">
+    
+                    <mat-option *ngFor="let w of Warehousedetails" [value]="w.Id">{{w.Name}}</mat-option>
+    
+                </mat-select>
+    
+            </mat-form-field>
+          <mat-form-field class="flex flex-col w-25">
+              <mat-label>Batch Id</mat-label>
+          <input
+              placeholder="Search BatchId"
+              
+              matInput
+              [matAutocomplete]="auto"
+              [formControlName]="'BatchId'"  
+              [(ngModel)]="selectedUser"
+              (input) = "filterUsers()"
+              
+           
+               
+                
+                
+                 >
+                  
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)='onBatchChange($event.option.value)'>
+            <mat-option *ngFor="let customer of filterdOptions" [value]="customer.BatchId" [displayWith]="getTitle.bind(this)" >
+              {{customer.BatchId}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        
+        
+          <mat-form-field class="flex flex-col w-25">
+              <mat-label>Qty</mat-label>
+        
+              <input  readonly=""  [formControlName]="'Qty'"  matInput>
+          </mat-form-field>
+
+         
+
+        
+        
+          </div>
+          <div class="flex flex-col md:flex-row gap-4" >
+            
+          <mat-form-field class="flex flex-col w-25">
+
+            <mat-label>Current Stack</mat-label>
+
+            <mat-select disabled="" matInput [formControlName]="'CurrentStack'" >
+
+                <mat-option *ngFor="let w of StackDeatails" [value]="w.Id">{{w.Name}}</mat-option>
+
+            </mat-select>
+
+        </mat-form-field>
+        <mat-form-field class="flex flex-col w-25">
+
+          <mat-label> Choose New Stack</mat-label>
+
+          <mat-select matInput [formControlName]="'NewStack'" >
+
+              <mat-option *ngFor="let w of StackDeatails" [value]="w.Id">{{w.Name}}</mat-option>
+
+          </mat-select>
+
+      </mat-form-field>
+
+     
+          </div>
+          
+
+        
+     
+          
+
+       
+
+    
+        
+
+
+
+
+
+
+
+
+     
+
+    
+
+     
+
+        
+
+        <!-- Send -->
+
+        <button
+
+            class="order-first sm:order-last"
+
+            mat-flat-button
+
+            [color]="'primary'" style="background-color: #FCB713 !important; width: 200px; margin-left: 650px;"
+
+            [disabled]="StackForm.invalid"
+
+            (click)="onSave()"
+
+            >
+
+            <span *ngIf="!StackForm.disabled">
+
+           Change Stack
+
+ 
+
+            </span>
+
+           
+
+         
+
+        </button>
+
+        </form>
+
+        </div>
+        

@@ -1,0 +1,595 @@
+<div>
+  
+    <div class="row sticky-content"  *ngIf="org" #scroll>
+      <div class="col-xl-12">
+          <div class="d-flex align-items-center justify-content-between" style="margin-right: 20px;">
+             
+
+              <h4 style="text-align: left; color: #1076bc;"> Details of the listed entity<b></b></h4>
+
+              
+              <div class="d-flex align-items-start gap-3 ">
+                <!-- <button type="button" (click)="onprevdisclosure()"
+                class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab"
+                style="font-size: 13px; float: right"
+               >
+                Back
+                
+            </button> -->
+            <button type="button" *ngIf="inputofcountries==arrayofcounts"
+            class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab"
+            style="font-size: 13px; float: right" (click)="onSave()"
+           >
+            Save
+            
+        </button>
+
+        <!-- <button type="button"
+        class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab evidence-btn"
+        style="font-size: 13px; float: right"
+       >
+        Next
+        
+    </button> -->
+        
+              </div>
+         
+
+          </div>
+      </div>
+  </div>
+
+
+  <div class=""  *ngIf="org">
+
+    <form [formGroup]="gdform">
+      <div class="col-xxl-12">
+            <div class="card" style="  box-shadow: 0 8px 20px -2px rgb(158 152 153 / 0%);     " >
+      
+                <div class="">
+                    <div id="contact-existing-list" >
+                        <div class="row mb-2" >
+                            <div class="card-footer" >
+                                <div class="row">
+      
+                                  <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p
+                                                class="org-in-text text-muted mb-0">
+                                                <button type="button"
+                                                    class="btn btn-sm btn-outline"
+                                                    style="font-size: 13px;"
+                                                   >1</button>Corporate Identity Number (CIN) of the Listed Entity:
+                                            </p>
+                                           
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline evidence-btn"
+                                                style="font-size: 13px; float: right"
+                                                (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Corporate Identity Number (CIN) of the Listed Entity')">
+                                                Evidence
+                                                <i class="ri-file-upload-line"
+                                                    style="font-size: 12px"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <grammarly-editor-plugin >
+                                  <div class="">
+                                    <input class="new-control form-control" id="meassageInput" style="height: auto; resize: vertical;text-transform:uppercase;"
+                                    placeholder="" formControlName="detailsofen1"  
+                                    [(ngModel)]="initialDraftReport['Question1']">
+                                  </div>
+                                </grammarly-editor-plugin>
+      
+                                <div class="row">
+                                  <div class="col-xl-12">
+                                      <div class="d-flex align-items-center justify-content-between">
+                                          <p
+                                              class="org-in-text text-muted mb-0">
+                                              <button type="button"
+                                                  class="btn btn-sm btn-outline"
+                                                  style="font-size: 13px;"
+                                                 >2</button>Name of the Listed Entity:
+                                          </p>
+                                         
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline evidence-btn"
+                                              style="font-size: 13px; float: right"
+                                              (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Name of the Listed Entity')">
+                                              Evidence
+                                              <i class="ri-file-upload-line"
+                                                  style="font-size: 12px"></i>
+                                          </button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <grammarly-editor-plugin >
+                                <div class="">
+                                    <input class="new-control form-control" id="meassageInput" style="height: auto; resize: vertical;"
+                                    placeholder="" formControlName="detailsofen2"
+                                    [(ngModel)]="initialDraftReport['Question2']">
+                                </div>
+                              </grammarly-editor-plugin>
+                              <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <p
+                                            class="org-in-text text-muted mb-0">
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline"
+                                                style="font-size: 13px;"
+                                               >3</button>Year of incorporation:
+                                        </p>
+                                       
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline evidence-btn"
+                                            style="font-size: 13px; float: right"
+                                            (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Year of incorporation')">
+                                            Evidence
+                                            <i class="ri-file-upload-line"
+                                                style="font-size: 12px"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                              <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                <mat-select matInput [formControlName]="'detailsofen3'"  [(ngModel)]="initialDraftReport['Question3']">
+                                    <mat-option *ngFor="let o of years" [value]="o">
+                                        {{o}}
+                                    </mat-option>
+                                </mat-select>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >4</button>Registered office address:
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Registered office address')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+                          <grammarly-editor-plugin >
+                            <div class="">
+                                 <input  class="new-control form-control"  id="meassageInput"
+                                 style="  height: auto; resize: vertical;" placeholder="Address"
+                                 formControlName="detailsofen4"  [(ngModel)]="initialDraftReport['Question4']"> 
+                            </div>
+                          </grammarly-editor-plugin>
+      
+                          <div class="col-xl-4">
+                            <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                  <mat-select [formControlName]="'detailsofen5'" 
+                                  [(ngModel)]="initialDraftReport['Question5']" 
+                                    (selectionChange)="coomo($event.value)"  placeholder="City">
+                                    <input matInput
+                                      placeholder="Search"
+                                      (input)="inputdetailsofen5($event.target.value)"
+                                      [matAutocomplete]="auto">
+                                    <mat-option *ngFor="let f of filteredList1" [value]="f.Id">
+                                      <mat-autocomplete
+                                      #auto
+                                      (optionSelected)="onOptionSelectedcity($event)">
+      
+                                  </mat-autocomplete>
+                                      {{f.City}}
+                                    </mat-option>
+                                  </mat-select>
+                            </div>
+                          </div>
+                          <div class="col-xl-4">
+                            <input  class="new-control form-control"
+                               id="meassageInput" style="  height: auto;  resize: vertical;" 
+                               placeholder="State" formControlName="detailsofen6"  [(ngModel)]="initialDraftReport['Question6']" readonly> 
+                          </div>
+      
+                          <div class="col-xl-4">
+                            <input  class="new-control form-control"
+                               id="meassageInput" style="  height: auto; resize: vertical;text-align: right;"     
+                                type="number"   placeholder="Pincode" formControlName="detailsofen7"  [(ngModel)]="initialDraftReport['Question7']"> 
+                          </div>
+      
+                          <div class="row">
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p
+                                        class="org-in-text text-muted mb-0">
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline"
+                                            style="font-size: 13px;"
+                                           >5</button>Corporate address:
+                                    </p>
+                                   
+                                    <button type="button"
+                                        class="btn btn-sm btn-outline evidence-btn"
+                                        style="font-size: 13px; float: right"
+                                        (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Corporate address')">
+                                        Evidence
+                                        <i class="ri-file-upload-line"
+                                            style="font-size: 12px"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <grammarly-editor-plugin >
+                          <div class="">
+                               <input  class="new-control form-control"
+                                  id="meassageInput" style="  height: auto; resize: vertical;"  placeholder="Address" formControlName="detailsofen8"  [(ngModel)]="initialDraftReport['Question8']"> 
+                          </div>
+                        </grammarly-editor-plugin>
+      
+                        <div class="col-xl-4">
+                          <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                            <mat-select [formControlName]="'detailsofen9'" 
+                            [(ngModel)]="initialDraftReport['Question9']" 
+                              (selectionChange)="coomo1($event.value)"  placeholder="City">
+                              <input matInput
+                                placeholder="Search"
+                                (input)="inputdetailsofen5($event.target.value)"
+                                [matAutocomplete]="auto">
+                              <mat-option *ngFor="let f of filteredList1" [value]="f.Id">
+                                <mat-autocomplete
+                                #auto
+                                (optionSelected)="onOptionSelectedcity9($event)">
+      
+                            </mat-autocomplete>
+                                {{f.City}}
+                              </mat-option>
+                            </mat-select>
+                          </div>
+                        </div>
+      
+                        <div class="col-xl-4">
+                          <input  class="new-control form-control" id="meassageInput" style="  height: auto; resize: vertical;" 
+                           placeholder="State" formControlName="detailsofen10"  [(ngModel)]="initialDraftReport['Question10']"> 
+                        </div>
+      
+                        <div class="col-xl-4">
+                          <input  class="new-control form-control" id="meassageInput"style="  height: auto;  resize: vertical;text-align: right;"  
+                          type="number"   placeholder="Pincode" formControlName="detailsofen11"  [(ngModel)]="initialDraftReport['Question11']"> 
+                        </div>
+      
+                        <div class="row">
+                          <div class="col-xl-12">
+                              <div class="d-flex align-items-center justify-content-between">
+                                  <p
+                                      class="org-in-text text-muted mb-0">
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline"
+                                          style="font-size: 13px;"
+                                         >6</button>E-mail:
+                                  </p>
+                                 
+                                  <button type="button"
+                                      class="btn btn-sm btn-outline evidence-btn"
+                                      style="font-size: 13px; float: right"
+                                      (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'E-mail')">
+                                      Evidence
+                                      <i class="ri-file-upload-line"
+                                          style="font-size: 12px"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-12">
+                        <input  class="new-control form-control" id="meassageInput"
+                          style="height: auto; resize: vertical;text-decoration: underline;color: darkblue;" placeholder=""
+                          formControlName="detailsofen12" appEmail  [(ngModel)]="initialDraftReport['Question12']">
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              <p
+                                  class="org-in-text text-muted mb-0">
+                                  <button type="button"
+                                      class="btn btn-sm btn-outline"
+                                      style="font-size: 13px;"
+                                     >7</button>Telephone:
+                              </p>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Telephone')">
+                                  Evidence
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+      
+                                
+                                 
+                                  <div class="col-xl-12">
+                                       <input  class="new-control form-control"
+                                          id="meassageInput"
+                                style="  height: auto;
+                                resize: vertical; text-align: right;"         placeholder="" formControlName="detailsofen13" [(ngModel)]="initialDraftReport['Question13']"> 
+                                  </div>
+      
+                                  <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p
+                                                class="org-in-text text-muted mb-0">
+                                                <button type="button"
+                                                    class="btn btn-sm btn-outline"
+                                                    style="font-size: 13px;"
+                                                   >8</button>Website:
+                                            </p>
+                                           
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline evidence-btn"
+                                                style="font-size: 13px; float: right"
+                                                (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Website')">
+                                                Evidence
+                                                <i class="ri-file-upload-line"
+                                                    style="font-size: 12px"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                                 
+                                  <div class="col-xl-12">
+                                       <input  class="new-control form-control"
+                                          id="meassageInput"
+                                style="  height: auto;
+                                resize: vertical;text-decoration: underline;color: darkblue;"    type="email"  placeholder="" formControlName="detailsofen14"  [(ngModel)]="initialDraftReport['Question14']"> 
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p
+                                                class="org-in-text text-muted mb-0">
+                                                <button type="button"
+                                                    class="btn btn-sm btn-outline"
+                                                    style="font-size: 13px;"
+                                                   >9</button>Financial year for which reporting is being done:
+                                            </p>
+                                           
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline evidence-btn"
+                                                style="font-size: 13px; float: right"
+                                                (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Financial year for which reporting is being done')">
+                                                Evidence
+                                                <i class="ri-file-upload-line"
+                                                    style="font-size: 12px"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                 
+                                  <div class="col-xl-12">
+                                    <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                        <mat-select matInput [formControlName]="'detailsofen15'"  [(ngModel)]="initialDraftReport['Question15']">
+                                            <mat-option *ngFor="let o of years" [value]="o">
+                                                {{o}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+      
+                                <div class="row">
+                                  <div class="col-xl-12">
+                                      <div class="d-flex align-items-center justify-content-between">
+                                          <p
+                                              class="org-in-text text-muted mb-0">
+                                              <button type="button"
+                                                  class="btn btn-sm btn-outline"
+                                                  style="font-size: 13px;"
+                                                 >10</button>Name of the Stock Exchange(s) where shares are listed:
+                                          </p>
+                                         
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline evidence-btn"
+                                              style="font-size: 13px; float: right"
+                                              (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Name of the Stock Exchange(s) where shares are listed')">
+                                              Evidence
+                                              <i class="ri-file-upload-line"
+                                                  style="font-size: 12px"></i>
+                                          </button>
+                                      </div>
+                                  </div>
+                              </div>
+                                
+                                 
+                                  <div class="col-xl-12">
+                                    <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                  <mat-select matInput [formControlName]="'detailsofen16'"  [(ngModel)]="initialDraftReport['Question16']" multiple>
+                                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                                      {{food.viewValue}}
+                                    </mat-option>
+                                  </mat-select></div>
+                                  </div>
+      
+                                  <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p
+                                                class="org-in-text text-muted mb-0">
+                                                <button type="button"
+                                                    class="btn btn-sm btn-outline"
+                                                    style="font-size: 13px;"
+                                                   >11</button>Paid-up Capital:
+                                            </p>
+                                           
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline evidence-btn"
+                                                style="font-size: 13px; float: right"
+                                                (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Paid-up Capital')">
+                                                Evidence
+                                                <i class="ri-file-upload-line"
+                                                    style="font-size: 12px"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                                 
+                                  <div class="col-xl-2">
+                                    <span class="input-group-text" style="background-color:transparent;border:none;font-size:1.25rem;width:2.5rem;height:2.5rem;margin-top: 12px">Rs</span>
+                           </div>
+                                  <div class="col-xl-5">
+                                    <input class="new-control form-control" appIndiansystem id="meassageInput"
+                                           style="height: auto; resize: vertical;text-align: right;" placeholder="" formControlName="detailsofen17"
+                                           [(ngModel)]="initialDraftReport['Question17']"> 
+                                </div>
+                                <div class="col-xl-5">
+                                  <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                      <mat-select matInput [formControlName]="'csrd3'" >
+                                        <mat-option *ngFor="let food of foods3" [value]="food.value">
+                                          {{food.viewValue}}
+                                        </mat-option>
+                                      </mat-select>
+                                  </div>
+                             </div>
+      
+                             <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >12</button>Name and contact details (telephone, email address) of the person who may be contacted in case of any queries on the BRSR report:
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Name and contact details1')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+      
+                              
+      
+                                  <div class="row">
+                                    <div class="col-xl-2">
+                                      <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                        <mat-select matInput [formControlName]="'detailsofen18'"  [(ngModel)]="initialDraftReport['Question18']">
+                                          <mat-option *ngFor="let food of foods2" [value]="food.value">
+                                            {{food.viewValue}}
+                                          </mat-option>
+                                        </mat-select>
+                                      </div>
+                                    </div>
+      
+                                    <div class="col-xl-5">
+                                      <input  class="new-control form-control"
+                                         id="meassageInput"
+                               style="  height: auto;
+                               resize: vertical;"        placeholder="Name" formControlName="detailsofen19"  [(ngModel)]="initialDraftReport['Question19']"> 
+                                 </div>
+      
+      
+                                 <div class="col-xl-5">
+                                  <grammarly-editor-plugin >
+                                    <input  class="new-control form-control"
+                                    id="meassageInput"
+                          style="  height: auto;
+                          resize: vertical;"        placeholder="Position" formControlName="detailsofen24"  [(ngModel)]="initialDraftReport['Question24']"> 
+                                  </grammarly-editor-plugin>
+                                 
+                             </div>
+      
+                                  </div>
+      
+                                
+                           
+                               
+                       
+                        <div class="col-xl-4">
+                          <input  class="new-control form-control"
+                             id="meassageInput"
+                   style="  height: auto;
+                   resize: vertical;text-align: right;"   placeholder="Phone" formControlName="detailsofen25"  [(ngModel)]="initialDraftReport['Question25']"> 
+                     </div>
+                     <div class="col-xl-4">
+                      <input class="new-control form-control"
+                        id="messageInput"
+                        style="height: auto; resize: vertical; color: darkblue;"
+                        placeholder="Email"  formControlName="detailsofen26" appEmail  [(ngModel)]="initialDraftReport['Question26']">
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-xl-12">
+                          <div class="d-flex align-items-center justify-content-between">
+                              <p
+                                  class="org-in-text text-muted mb-0">
+                                  <button type="button"
+                                      class="btn btn-sm btn-outline"
+                                      style="font-size: 13px;"
+                                     >13</button>Reporting boundary - Are the disclosures under this report made on a standalone basis (i.e. only for the entity) or on a consolidated basis (i.e. for the entity and all the entities which form a part of its consolidated financial statements, taken together):
+                              </p>
+                             
+                              <button type="button"
+                                  class="btn btn-sm btn-outline evidence-btn"
+                                  style="font-size: 13px; float: right"
+                                  (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'Reporting boundary1')">
+                                  Evidence
+                                  <i class="ri-file-upload-line"
+                                      style="font-size: 12px"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                     
+                  
+                                
+                                  <div class="">
+                                    <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                  <mat-select matInput [formControlName]="'detailsofen27'"  [(ngModel)]="initialDraftReport['Question27']">
+                                    <mat-option *ngFor="let food of foods1" [value]="food.value">
+                                      {{food.viewValue}}
+                                    </mat-option>
+                                  </mat-select>
+                          </div>
+                                  </div>
+                                </div>
+                                <!-- <div class="d-flex align-items-start gap-3 mt-4" style="  padding:20px;">
+                                   <button type="button" class="esg-back-btn btn dash-btn-1 btn8-label right nexttab nexttab" (click)="onprevdisclosure()" data-nexttab="pills-experience-tab">Previous</button> 
+                        <div class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab" style="margin:auto" *ngIf="inputofcountries==arrayofcounts"> 
+                          <button type="button"  (click)="onSave()" data-nexttab="pills-experience-tab">Save</button>
+                        </div>
+                           <button type="button" class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab" (click)="onNextdisclosure()" data-nexttab="pills-experience-tab">Next </button> 
+                      </div> -->
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> </form>
+
+  </div>
+
+</div>
+
+
+

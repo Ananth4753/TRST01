@@ -1,0 +1,186 @@
+<div class="container-fluid h-100 align-items-center align-middle d-flex justify-content-center">
+
+  <div class="row">
+
+      <div class="hello row dash-nft h-100 ">
+
+          <div class="col-xl-12 mx-auto mt-5">
+
+              <div class="b-card frame-card-1 card">
+                  <form [formGroup]="reportform">
+                  <mat-form-field appearance="fill" style="width: 100%;">
+
+                      <mat-label>Report Name</mat-label>
+
+                      <input matInput formControlName="ReportName"  >
+
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" style="width: 100%;">
+
+                      <mat-label>Year</mat-label>
+
+                      <mat-select matInput [formControlName]="'currentYear'"  (selectionChange)="handleFileInput($event)" >
+
+                     
+
+                      <mat-option *ngFor="let o of years" [value]="o"  >
+
+                          {{o}}
+
+                      </mat-option>
+
+                  </mat-select>
+
+                  </mat-form-field>
+
+                 
+
+                 
+
+                   
+
+                      <div class="accordion custom-accordionwithicon" id="accordionWithplusicon" style="margin-top: 20px;">
+
+                          <div class="accordion-item">
+
+                              <h2 class="accordion-header" id="accordionwithplusExample1">
+
+                                  <button class="custom accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accor_plusExamplecollapse1" aria-expanded="false" aria-controls="accor_plusExamplecollapse1">
+
+                                      <p >Custom Report Period</p>
+
+                                  </button>
+
+                              </h2>
+
+                              <div id="accor_plusExamplecollapse1" class="accordion-collapse collapse " aria-labelledby="accordionwithplusExample1" data-bs-parent="#accordionWithplusicon">
+
+                                  <div class="accordion-body">
+
+                                      <div class="md-frame d-flex  align-items-center">
+
+                                          <div class="gri-auto mx-auto  ">
+
+                                              <div class=" d-flex md-frame align-items-center">
+
+                                                  <div class="frame-img flex-shrink-0">    
+
+                                                      <div style="margin-bottom: 30px;">
+
+                                                          <p style="font-weight: 400;font-size: 15px;">Start Date:</p>
+
+                                                          <input type="date" id="start" name="trip-start" style="padding:10px;font-size: 15px;border-radius: 10px;     border: 1px solid rgb(120, 119, 119);"
+
+                                                          formControlName="StartDate"   >  
+
+                                                          <input type="date" id="start" name="trip-start" style="padding:10px;font-size: 15px;border-radius: 10px;   margin-top: 30px;  border: 1px solid rgb(120, 119, 119);"
+
+                                                          formControlName="EndDate"   >  
+
+                                                      </div>
+
+                                                  </div>
+
+                                               
+
+                                              </div>
+
+                                          </div>
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </div>
+
+          
+                  </form>  
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<div class="col-xl-12 copyrt" style="z-index: 99; text-align: center;    padding-left: 50px;
+
+
+
+  padding-right: 50px;
+
+
+
+  padding-bottom: 50px; font-size: 16px;  
+
+
+
+  border-top: 1px solid #e6e8f2;
+
+
+
+  ">
+
+
+
+
+
+
+
+
+
+
+
+<div class="d-flex align-items-start gap-3 mt-4">
+
+
+
+  <button type="button" class="esg-prev-btn btn dash-btn-1 btn-label previestab"(click)="back()" data-previous="steparrow-gen-info-tab"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back </button>
+
+
+
+  <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab" [disabled]="reportform.invalid" (click)="next()" data-nexttab="pills-experience-tab" ><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Next</button>
+
+
+
+ 
+
+
+
+</div>
+
+
+
+
+
+
+
+   </div>
+
+
+
+
+
+
+
+
+<!--start back-to-top-->
+
+<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+
+<i class="ri-arrow-up-line"></i>
+
+</button>
+
+<!--end back-to-top-->

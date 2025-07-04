@@ -1,0 +1,156 @@
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+
+    <!-- Header -->
+    <div
+        class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+        <!-- Loader -->
+        <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+            <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+        </div>
+        <!-- Title -->
+        <div class="text-4xl font-extrabold tracking-tight">Menu</div>
+        <!-- Actions -->
+        <div class="flex flex-shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+            <!-- Search -->
+            <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
+                <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:search'"></mat-icon>
+                <input matInput [formControl]="searchInputControl" [autocomplete]="'off'"
+                    [placeholder]="'Search menu'">
+            </mat-form-field>
+            <!-- Add menu button -->
+            <button class="ml-4" mat-flat-button [color]="'primary'" (click)="createMenu()">
+                <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                <span class="ml-2 mr-1">Add</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex flex-auto overflow-hidden">
+
+        <!-- Menu Table -->
+        <div class="sm:col-span-6 flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto">
+            <div class="flex flex-col flex-auto overflow-x-auto">
+                <ng-container *ngIf="(menuItems$ | async) as menuItems">
+                    <ng-container *ngIf="menuItems.length > 0; else noMenuItems">
+                        <table mat-table [dataSource]="menuDataSource"
+                            class="min-w-240 overflow-y-visible" matSort matSortActive="Name" matSortDirection="asc">
+
+                            <!-- Edit -->
+                            <ng-container matColumnDef="Edit" sticky>
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let menuItem">
+                                    <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                                        (click)="onEditMenu(menuItem.Id)">
+                                        <mat-icon class="icon-size-5" svgIcon="mat_solid:edit">
+                                        </mat-icon>
+                                    </button>
+                                </td>
+                            </ng-container>
+
+                            <!-- Name -->
+                            <ng-container matColumnDef="Name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.Name}}</td>
+                            </ng-container>
+
+                            <!-- Menu Type -->
+                            <ng-container matColumnDef="MenuType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Menu Type</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.MenuType}}</td>
+                            </ng-container>
+
+                            <!-- Parent Menu -->
+                            <ng-container class="hidden lg:block" matColumnDef="ParentMenu">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Parent Menu</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.ParentMenu}}</td>
+                            </ng-container>
+
+                            <!-- Active -->
+                            <ng-container class="hidden lg:block" matColumnDef="ViewYN">
+                                <th mat-header-cell *matHeaderCellDef>Active</th>
+                                <td mat-cell *matCellDef="let menuItem">
+                                    <ng-container *ngIf="menuItem.ViewYN">
+                                        <mat-icon class="text-green-400 icon-size-5" [svgIcon]="'heroicons_solid:check'"></mat-icon>
+                                    </ng-container>
+                                    <ng-container *ngIf="!menuItem.ViewYN">
+                                        <mat-icon class="text-gray-400 icon-size-5" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+                                    </ng-container>
+                                </td>
+                            </ng-container>
+
+                            <!-- Path -->
+                            <ng-container class="hidden lg:block" matColumnDef="Path">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Path</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.Path}}</td>
+                            </ng-container>
+
+                            <!-- Icon -->
+                            <ng-container class="hidden sm:block" matColumnDef="Icon">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Icon</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.Icon}}</td>
+                            </ng-container>
+
+                            <!-- Code -->
+                            <ng-container class="hidden sm:block" matColumnDef="Code">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.Code}}</td>
+                            </ng-container>
+
+                            <!-- Order -->
+                            <ng-container class="hidden sm:block" matColumnDef="Order">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Order</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.Order}}</td>
+                            </ng-container>
+
+                            <!-- Created Date -->
+                            <!-- <ng-container class="hidden sm:block" matColumnDef="CreatedDate">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.CreatedDate | date:"dd-MMM-yyyy"}}</td>
+                            </ng-container> -->
+
+                            <!-- Created By User -->
+                            <!-- <ng-container class="hidden sm:block" matColumnDef="CreatedByUser">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Created By User</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.CreatedByUser}}</td>
+                            </ng-container> -->
+
+                            <!-- Updated Date -->
+                            <ng-container class="hidden sm:block" matColumnDef="UpdatedDate">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated Date</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.UpdatedDate | date:"dd-MMM-yyyy"}}</td>
+                            </ng-container>
+
+                            <!-- Updated By User -->
+                            <!-- <ng-container class="hidden sm:block" matColumnDef="UpdatedByUser">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated By User</th>
+                                <td mat-cell *matCellDef="let menuItem">{{menuItem.UpdatedByUser}}</td>
+                            </ng-container> -->
+
+                            <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true" class="bg-gray-50"></tr>
+                            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+                        </table>
+
+                        <mat-paginator
+                            class="sm:absolute sm:inset-x-0 sm:bottom-0 border-b sm:border-t sm:border-b-0 z-10 bg-gray-50 dark:bg-transparent"
+                            [ngClass]="{'pointer-events-none': isLoading}" [pageSize]="pageSize"
+                            [pageSizeOptions]="[10, 25, 50, 100, menuDataSource.data.length]" showFirstLastButtons
+                            aria-label="Select page of menu items">
+                        </mat-paginator>
+
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <ng-template #noMenuItems>
+                <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">
+                    There are no menu items!
+                </div>
+            </ng-template>
+
+        </div>
+
+    </div>
+
+</div>

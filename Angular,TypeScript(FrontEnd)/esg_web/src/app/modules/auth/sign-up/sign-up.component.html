@@ -1,0 +1,216 @@
+<!-- Inspired by: https://codepen.io/natewiley/pen/Ciwyn -->
+<div class="container-fluid">
+  
+  <div class="row  no-gutter" >
+   <div class="col-md-6 d-none d-md-flex bg-image" style=" background-image: url('assets/img/signup_logo.gif'); z-index:1028;">
+    <div >
+     
+    </div>
+            <!-- <div class="logo-lg ml-5 mr-5">
+              <img src="assets/images/logo/change_logo_2.png">
+            </div> -->
+          </div>
+          <div class="col-md-6 bg-light">
+            <ng-particles
+            [id]="id"
+            [options]="particlesOptions"
+            (particlesLoaded)="particlesLoaded($event)"
+            (particlesInit)="particlesInit($event)"
+          ></ng-particles>
+          
+          <!-- or -->
+          
+          <ng-particles
+            [id]="id"
+            [url]="particlesUrl"
+            (particlesLoaded)="particlesLoaded($event)"
+            (particlesInit)="particlesInit($event)"
+          ></ng-particles>
+            <div class="login d-flex align-items-center">
+          <div class="col-lg-8 col-xl-9 mx-auto lg-fm-grid2">
+            <div class="text-center tx-lg">
+              <h4 class="login-text">Register</h4>
+              <!-- <p class="text-muted mb-4">Create a login split page using Bootstrap 4.</p> -->
+            </div>
+           
+            <form [formGroup]="regform" class="reg-fm">
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Organization Name*</label>
+                       <img src="assets/images/users/organization-1.png"style="width: 7%;position: absolute;margin-top:5px; padding:5px;">
+                       <input (change)="OrgValidate()"style="text-transform: capitalize; min-height: 42px; box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                       border: 1px solid #0094DB !important;padding-left: 40px;" type="text"
+                       id="OrganizationName" class="form-control" formControlName="OrganizationName">
+                     <p *ngIf="Orgvalid" style="color: Red;">This Organization is already registered. Please try another
+                     </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Organization Type</label>
+                      <img src="assets/images/users/org-3.png" style="width: 7%;position: absolute;margin-top:5px; padding:5px;">
+                      <select style="text-transform: capitalize; min-height: 42px; box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;" class="form-control" formControlName="OrganizationType">
+                        <option value="" disabled>Select Organization Type</option>
+                        <option value="Public Company">Public Company</option>
+                        <option value="Private Company">Private Company</option>
+                        <option value="Holding Company">Holding Company</option>
+                        <option value="Subsidiary Company">Subsidiary Company</option>
+                        <option value="Associate Company">Associate Company</option>
+                        <option value="Joint Venture">Joint Venture</option>
+                        <option value="Minority Interest">Minority Interest</option>
+                        <option value="Sole proprietorship">Sole proprietorship</option>
+                        <option value="Company Limited by Shares">Company Limited by Shares</option>
+                        <option value="Company Limited by Guarantee">Company Limited by Guarantee</option>
+                        <option value="Unlimited Company">Unlimited Company</option>
+                        <option value="Co-Operative">Co-Operative</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>                
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Head Office</label>
+                     
+                        <img src="assets/images/users/office-5.png" style="width: 7%;position: absolute;margin-top:5px; padding:5px;">
+                        <input style="text-transform: capitalize; min-height: 42px; box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                        border: 1px solid #0094DB !important;padding-left: 40px;" type="text" class="form-control"
+                                          formControlName="HeadOffice">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                       <label style="font-size: 15px;">Country</label>
+                      <img src="assets/images/users/od-5.png" style="width: 7%;position: absolute; margin-top:5px; padding:5px;">
+                      <!-- <input style="border-radius: 25px; border: 1px solid" type="text" class="form-control" formControlName="Country" > -->
+                      <select  style="text-transform: capitalize;min-height: 42px;  box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;" class="form-control" name="country" id="country" formControlName="Country">
+                        <!-- <option value="" disabled selected>Select Country</option> -->
+                        <option *ngFor="let c of myData" [value]="c.text">{{c.text}}</option>
+                   </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Pincode</label>
+                      <img src="assets/images/users/pin-2.png" style="width: 7%;position: absolute;margin-top:5px; padding:5px;">
+                      <input  style="text-transform: capitalize; min-height: 42px; box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;" type="number" class="form-control"
+                        formControlName="Pincode">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Contact Name</label>
+                      <img src="assets/images/users/user-name.png" style="width: 7%;position: absolute;margin-top:5px; padding:5px;">
+                      <input  style="text-transform: capitalize; min-height: 42px; box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;" type="text" class="form-control"
+                        formControlName="ContactName">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Email</label>
+                      <img src="assets/images/users/e-mail1.png" style="width: 6%;position: absolute;margin-top:7px; padding:5px;">
+                      <input (change)="EmailValidate()" Id="Email"  style="min-height: 42px;  box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;"
+                        type="email" class="form-control" formControlName="EmailId">
+                      <p *ngIf="Mailvalid" style="color: Red;">This email address is already taken. Please try another</p>
+    
+                      <p *ngIf=" regform.controls['EmailId'].errors && regform.controls['EmailId'].touched "
+                        style="color: Red;">Enter Valid Email</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Contact Number</label>
+                      <img src="assets/images/users/cont-1.png" style="width: 6%;position: absolute;margin-top:7px; padding:5px;">
+                      <input  style="text-transform: capitalize; min-height: 42px; box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;" type="text" class="form-control" (keypress)="onlynumbers($event)" maxlength="10" minlength="10"
+                        formControlName="ContactNumber">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row" style="display:flex;justify-content:center">
+                    <div class="col-md-10">
+                      <label style="font-size: 15px;">Designation</label>
+                      <img src="assets/images/users/des-2.png" style="width:7%;position: absolute;margin-top:5px; padding:5px;">
+                      <input  style="min-height: 42px;  box-shadow: 0 8px 20px -2px rgb(158 152 153 / 50%);
+                      border: 1px solid #0094DB !important;padding-left: 40px;" type="text" class="form-control"
+                        formControlName="Designation">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row"  style="display:flex;justify-content:center">
+                    <div class="col-md-10" style="margin-top: 10px;">
+                      Already a member ? <a
+                        style="color: #00276d;font-weight: bolder;text-decoration: underline !important;cursor: pointer;"
+                        [routerLink]="['/sign-in']"> Login </a>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div class="form-group">
+                <div class="row" style="display:flex;justify-content:center">
+                  <div class="col-md-10" style="display:flex;justify-content:center">
+                    <button type="submit"
+                      style="    background-color: #00276d;border-radius: 15px;color:white;font-size:14px;"
+                      class="ui-button btn btn-primary" (click)="openDialog()" [disabled]="regform.invalid">Create An Account</button>
+                  </div>
+                </div>
+                </div>
+    
+    
+              </form>
+          </div>
+  
+  </div>
+  </div>
+  
+        </div>
+  
+  
+  
+  
+      </div>
+  
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="margin-bottom: 182px;">
+  
+        <div class="card-body p-4 text-center" style="margin-top: -14px;">
+          <div class="avatar-lg mx-auto mt-2">
+            <div class="avatar-title bg-light text-success display-3 rounded-circle">
+              <i class="ri-checkbox-circle-fill-1"></i>
+            </div>
+          </div>
+          <div class="mt-4 pt-2">
+            <h3>Congratulations !</h3>
+            <h4>Your Registration Has Heen Successful </h4>
+            <p class="text-muted mx-4">Please Check Your Mail.</p>
+            <div class="mt-4">
+              <a type="button" class="btn btn-success" [routerLink]="['/sign-in']">Ok</a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>

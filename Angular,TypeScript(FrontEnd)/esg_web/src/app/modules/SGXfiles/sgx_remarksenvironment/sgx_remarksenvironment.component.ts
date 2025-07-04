@@ -1,0 +1,202 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UpdatereportService } from 'app/modules/updatereport/updatereport.service';
+import { Sgx_imagereportService } from '../sgx_imagereport/sgx_imagereport.service';
+import { DashboardService } from 'app/modules/dashboard/dashboard.service';
+import { AppService } from 'app/app.service';
+import { AuthService } from 'app/core/auth/auth.service';
+import { SelectsgxService } from '../selectsgx/selectsgx.service';
+import { CreatereportforsgxService } from '../createreportforsgx/createreportforsgx.service';
+import {FormControl, FormGroup,Validators, FormBuilder,FormArray, } from '@angular/forms';
+import { Sgx_validatingreportscreenService } from '../sgx_validatingreportscreen/sgx_validatingreportscreen.service';
+import { UploadevidenceforsgxComponent } from './uploadevidenceforsgx/uploadevidenceforsgx.component';
+import { MatDialog } from '@angular/material/dialog';
+@Component({
+  selector: 'app-sgx_remarksenvironment',
+  templateUrl: './sgx_remarksenvironment.component.html',
+  styleUrls: ['./sgx_remarksenvironment.component.scss']
+})
+export class Sgx_remarksenvironmentComponent implements OnInit {
+  envform: FormGroup;
+  reportid: any;
+  reportname: any;
+  templatemenu: any;
+  designtemplate: any;
+  startdate: any;
+  enddate: any;
+  currentYear: number;
+  PreviousYear:number;
+  srno:any;
+  dynamicobjzero: any;
+  public questionValues: any[] = [];
+  public answerValues: any[] = [];
+  firstimage =
+  'https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp1.png';
+secondimage =
+  'https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp2.png';
+thirdimage =
+  'https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp3.png';
+fourthimage =
+  'https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp4.png';
+fifthimage =
+  'https://etgdocstorage.s3.ap-south-1.amazonaws.com/ESG/ReportImages/fp5.png';
+imageUrl: any;
+qaa: any;
+questions: any;
+dynamicobj: any;
+orgId:any;
+constructor(
+  private route: ActivatedRoute,
+  private aa: ActivatedRoute,
+  private AuthService: AuthService,
+  private service: AppService,
+  private ss: SelectsgxService,
+  private crs: CreatereportforsgxService,
+  private us: UpdatereportService,
+  private is: Sgx_imagereportService,
+  private ds: DashboardService,
+  private fb: FormBuilder,
+  public dialog: MatDialog,
+  private vrs:Sgx_validatingreportscreenService
+) {
+  this.srno=0;
+}
+finalobj: any = {};
+
+ngOnInit() {
+  this.orgId=this.AuthService.user.orgId
+ this.envform = this.fb.group({
+
+  env1:[''],
+  env2:[''],
+  env3:[''],
+  env4:[''],
+  env5:[''],
+  env6:[''],
+  env7:[''],
+  env8:[''],
+  env9:[''],
+  env10:[''],
+  env11:[''],
+  env12:[''],
+  env13:[''],
+  env14:[''],
+  env15:[''],
+  env16:[''],
+  env17:[''],
+  env18:[''],
+  env19:[''],
+  env20:[''],
+  env21:[''],
+  env22:[''],
+  env23:[''],
+  env24:[''],
+  env25:[''],
+  env26:[''],
+  env27:[''],
+  env28:[''],
+  env29:[''],
+  env30:[''],
+  env31:[''],
+  env32:[''],
+  env33:[''],
+ });
+
+
+  const Today = new Date();
+this.currentYear = Today.getFullYear();
+this.PreviousYear=this.currentYear-1;
+
+  this.reportid = this.aa.snapshot.paramMap.get('reportId');
+  this.us
+      .getSGXReportDetailsByReportId(this.reportid)
+      .subscribe((res) => {
+          this.reportname = res[0].ReportName;
+          this.startdate = res[0].StartDate;
+          this.enddate = res[0].EndDate;
+          this.qaa = JSON.parse(res[0].InitialDraftReport);
+          console.log(this.qaa[0]);
+          this.dynamicobj = this.qaa;
+          console.log(this.dynamicobj);
+          
+          // const questionValues = Object.values(Questions[0]);
+          // const answerValues =Object.values(this.qaa)
+          // this.questionValues = Object.values(Questions[0]);
+          // this.answerValues = Object.values(this.qaa);
+          // console.log(this.answerValues[0]);
+          // console.log(this.answerValues);
+
+          this.dynamicobj = JSON.parse(res[0].InitialDraftReport);
+          console.log(this.dynamicobj[0]);
+          console.log(this.dynamicobj[0]['Question10']);
+          console.log(this.dynamicobj[1]['env1bQuestion5']);
+          console.log(this.dynamicobj[1]['env1bQuestion1']);
+          console.log(this.dynamicobj[1]['env1bQuestion3']);
+          // console.log(this.dynamicobj[0]['Question16'])
+//           if(this.dynamicobj!=null){
+//            this.dynamicobjzero = this.dynamicobj[0];
+//           console.log(this.dynamicobj[0]['Question1']);
+//           console.log(this.dynamicobj[0]['Question2']);
+//  console.log(this.dynamicobj);
+//           }
+      });
+
+  this.is
+      .getSGXFinalReportDetailsByReportId(this.reportid)
+      .subscribe((res) => {
+          var size = Object.keys(res).length;
+
+          this.designtemplate = res[0].DesignTemplate;
+          if (this.designtemplate == 1) {
+              this.imageUrl = this.firstimage;
+          } else if (this.designtemplate == 2) {
+              this.imageUrl = this.secondimage;
+          } else if (this.designtemplate == 3) {
+              this.imageUrl = this.thirdimage;
+          } else if (this.designtemplate == 4) {
+              this.imageUrl = this.fourthimage;
+          } else {
+              this.imageUrl = this.fifthimage;
+          }
+      });
+}
+
+Save(){
+  let formva=this.envform.value
+  //console.log(formva);
+  
+      this.vrs.GetSGXValidatingFinalReportByReportId(this.reportid,this.AuthService.user.id).subscribe((data)=>{
+        console.log(data);
+        console.log(this.reportid);
+        console.log(this.AuthService.user.id);
+        const resdata = data[0];
+        const boxes: any = {
+          Id: resdata.Id,
+          ReportId: resdata.ReportId,
+          OrgId: resdata.OrgId,
+          UserId: resdata.UserId,
+          IsValidate: 1,
+          Remarks: formva,
+          IsActive: resdata.IsActive,
+          UpdatedByUserId: resdata.UpdatedByUserId,
+          UpdatedDate: resdata.UpdatedDate,
+          CreatedByUserId: resdata.CreatedByUserId,
+          CreatedDate: resdata.CreatedDate,
+        };
+        this.vrs.addSGXfinalreportvalidation(boxes).subscribe((final) => {
+         // console.log(final);
+        });
+      })
+  }
+  openuploadimgcompo(ReportId: any, GuidanceNumber: any, OrgId: any, ques: any) {
+
+    const dialogRef = this.dialog.open(UploadevidenceforsgxComponent, {
+  
+      autoFocus: false,
+  
+      data: { ReportId, GuidanceNumber, OrgId, ques },
+  
+    });
+  
+  }
+}

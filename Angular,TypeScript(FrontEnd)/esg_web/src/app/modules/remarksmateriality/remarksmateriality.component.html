@@ -1,0 +1,761 @@
+
+<div aria-label="pdf-page-9">
+  <div class="pagenumber">
+    <form [formGroup]="materialityform">
+    <ng-container *ngFor="let o of templatemenu">
+<div aria-label1="pdf-page-120">
+  <div *ngIf="(this.dynamicobj['Material-1Q1']!='') || (this.dynamicobj['Material-1Q2']!='') || (this.dynamicobj['Material-1Q3']!='')" >
+    <ng-container *ngIf="o.TemplateMenuId == 120 " >
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+                <div *ngIf="this.dynamicobj['Material-1Q1']!='' ">
+                <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"> 3-1-a-i</span>Describe the process it has followed to determine its material topics, including: i. How it has identified actual and potential, negative and positive impacts on the economy, environment, and people, including impacts on their human rights, across its activities and business relationships:
+                  </h6>
+                  <button type="button"
+                                                                                            class="btn btn-sm btn-outline"
+                                                                                            style="font-size: 13px; float: right"
+                                                                                            (click)="openuploadimgcompo(this.reportid,'Material-1Q1',this.orgId,'Material-1Q1')">
+                                                                                       
+                                                                                            <i class="ri-file-upload-line"
+                                                                                                style="font-size: 12px"></i>
+                                                                                        </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header" *ngIf="this.dynamicobj">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality1">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="this.dynamicobj['Material-1Q2']!=''">
+                <div class="fa-text jalsa card-header" *ngIf="this.dynamicobj['Material-1Q2']!=''">
+                  <h6 class="card-title mb-0 "><span class="fa-102 badge  fs-10">3-1-a-ii</span> How it has prioritized the impacts for reporting based on their significance </h6>
+                  <button type="button"
+                  class="btn btn-sm btn-outline"
+                  style="font-size: 13px; float: right"
+                  (click)="openuploadimgcompo(this.reportid,'Material-1Q2',this.orgId,'Material-1Q2')">
+             
+                  <i class="ri-file-upload-line"
+                      style="font-size: 12px"></i>
+              </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality2">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+                
+              </div>
+             
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="o.TemplateMenuId == 120 " >
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+             
+              <div *ngIf="this.dynamicobj['Material-1Q3']!=''">
+                <div class="fa-text jalsa card-header" >
+                  <h6 class="card-title mb-0 "><span class="fa-102 badge  fs-10"> 3-1-b</span> Specify the stakeholders and experts whose views have informed the process of determining its material topics. </h6>
+                  <button type="button"
+                  class="btn btn-sm btn-outline"
+                  style="font-size: 13px; float: right"
+                  (click)="openuploadimgcompo(this.reportid,'Material-1Q3',this.orgId,'Material-1Q3')">
+              
+                  <i class="ri-file-upload-line"
+                      style="font-size: 12px"></i>
+              </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality3">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                
+              </div>
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div aria-label1="pdf-page-121">
+  <div *ngIf="(this.dynamicobj['Material-2Q1']!='' || (this.dynamicobj['Material-2Q2']!=''))" >
+    <ng-container *ngIf="o.TemplateMenuId == 121 " >
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+                <div *ngIf="this.dynamicobj['Material-2Q1']!=''">
+                <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10"> 3-2-a.</span>List its material topics
+                  </h6>
+                  <button type="button"
+                                                                                            class="btn btn-sm btn-outline"
+                                                                                            style="font-size: 13px; float: right"
+                                                                                            (click)="openuploadimgcompo(this.reportid,'Material-2Q1',this.orgId,'Material-2Q1')">
+                                                                                         
+                                                                                            <i class="ri-file-upload-line"
+                                                                                                style="font-size: 12px"></i>
+                                                                                        </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header" *ngIf="this.dynamicobj">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality4">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="this.dynamicobj['Material-2Q2']!=''">
+                <div class="fa-text jalsa card-header" *ngIf="this.dynamicobj['Material-2Q2']!=''">
+                  <h6 class="card-title mb-0 "><span class="fa-102 badge  fs-10"> 3-2-b.</span> Report changes to the list of material topics compared to the previous reporting period </h6>
+                  <button type="button"
+                  class="btn btn-sm btn-outline"
+                  style="font-size: 13px; float: right"
+                  (click)="openuploadimgcompo(this.reportid,'Material-2Q2',this.orgId,'Material-2Q2')">
+                
+                  <i class="ri-file-upload-line"
+                      style="font-size: 12px"></i>
+              </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality5">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+                
+              </div>
+              <footer class="footer sun col-xxl-12">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="">
+                      <div class=" align-items-center d-flex">
+  
+                        <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+                   
+                        <!-- <h3 class="mypower2 in-pages float-page" style="color: #000;
+                                  margin-top: 0px;     margin-left: 50px;"></h3> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div aria-label1="pdf-page-122">
+  <div *ngIf="(this.dynamicobj['mtptdmttwotable1']!='[]'|| this.dynamicobj['mtptdmttwotable2']!='[]'||this.dynamicobj['mtptdmttwotable3']!='[]'|| this.dynamicobj['mtptdmttwotable4']!='[]'|| this.dynamicobj['mtptdmttwotable5']!='[]'|| this.dynamicobj['mtptdmttwotable6']!='[]'|| this.dynamicobj['mtptdmttwotable7']!='[]'|| this.dynamicobj['mtptdmttwotable8']!='[]'|| this.dynamicobj['mtptdmttwotable9']!='[]'|| this.dynamicobj['mtptdmttwotable10']!='[]'|| this.dynamicobj['mtptdmttwotable11']!='[]' )" >
+    <ng-container *ngIf="o.TemplateMenuId == 122 ">
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+
+                <div *ngIf="this.dynamicobj['mtptdmttwotable1']!='[]'">
+                <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-A</span>List its material topics:
+                  </h6>
+                  <button type="button"
+                                                                                            class="btn btn-sm btn-outline"
+                                                                                            style="font-size: 13px; float: right"
+                                                                                            (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable1',this.orgId,'mtptdmttwotable1')">
+                                                                                      
+                                                                                            <i class="ri-file-upload-line"
+                                                                                                style="font-size: 12px"></i>
+                                                                                        </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality6">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+  </div>
+  <div *ngIf="this.dynamicobj['mtptdmttwotable2']!='[]'">
+    <div class="fa-text jalsa card-header">
+      <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-B</span>Report whether the organization is involved with the negative impacts through its activities or as a result of its business relationships, and describe the activities or business relationships:
+      </h6>
+      <button type="button"
+      class="btn btn-sm btn-outline"
+      style="font-size: 13px; float: right"
+      (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable2',this.orgId,'mtptdmttwotable2')">
+ 
+      <i class="ri-file-upload-line"
+          style="font-size: 12px"></i>
+  </button>
+    </div>
+
+    <div class="fa-text-1 jalsa card-header">
+      <div class="row">
+        <div class="col-md-8">
+          <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality7">
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+        </div>
+      </div>
+    </div></div>
+
+
+                
+              </div>
+              <footer class="footer sun col-xxl-12">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="">
+                      <div class=" align-items-center d-flex">
+  
+                        <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+                   
+                        <!-- <h3 class="mypower2 in-pages float-page" style="color: #000;
+                                  margin-top: 0px;     margin-left: 50px;"></h3> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="o.TemplateMenuId == 122 ">
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+
+                <div *ngIf="this.dynamicobj['mtptdmttwotable3']!='[]'">
+                  <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-C</span>Describe its policies or commitments regarding the material topic:
+                  </h6>
+                  <button type="button"
+                                                                                            class="btn btn-sm btn-outline"
+                                                                                            style="font-size: 13px; float: right"
+                                                                                            (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable3',this.orgId,'mtptdmttwotable3')">
+                                                                                        
+                                                                                            <i class="ri-file-upload-line"
+                                                                                                style="font-size: 12px"></i>
+                                                                                        </button>
+                  </div>
+                  <div class="fa-text-1 jalsa card-header">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality8">
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div *ngIf="this.dynamicobj['mtptdmttwotable4']!='[]'">
+                  <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-D</span>Describe actions taken to manage the topic and related impacts, including: 
+                  </h6>
+                   </div>
+                  <div class="fa-text jalsa card-header">
+                    <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-D-i</span> i: Actions to prevent or mitigate potential negative impacts:
+                    </h6>
+                    <button type="button"
+                  class="btn btn-sm btn-outline"
+                  style="font-size: 13px; float: right"
+                  (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable4',this.orgId,'mtptdmttwotable4')">
+               
+                  <i class="ri-file-upload-line"
+                      style="font-size: 12px"></i>
+              </button>
+                    </div>
+                  <div class="fa-text-1 jalsa card-header">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality9">
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                               
+                  <div *ngIf="this.dynamicobj['mtptdmttwotable5']!='[]'">
+                      <div class="fa-text jalsa card-header">
+                        <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-D-ii</span>Actions to address actual negative impacts, including actions to provide for or cooperate in their remediation
+                        </h6>
+                        <button type="button"
+                        class="btn btn-sm btn-outline"
+                        style="font-size: 13px; float: right"
+                        (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable5',this.orgId,'mtptdmttwotable5')">
+                  
+                        <i class="ri-file-upload-line"
+                            style="font-size: 12px"></i>
+                    </button>
+                        </div>
+                  <div class="fa-text-1 jalsa card-header">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality10">
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                      </div>
+                    </div>
+                  </div>
+                  </div>   
+                
+              </div>
+              <footer class="footer sun col-xxl-12">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="">
+                      <div class=" align-items-center d-flex">
+  
+                        <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+                   
+                        <!-- <h3 class="mypower2 in-pages float-page" style="color: #000;
+                                  margin-top: 0px;     margin-left: 50px;"></h3> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    
+    <ng-container *ngIf="o.TemplateMenuId == 122 " >
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+
+                <div *ngIf="this.dynamicobj['mtptdmttwotable6']!='[]'">
+                <div class="fa-text jalsa card-header">
+                  <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-D-iii</span>Actions to manage actual and potential positive impacts:
+                  </h6>
+                  <button type="button"
+                  class="btn btn-sm btn-outline"
+                  style="font-size: 13px; float: right"
+                  (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable6',this.orgId,'mtptdmttwotable6')">
+                
+                  <i class="ri-file-upload-line"
+                      style="font-size: 12px"></i>
+              </button>
+                </div>
+                <div class="fa-text-1 jalsa card-header">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality11">
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+                    </div>
+                  </div>
+                </div>
+  </div>
+  <div *ngIf="this.dynamicobj['mtptdmttwotable7']!='[]'">
+    <div class="fa-text jalsa card-header">
+      <h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-E-i</span> Report the following information about tracking the effectiveness of the actions taken: i: Processes used to track the effectiveness of the actions:
+      </h6>
+      <button type="button"
+      class="btn btn-sm btn-outline"
+      style="font-size: 13px; float: right"
+      (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable7',this.orgId,'mtptdmttwotable7')">
+    
+      <i class="ri-file-upload-line"
+          style="font-size: 12px"></i>
+  </button>
+    </div>
+    <div class="fa-text-1 jalsa card-header">
+      <div class="row">
+        <div class="col-md-8">
+          <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality12">
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div *ngIf="this.dynamicobj['mtptdmttwotable8']!='[]'">
+<div class="fa-text jalsa card-header">
+<h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-E-ii</span> Goals, targets, and indicators used to evaluate progress:
+</h6>
+<button type="button"
+class="btn btn-sm btn-outline"
+style="font-size: 13px; float: right"
+(click)="openuploadimgcompo(this.reportid,'mtptdmttwotable8',this.orgId,'mtptdmttwotable8')">
+
+<i class="ri-file-upload-line"
+    style="font-size: 12px"></i>
+</button>
+</div>
+<div class="fa-text-1 jalsa card-header">
+  <div class="row">
+    <div class="col-md-8">
+      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality13">
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+    </div>
+  </div>
+</div>
+</div>
+
+                
+              </div>
+              <footer class="footer sun col-xxl-12">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="">
+                      <div class=" align-items-center d-flex">
+  
+                        <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+                   
+                        <!-- <h3 class="mypower2 in-pages float-page" style="color: #000;
+                                  margin-top: 0px;     margin-left: 50px;"></h3> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="o.TemplateMenuId == 122 " >
+      <div class="container-fluid" >
+        <div class="row justify-content-center">
+          <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+            <div class="card" >
+
+              <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;" >
+              <div class="card-img-overlay p-0 d-flex flex-column">
+                <div class="esg-head card-header">
+                  <span class="float-end">{{reportname}}</span>
+                  <!-- <h6 class="card-title mb-0" style="font-size: 25px; color: #e57d38; margin-left: 35px; ">Metrics and
+                    Disclosures </h6> -->
+                </div>
+                <ng-container *ngIf="o.MTemplateName != 'no' " >
+                  <div class="general-alert alert alert-success alert-border-left  fade show" role="alert">
+                    <i class=" me-3 align-middle fs-16"></i><strong style="font-size: 20px;">{{o.MTemplateName}}</strong>
+                  </div>
+                  </ng-container>
+
+                
+                <div class="general-alert alert alert-success-1 alert-border-left  fade show" role="alert"
+                  style="padding: 6px;">
+                  <li class="preview-d-text" *ngIf="o.Checked==1 " style="list-style: none;">
+                    <h3>
+                      <span class="pretext-1">{{o.Code}}</span>
+                      {{o.TemplateSubMenuName}}
+                    </h3>
+                  </li>
+                </div>
+
+        
+<div *ngIf="this.dynamicobj['mtptdmttwotable9']!='[]'">
+<div class="fa-text jalsa card-header">
+<h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-E-iii</span>The effectiveness of the actions, including progress toward the goals and targets:
+</h6>
+<button type="button"
+                                                                                            class="btn btn-sm btn-outline"
+                                                                                            style="font-size: 13px; float: right"
+                                                                                            (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable9',this.orgId,'mtptdmttwotable9')">
+                                                                                           
+                                                                                            <i class="ri-file-upload-line"
+                                                                                                style="font-size: 12px"></i>
+                                                                                        </button>
+</div>
+<div class="fa-text-1 jalsa card-header">
+  <div class="row">
+    <div class="col-md-8">
+      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality14">
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+    </div>
+  </div>
+</div>
+</div>
+             
+<div *ngIf="this.dynamicobj['mtptdmttwotable10']!='[]'">
+<div class="fa-text jalsa card-header">
+<h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-E-iv</span>Lessons learned and how these have been incorporated into the organization’s operational policies and procedures:
+</h6>
+<button type="button"
+class="btn btn-sm btn-outline"
+style="font-size: 13px; float: right"
+(click)="openuploadimgcompo(this.reportid,'mtptdmttwotable10',this.orgId,'mtptdmttwotable10')">
+
+<i class="ri-file-upload-line"
+    style="font-size: 12px"></i>
+</button>
+</div>
+<div class="fa-text-1 jalsa card-header">
+  <div class="row">
+    <div class="col-md-8">
+      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality15">
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+    </div>
+  </div>
+</div>
+</div>   
+<div *ngIf="this.dynamicobj['mtptdmttwotable11']!='[]'">
+<div class="fa-text jalsa card-header">
+<h6 class="card-title mb-0"><span class="fa-102 badge  fs-10">3-3-F</span>Describe how engagement with stakeholders has informed the actions taken (3-3-d) and how it has informed whether the actions have been effective (3-3-e):
+</h6>
+<button type="button"
+                                                                                            class="btn btn-sm btn-outline"
+                                                                                            style="font-size: 13px; float: right"
+                                                                                            (click)="openuploadimgcompo(this.reportid,'mtptdmttwotable11',this.orgId,'mtptdmttwotable11')">
+                                                                                       
+                                                                                            <i class="ri-file-upload-line"
+                                                                                                style="font-size: 12px"></i>
+                                                                                        </button>
+</div>
+<div class="fa-text-1 jalsa card-header">
+  <div class="row">
+    <div class="col-md-8">
+      <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="materiality16">
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"  data-nexttab="pills-experience-tab" (click)="Save()" >Save</button>
+    </div>
+  </div>
+</div>
+</div> 
+                
+              </div>
+              <footer class="footer sun col-xxl-12">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="">
+                      <div class=" align-items-center d-flex">
+  
+                        <a style="display:flex;"><span class="mypower" style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+                   
+                        <!-- <h3 class="mypower2 in-pages float-page" style="color: #000;
+                                  margin-top: 0px;     margin-left: 50px;"></h3> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+   
+            <div style="page-break-before:always">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+</ng-container>
+</form>
+</div></div>

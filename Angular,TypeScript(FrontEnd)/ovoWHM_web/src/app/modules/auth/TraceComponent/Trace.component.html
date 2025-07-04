@@ -1,0 +1,252 @@
+
+
+
+<div class="container-fluid bgov " style="background-image: url(assets/images/ovo-bg-9.jpg);">
+  <div class="row">
+
+<div class="card container-fluid col-sm-7 mt-8 mb-6 my-bgs" style="background-image: url(assets/images/ovo-bg-153.png);" >
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="page-header d-block ">
+        <img src="assets/images/egg.png" class="egg-css" >
+        <img src="assets/images/hen-1.png" class="hen-css">
+        <h1 id="timeline" class="timeline-heading text-center fading">Thank you for buying</h1>
+        <h5 id="timeline" class=" timeline-heading2 text-center fading-1">{{ProductBarcode.PRODUCT}} from OVO Farm<strong></strong></h5>
+        <h4 style="text-align: center;font-weight: 900; font-family: inter,sans-serif; "  class="fading-2">Each egg of OVO Farm is traceable, ensuring the freshness is always at your doorstep</h4>
+       
+      </div>
+    </div>
+    
+  </div>
+  <div class="card-body" >
+   <div class="main-lnd"  >
+     
+        <div class="buttons-view">
+          <!-- <button type="button" class="btn btn-primary btn-primary1 m-3"><a href="https://ovofarm.in/kenko-nutri-club/" target="_blank">Nutrition Facts</a></button> -->
+          <button type="button" (click)="ShowNutrition()" class="btn btn-primary btn-primary1 m-2 fromtop">Nutritional Facts</button>
+          <button type="button" class="btn btn-primary  btn-primary1 m-2 fromtop-2"><a href="https://ovofarm.in/certificates/" target="_blank">Our Certificates</a></button>
+          <button type="button" class="btn btn-primary btn-primary1 m-2 fromtop-3"><a href="https://ovofarm.in/benefits/" target="_blank">Know More</a></button>
+ </div>
+        <p class="text-center"> </p>
+        <section class="timeline-area">
+         
+          <ul class="timeline">
+            <li class="div0">
+              
+
+              <div class="timeline-body ovo-gif" >
+                <img src="assets/images/Ovo-Farm-5.gif" class="img-fluid1 rainbow" >
+       
+       
+ </div>
+
+              <!-- <div class="timeline-badge">
+                <img src="assets/images/ic-1.png" class="img-fluid badge-icons w-10" >
+              </div> -->
+              <div class="timeline-panel">
+               
+                <!-- <div class="timeline-body" >
+                 <img src="assets/images/Ovo-Farm-5.gif" class="img-fluid1 rainbow" style="border-radius: 50% !important;width: 250px;height:250px;border:5px solid #F8A618;margin: auto;">
+
+  </div> -->
+              </div>
+            </li>
+
+            <!-- <div class="div0 timeline-heading">
+              <h4 class="timeline-title timeline-title-new ovo-ptext-1" >OVO Farm ,Balangir </h4>
+                               <span class="d-block" style="color:#000;"><strong><i class="fa-solid fa-clock mr-2"></i></strong>{{ProductBarcode.PackedDate|date:'MMMM d, y'}}</span>
+            </div> -->
+
+             <div class="div0 timeline-heading">
+              <div class="timeline-heading">
+                <h4 class="timeline-title ovo-ptext-1">OVO Farm ,Balangir
+
+                 <span class="d-block" style="color:#000;"><strong><i class="fa-solid fa-clock mr-2"></i></strong>{{(ProductBarcode.ProcessDate)|date:'MMMM d, y'}}</span>
+                </h4>
+
+                
+              </div>
+
+                
+         
+            </div>
+           
+            <li class="div1">
+
+
+              
+              
+              <div style="border:5px solid #F8A618;width: 50%;border-radius: 50%; width: 250px; height: 259px; margin: auto; margin-top: 30px;">
+                
+          
+  
+                <carousel  >
+                 
+                  
+                      <slide *ngFor="let slide of slides; let index=index"  >
+                    <img [src]="slide.image" alt="Snow" class="rainbow" style="width: 250px;height: 250px;border-radius: 50%;" >
+                    <!-- <div class="top-right"  style="color: whitesmoke;">{{slide.tittle}}</div> -->
+
+                    <!-- <p style="font-weight: 900; text-align: center;"><strong><i class="fa-solid fa-clock mr-2"></i></strong>{{slide.tittle}}</p>    -->
+                  </slide>
+                   
+                
+                </carousel>
+              
+                         
+              </div>
+
+              <!-- <div class="timeline-badge warning" ><img src="assets/images/ic-2.png" class="img-fluid badge-icons w-10" >
+              </div> -->
+            
+            </li>
+            <div class="div1 timeline-panel" >
+              <div class="timeline-heading">
+                <h4 class="timeline-title  timeline-title-new ovo-ptext-1" >Processing</h4>
+              </div>
+
+             
+           
+              
+            </div>
+
+           
+            
+            <li class="div2">
+              <div class="timeline-body">
+                <img src="assets/images/Ovo-Farm-4.gif" class="img-fluid1 "  style="border-radius: 50% !important;width: 250px;height:250px;border:5px solid #F8A618; margin: auto; margin-top: 30px;">
+              
+              
+              </div>
+<!-- 
+              <div class="timeline-badge danger">
+                <img src="assets/images/ic-3.png" class="img-fluid badge-icons w-10" >
+              </div> -->
+           
+            </li>
+            <div class="div2 timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title ovo-ptext-1">{{ProductBarcode.warehouse}} - Warehouse,OVO Farm.
+
+                 <span class="d-block" style="color:#000;"><strong><i class="fa-solid fa-clock mr-2"></i></strong>{{ProductBarcode.PackedDate|date:'MMMM d, y'}}</span>
+                </h4>
+
+                
+              </div>
+
+                
+         
+            </div>
+           
+            <li class="div3">
+              <div class="timeline-body">
+                <img src="assets/images/Ovo-Farm-3.gif" class="img-fluid1 rainbow"  style="border-radius: 50% !important;width: 250px;height:250px;border:5px solid #F8A618; margin: auto; margin-top: 30px;">
+                
+                       
+                            
+              </div>
+              <!-- <div class="timeline-badge danger"><img src="assets/images/ic-4.png" class="img-fluid badge-icons w-10" >
+              </div> -->
+           
+            </li>
+            <div class="div3 timeline-panel">
+              <div class="timeline-heading retails1">
+                <h4 class="timeline-title ovo-ptext-1">Retail Outlet
+                  <!-- <span class="d-block " style="color:#000;"><strong><i class="fa-solid fa-clock mr-2"></i></strong>{{ProductBarcode.DeliveredDate|date:'MMMM d, y'}}</span> -->
+                </h4>
+              </div>
+
+           
+          
+            </div>
+
+
+            <div class="container-fluid">
+              <div class="row justify-content-md-center">
+                <div class="col-md-8 mt-4 col-md-auto footer-text" style="background-color: #f8a618;
+                border-radius: 40px;
+                font-size: 14px;
+                padding: 2px;
+                text-align: center;
+                ">
+                  <strong class="expire" style="color: #fff; font-family: inter, sans-serif;"> Please consume this product before <p style="color: #000;">{{ProductBarcode.ExpireDate|date:'MMMM d, y'}}</p></strong>
+                </div>
+              </div>
+            </div>
+
+           
+
+  
+<!-- 
+
+              <div class="container text-center">
+          
+                <div class="row">
+                
+                  <div class="footer-text col-md-6 offset-md-3" style="    background-color: #F8A618;
+                  border-radius: 10px;
+                  padding: 12px; margin-bottom: 20px;"><strong style="color: #fff; font-family: inter, sans-serif;"> Please consume this product before <p style="color: #000;">{{ProductBarcode.ExpireDate|date:'MMMM d, y'}}</p></strong></div>
+                </div>
+      
+                </div> -->
+               
+
+  <div class="col-md-12 col-lg-12 " style="display:flex;justify-content: center; margin-top:10px;">   
+    <button style="background-color: #F8A618;border-radius: 50px;margin-top: 20px;" (click)="ShareLink()" type="button" class="btn btn-secondary">
+    <i class="fa fa-share-square-o" aria-hidden="true"></i><span>Share</span></button>
+  </div>
+  <!-- <div class="col-sm-6 log02" style="text-align: right;">
+     <span   class="powerby" style="font-size:8px;">Powered by</span>
+    <img style="width: 80px;" src="./assets/images/trst01_logo_sm.png"  >
+  </div> -->
+
+
+<img class="ovo-es23" src="assets/images/ovo-163.png">
+
+
+<div class="float-right prs" >
+  
+   <span class="power99">Powered by</span>
+   <img style="width:80px;" src="./assets/images/trst01_logo_sm.png" >
+</div>
+
+
+           
+<!--   
+            <li class=" " >
+              <div class="btn__container sharebtn" >
+
+              <button  (click)="ShareLink()" type="button" class="btn btn-secondary btn-f mypower0">
+                 <i class="fa fa-share-square-o" aria-hidden="true">
+              
+              </i>
+              <span>Share</span>
+            </button>
+           <span  class="mypower" style="font-size:12px;">Powered by</span>
+            <img style="width: 100px;" src="./assets/images/trst01_logo_sm.png" class="mypower1" >
+              </div>
+            </li> -->
+  
+         
+        
+          </ul>
+         
+        </section>
+        <!-- <div  class="footer-trst align-items-center d-flex">
+         
+          <span  class="mypower" style="font-size: 16px; margin-left: 25px;">Powered by</span>
+          <img  src="./assets/images/trst01_logo_sm.png" class="mypower1" >
+       
+      </div> -->
+
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+

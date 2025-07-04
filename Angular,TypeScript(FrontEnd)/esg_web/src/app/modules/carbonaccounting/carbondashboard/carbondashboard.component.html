@@ -1,0 +1,335 @@
+<div class="collaborators-card card ">
+<div class="dash-flex  flex-auto items-center justify-center overflow-hidden">
+
+ 
+  <div class="row dash-nft">
+      <div class="col-xxl-12 col-xl-12 col-md-12">
+       
+          <div class="row mb-3 pb-1">
+              <div class="col-12">
+                  <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                      <div class="flex-grow-1">
+                          <h3 class=" mb-1 head-1" style="color: #00276d;
+                          font-size: 30px;">Carbon Accounting Categories</h3>
+                           <h3 class=" mb-1 head-1" style="color: #88a2d1;
+                           font-size: 15px;">Click on any category to view/add more details</h3>
+                         
+                      </div>
+                  
+                  </div><!-- end card header -->
+              </div>
+              <!--end col-->
+          </div>
+          
+          <div class="collaborators-card card ">
+            <div class="card-header align-items-center d-flex">
+              <h4 class="card-title mb-0 flex-grow-1" style="color: #00276d;
+              font-size: 20px;">Scope1</h4>
+            
+              <div class="flex-shrink-0">
+                  <button type="button" class="btn btn-soft-info btn-sm">
+                      View Details Summary
+                  </button>
+              </div>
+          </div>
+          <div class="row">
+              <div style="padding-left: 30px;" class="col-xl-3 col-md-6" [routerLink]="['/stationarycombustion']">
+                  <div class="card card-body report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                              <!-- <img src="./assets/img/th1.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Stationary<br>Combustion<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+
+              <div  class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+                  <div class="card card-body  report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th1.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Mobile<br>Combustion<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+              <div class="col-xl-3 col-md-6" [routerLink]="['/universalmateriality']">
+                  <div class="card card-body  report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th1.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Fugitives<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+              
+          </div><!--end row-->
+          </div>
+          <div class="collaborators-card card ">
+            <div class="card-header align-items-center d-flex">
+              <h4 class="card-title mb-0 flex-grow-1" style="color: #00276d;
+              font-size: 20px;">Scope2</h4>
+            
+              <div class="flex-shrink-0">
+                  <button type="button" class="btn btn-soft-info btn-sm">
+                      View Details Summary
+                  </button>
+              </div>
+          </div>
+          <div class="row">
+              <div style="padding-left: 30px;" class="col-xl-3 col-md-6" [routerLink]="['/carbonscope1elec']">
+                  <div class="card card-body report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                              <!-- <img src="./assets/img/th.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Electricity<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+
+              <div class="col-xl-3 col-md-6" [routerLink]="['/carbonscope1steamheat']">
+                  <div class="card card-body  report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Steam & Heat<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+              <div class="col-xl-3 col-md-6" [routerLink]="['/carbonscope1cooling']">
+                  <div class="card card-body  report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Cooling<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+              
+          </div><!--end row-->
+          </div>
+          <div class="collaborators-card card ">
+            <div class="card-header align-items-center d-flex">
+              <h4 class="card-title mb-0 flex-grow-1" style="color: #00276d;
+              font-size: 20px;">Scope3</h4>
+              <div class="container" >
+                <ul class="nav nav-pills">
+                  <li [ngClass]="{ 'active': isHome }"  style="margin-right: 10px;"><a (click)="isHome = true; isMenu1 = false;" class="btn btn-soft-info btn-sm">Upstream</a></li>
+                  <li [ngClass]="{ 'active': isMenu1 }"><a (click)="isHome = false; isMenu1 = true;" class="btn btn-soft-info btn-sm">Downstream</a></li>
+                </ul>
+              </div>
+              <div class="flex-shrink-0">
+                  <button type="button" class="btn btn-soft-info btn-sm">
+                      View Details Summary
+                  </button>
+              </div>
+            
+          </div>
+          
+          <div class="row" *ngIf="isHome">
+              <div style="padding-left: 30px;" class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+                  <div class="card card-body report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                              <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Purchase Goods & Services<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+
+              <div class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+                  <div class="card card-body  report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Capital Goods<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+
+              <div class="col-xl-3 col-md-6" [routerLink]="['/universalmateriality']">
+                  <div class="card card-body  report-card">
+                      <div class="avatar-sm-1 mb-3">
+                          <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                          </div>
+                      </div>
+                      <h4 class="card-title report-tl" >Fuel & Energy related<br>2.4 Giga Tons(1Y)</h4>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+                <div class="card card-body report-card">
+                    <div class="avatar-sm-1 mb-3">
+                        <div class=" text-success fs-17 rounded">
+                            <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                        </div>
+                    </div>
+                    <h4 class="card-title report-tl" >Transportation & Distribution<br>2.4 Giga Tons(1Y)</h4>
+                </div>
+            </div>
+            <div style="padding-left: 30px;" class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+              <div class="card card-body report-card">
+                  <div class="avatar-sm-1 mb-3">
+                      <div class=" text-success fs-17 rounded">
+                          <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                      </div>
+                  </div>
+                  <h4 class="card-title report-tl" >Waste from operations<br>2.4 Giga Tons(1Y)</h4>
+              </div>
+          </div>
+
+
+          <div class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+              <div class="card card-body  report-card">
+                  <div class="avatar-sm-1 mb-3">
+                      <div class=" text-success fs-17 rounded">
+                        <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                      </div>
+                  </div>
+                  <h4 class="card-title report-tl" >Buisness tarvel<br>2.4 Giga Tons(1Y)</h4>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6" [routerLink]="['/universalmateriality']">
+              <div class="card card-body  report-card">
+                  <div class="avatar-sm-1 mb-3">
+                      <div class=" text-success fs-17 rounded">
+                        <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                      </div>
+                  </div>
+                  <h4 class="card-title report-tl" >Employee commute<br>2.4 Giga Tons(1Y)</h4>
+              </div>
+          </div>
+          <div class="col-xl-3 col-md-6" [routerLink]="['/universalmateriality']">
+            <div class="card card-body  report-card">
+                <div class="avatar-sm-1 mb-3">
+                    <div class=" text-success fs-17 rounded">
+                      <!-- <img src="./assets/img/th3.jpg" class="img-fluid w-20" alt="" > -->
+                    </div>
+                </div>
+                <h4 class="card-title report-tl" >Leased assets<br>2.4 Giga Tons(1Y)</h4>
+            </div>
+        </div>
+          </div><!--end row-->
+          <div class="row" *ngIf="isMenu1">
+            <div style="padding-left: 30px;" class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+              <div class="card card-body report-card">
+                  <div class="avatar-sm-1 mb-3">
+                      <div class=" text-success fs-17 rounded">
+                          <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                      </div>
+                  </div>
+                  <h4 class="card-title report-tl" >Downstream Transportation and Distribution<br>2.4 Giga Tons(1Y)</h4>
+              </div>
+          </div>
+
+
+          <div class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+              <div class="card card-body  report-card">
+                  <div class="avatar-sm-1 mb-3">
+                      <div class=" text-success fs-17 rounded">
+                        <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                      </div>
+                  </div>
+                  <h4 class="card-title report-tl" >Processing of Sold Products<br>2.4 Giga Tons(1Y)</h4>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6" [routerLink]="['/universalmateriality']">
+              <div class="card card-body  report-card">
+                  <div class="avatar-sm-1 mb-3">
+                      <div class=" text-success fs-17 rounded">
+                        <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                      </div>
+                  </div>
+                  <h4 class="card-title report-tl" >Use of sold products<br>2.4 Giga Tons(1Y)</h4>
+              </div>
+          </div>
+          <div class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+            <div class="card card-body report-card">
+                <div class="avatar-sm-1 mb-3">
+                    <div class=" text-success fs-17 rounded">
+                        <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                    </div>
+                </div>
+                <h4 class="card-title report-tl" >End-of-life treatment of sold products<br>2.4 Giga Tons(1Y)</h4>
+            </div>
+        </div>
+        <div style="padding-left: 30px;" class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+          <div class="card card-body report-card">
+              <div class="avatar-sm-1 mb-3">
+                  <div class=" text-success fs-17 rounded">
+                      <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                  </div>
+              </div>
+              <h4 class="card-title report-tl" >Downstream leased assets<br>2.4 Giga Tons(1Y)</h4>
+          </div>
+      </div>
+
+
+      <div class="col-xl-3 col-md-6" [routerLink]="['/frameworkfortemplate']">
+          <div class="card card-body  report-card">
+              <div class="avatar-sm-1 mb-3">
+                  <div class=" text-success fs-17 rounded">
+                    <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                  </div>
+              </div>
+              <h4 class="card-title report-tl" >Franchises<br>2.4 Giga Tons(1Y)</h4>
+          </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6" [routerLink]="['/universalmateriality']">
+          <div class="card card-body  report-card">
+              <div class="avatar-sm-1 mb-3">
+                  <div class=" text-success fs-17 rounded">
+                    <!-- <img src="./assets/img/th4.jpg" class="img-fluid w-20" alt="" > -->
+                  </div>
+              </div>
+              <h4 class="card-title report-tl" >Investments<br>2.4 Giga Tons(1Y)</h4>
+          </div>
+      </div>
+     
+
+            
+        </div><!--end row-->
+          </div>
+          
+         
+          
+
+
+
+
+
+
+
+     
+          
+
+             
+
+
+         
+      </div><!--end col-->
+
+
+
+      
+    </div>
+     
+  </div>
+</div>

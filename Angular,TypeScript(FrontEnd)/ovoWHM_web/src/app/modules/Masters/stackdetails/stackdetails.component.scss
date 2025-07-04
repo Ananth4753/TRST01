@@ -1,0 +1,79 @@
+.content{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.thead {
+  color:black !important;
+  background-color:#FCB713  !important;
+}
+
+th{
+  color:black !important;
+  background-color:#FCB713  !important;
+  padding: 10px;
+  text-align: center;
+}
+td{
+  padding: 10px;
+  text-align: center;
+}
+.search{
+border-radius: 20px;
+}
+
+
+.WareHouse{
+border-radius:36px;
+
+width:250px;
+overflow:hidden;
+background:#cccccc;
+
+}
+.selectpicker{
+width:250px;
+height:40px;
+border:0px;
+font-size: 20px;
+outline:none;
+}
+
+
+.selectpicker1{
+
+  width:250px;
+  height:40px;
+  border:0px;
+  font-size: 20px;
+  outline:none;
+  }
+.green {
+  background-color: green;
+}
+.myClass{
+  color : red;
+}
+
+
+.sticky-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 1;
+  background-color: #FCB713;
+}
+
+
+
+.red-row {
+  background-color: lightcoral; /* Set the background color to red */
+   /* Set the text color to white for better visibility */
+}
+
+.pink-row {
+  background-color: pink; /* Set the background color to pink */
+}
+
+.white-row {
+  background-color:white; /* Set the background color to pink */
+}

@@ -1,0 +1,31 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+
+.cursor-move {
+    cursor: move;
+}
+
+
+.mat-button-ripple.mat-ripple, .mat-button-focus-overlay{
+    color: #FCB713 !important;
+}
+.mat-button-wrapper{
+    color: #212121 !important;
+}
+.text-lg {
+    color: #212121 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.timepicker-overlay {
+    z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+    z-index: 10000000 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

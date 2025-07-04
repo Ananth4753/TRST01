@@ -1,0 +1,815 @@
+<div class="">
+  
+  <div class="row sticky-content " *ngIf="glao" #scroll>
+    <div class="col-xl-12">
+        <div class="d-flex align-items-center justify-content-between" style="margin-right: 20px;">
+           
+
+            <h4 style="text-align: left; color: #1076bc;"> Governance, leadership and oversight<b></b></h4>
+
+            
+            <div class="d-flex align-items-start gap-3 ">
+              <!-- <button type="button"
+              class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab"
+              style="font-size: 13px; float: right"
+             >
+              Back
+              
+          </button> -->
+          <button type="button"
+          class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab"
+          style="font-size: 13px; float: right" (click)="onSave()" 
+         >
+          Save
+          
+      </button>
+
+      <!-- <button type="button"
+      class="esg-back-btn btn dash-btn-1 btn8-label right  nexttab nexttab evidence-btn"
+      style="font-size: 13px; float: right"
+     >
+      Next
+      
+  </button> -->
+      
+            </div>
+       
+
+        </div>
+    </div>
+</div>
+
+
+<div class="" *ngIf="glao">
+
+  <form [formGroup]="managementform">
+    <div class="col-xxl-12">
+        <div class="card" style="box-shadow: 0 8px 20px -2px rgb(158 152 153 / 0%);">
+            <div class="">
+                <div id="contact-existing-list" >
+                    <div class="row mb-2" >
+                        <div class="card-footer">
+                            <div class="row">
+                             
+  
+  
+                              
+                              <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <p
+                                            class="org-in-text text-muted mb-0">
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline"
+                                                style="font-size: 13px;"
+                                               >7</button>
+                                        </p>
+                                       
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline evidence-btn"
+                                            style="font-size: 13px; float: right"
+                                            (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'management201')">
+                                            Evidence
+                                            <i class="ri-file-upload-line"
+                                                style="font-size: 12px"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+  
+                              
+                            
+                                <div class="col-xl-12 in-top "> 
+                                  <div class="box-body table-responsive">
+                                      
+                                      <table id="datatable" class="table table-striped table-bordered " style="width:100%;     border: 2px solid #1c75bc;  margin-top: 15px;">
+                                          <thead class="tableheader">
+                                              <tr>
+                                                <th class="fptable" colspan="3"></th>
+                                                  <th class="fptable">P1</th>
+                                                  <th class="fptable">P2</th>
+                                                  <th class="fptable">P3</th>
+                                                  <th class="fptable">P4</th>
+                                                  <th class="fptable">P5</th>
+                                                  <th class="fptable">P6</th>
+                                                  <th class="fptable">P7</th>
+                                                  <th class="fptable">P8</th>
+                                                  <th class="fptable">P9</th>
+                                          </tr>
+                                          <tr>
+                                            <th class="fptable" colspan="9" style="text-align: center;">Governance, leadership and oversight</th>
+                                          </tr>
+                                          <tr>
+                                            <th class="fptable" colspan="3">Disclosures</th>
+                                            <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Ethics and Transparency</th>
+  
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Product Responsibility</th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Human resources</th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Stackholder engagement </th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Respect for Human Rights</th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Responsible manufacturing</th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Public Policy Advocacy</th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Inclusive Growth</th>
+                                                  <th class="fptable" style="writing-mode: tb;transform: rotate(180deg); ">Customer engagement</th>
+                                                  
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr >
+                                                <td colspan="3">
+                                                  Statement by director responsible for the business responsibility report, highlighting ESG related challenges, targets and achievements (listed entity has flexibility regarding the placement of this disclosure)
+                                                </td>
+                                                <td colspan="9">
+                                                  <input id="Labs"     class="form-control fpinput-01" formControlName="emp1"  > 
+                                                </td>
+  
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                      
+                                    </div>
+                                   
+                             </div>
+  
+                             <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >8</button>
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'management202')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+  
+  
+                               
+                                <div class="col-xl-12 in-top "> 
+                                  <div class="box-body table-responsive">
+                                      
+                                      <table id="datatable" class="table table-striped table-bordered " style="width:100%;     border: 2px solid #1c75bc;  margin-top: 15px;">
+                                          <thead class="tableheader">
+                                              <tr>
+                                                <th class="fptable"></th>
+                                                  <th class="fptable">P1</th>
+                                                  <th class="fptable">P2</th>
+                                                  <th class="fptable">P3</th>
+                                                  <th class="fptable">P4</th>
+                                                  <th class="fptable">P5</th>
+                                                  <th class="fptable">P6</th>
+                                                  <th class="fptable">P7</th>
+                                                  <th class="fptable">P8</th>
+                                                  <th class="fptable">P9</th>
+                                          </tr>
+                                         
+                                          </thead>
+                                          <tbody>
+                                              <tr >
+                                                <td>
+                                                  Details of the highest authority responsible for implementation and oversight of the Business Responsibility policy (ies).
+                                                </td>
+                                                <td colspan="9">Name:
+  
+                                                  <div class="row">
+                                                    <div class="col-sm-4">
+                                                      <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                        <mat-select matInput [formControlName]="'glao2'" (selectionChange)="ownershipandlegalfor2($event)" >
+            
+                                                          <mat-option *ngFor="let c of filteredList9" [value]="c.Name">
+                                          
+                                                              {{c.Name}}
+                                          
+                                                          </mat-option>
+                                          
+                                                      </mat-select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                      <input style=" width: 70%;" class="new-control form-control"
+                                                      id="Labs1"
+                                            style="  height: auto ;
+                                            resize: vertical;"         placeholder="" formControlName="glao221" >
+                                                    </div>
+                                                   
+                                                  </div>
+                                               
+                                                  Designation:
+                                                  <div class="flex flex-col md:flex-row gap-4" >
+                                                   
+                                                    <div *ngIf="relothers1!='Others'">
+                                                   
+                                          
+                                                      <mat-form-field>
+  
+                                                        {{val1}}
+                                                      <mat-select id="Assessments21" (selectionChange)="ownershipandlegalfor211($event)" value="Type">
+                                                        <input matInput placeholder="Search" (input)="onInputChangecountry1($event.target.value)" [matAutocomplete]="auto">
+                                                    
+                                                      <mat-option *ngFor="let item of filteredList6" [value]="item.Name">
+                                                        <mat-autocomplete #auto (optionSelected)="onOptionSelectedcountry11($event)">
+                                                       
+                                                    </mat-autocomplete>
+                                                    <ng-container *ngIf="item.Name !== val1">
+                                                      {{item.Name}}
+                                                    </ng-container>
+                                                      </mat-option>
+                                           
+                                                    </mat-select>
+                                                      </mat-form-field>
+  
+                                                      </div>
+                                                      <div *ngIf="relothers1=='Others' "> 
+                                                        <div class="flex flex-col md:flex-row gap-4">
+                                                          <input id="Assessments21" class="form-control" [formControlName]="'glao223'"(input)="inputforothers5($event.target)" />
+                                                        </div>
+                                                        
+                                                      </div>
+                                                      <div class="flex items-center  sm:mt-0" style="float: right;">
+                                                        <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'" style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;" (click)="addreset()"> reset </button>
+                                                    </div>
+                                              </div>
+                                              
+                                            
+                                                    
+                                                 DIN:
+                                          
+                                              
+  
+                                                  <input  class="new-control form-control"
+                                        id="fifth"
+                              style="  height: auto;
+                              resize: vertical; "         placeholder="" formControlName="glao222"  > 
+                                                </td>
+  
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                      
+                                    </div>
+                                   
+                             </div>
+  
+  
+                             <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >9</button>
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'management203')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+  
+                              
+                               
+                                <div class="col-xl-12 in-top "> 
+                                  <div class="box-body table-responsive">
+                                      
+                                      <table id="datatable" class="table table-striped table-bordered " style="width:100%;     border: 2px solid #1c75bc;  margin-top: 15px;">
+                                          <thead class="tableheader">
+                                              <tr>
+                                                <th class="fptable"></th>
+                                                  <th class="fptable">P1</th>
+                                                  <th class="fptable">P2</th>
+                                                  <th class="fptable">P3</th>
+                                                  <th class="fptable">P4</th>
+                                                  <th class="fptable">P5</th>
+                                                  <th class="fptable">P6</th>
+                                                  <th class="fptable">P7</th>
+                                                  <th class="fptable">P8</th>
+                                                  <th class="fptable">P9</th>
+                                          </tr>
+                                         
+                                          </thead>
+                                          <tbody>
+                                              <tr >
+                                                <td>
+                                                  Does the entity have a specified Committee of the Board/ Director responsible for decision making on sustainability related issues? (Yes / No). If yes, provide details.
+                                                </td>
+                                                <td colspan="9">
+                                                  <input  class="new-control form-control"
+                                                  id="sixth"
+                                        style="  height: auto;
+                                        resize: vertical;"         placeholder="" formControlName="glao3" >
+                                             
+                                                </td>
+  
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                      
+                                    </div>
+                                   
+                             </div>
+  
+  
+                             <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >10</button> a)	Performance against above policies and follow up action
+                                             b)	Compliance with statutory requirements of relevance to the principles, and, rectification of any non-compliances.
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'management204')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+  
+                              
+                                <div class="col-xl-12 in-top "> 
+                                  <div class="box-body table-responsive">
+                                      
+                                      <table id="datatable" class="table table-striped table-bordered " style="width:100%;     border: 2px solid #1c75bc;  margin-top: 15px;">
+                                          <thead class="tableheader">
+                                            <tr >
+                                              <th class="fptable">Subject for Review</th>
+                                                  <th class="fptable" colspan="9">Indicate whether review was undertaken by Director/Committe of the Board/Any other Committee</th>
+                                                  <th class="fptable" colspan="9">Frequency(Annually/Half yearly/Quaterly/Any other-please specify)</th>
+                                            </tr>
+                                              <tr>
+                                                <th class="fptable"></th>
+                                                  <th class="fptable">P1</th>
+                                                  <th class="fptable">P2</th>
+                                                  <th class="fptable">P3</th>
+                                                  <th class="fptable">P4</th>
+                                                  <th class="fptable">P5</th>
+                                                  <th class="fptable">P6</th>
+                                                  <th class="fptable">P7</th>
+                                                  <th class="fptable">P8</th>
+                                                  <th class="fptable">P9</th>
+                                                  <th class="fptable">P1</th>
+                                                  <th class="fptable">P2</th>
+                                                  <th class="fptable">P3</th>
+                                                  <th class="fptable">P4</th>
+                                                  <th class="fptable">P5</th>
+                                                  <th class="fptable">P6</th>
+                                                  <th class="fptable">P7</th>
+                                                  <th class="fptable">P8</th>
+                                                  <th class="fptable">P9</th>
+                                          </tr>
+                                         
+                                          </thead>
+                                          <tbody>
+                                              <tr colspan="9" >
+                                    
+                                                <td>
+                                                  Performance against above policies and follow up action
+                                                </td>
+                                           
+                                            <td colspan="9">
+                                              <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                              <mat-select [formControlName]="'glao4'" (selectionChange)="ownershipandlegalfor($event)" >
+                                                <input matInput placeholder="Search" (input)="onInputChangecountry1($event.target.value)" [matAutocomplete]="auto">
+                                                <mat-option *ngFor="let c of filteredList6" [value]="c.Name">
+                                                  <mat-autocomplete #auto (optionSelected)="onOptionSelectedcountry($event)">
+                                                </mat-autocomplete>
+                                                    {{c.Name}}
+                                               </mat-option>
+                                                   </mat-select>
+                                           
+  
+                                              </div>
+                                                </td>
+                                                <td colspan="9">
+                                                  <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                    <mat-select [formControlName]="'glao4a'" (selectionChange)="ownershipandlegalfor1($event)" >
+        
+                                                      <mat-option *ngFor="let c of filteredList5" [value]="c.Name">
+                                      
+                                                          {{c.Name}}
+                                      
+                                                      </mat-option>
+                                      
+                                                  </mat-select>
+                                                    </div>
+                                             
+                                                </td>
+  
+                                              
+                                              </tr>
+                                              <tr>
+                                    
+                                                <td>
+                                                  Compliance with statutory requirements of relevance to the principles, and, rectification of any non-compliances
+                                                </td>
+                                                <td colspan="9">
+                                                  <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                    <mat-select [formControlName]="'glao41b'" (selectionChange)="ownershipandlegalfor1b($event)" >
+                                                      <input matInput
+                                                      placeholder="Search" (input)="onInputChangecountry1($event.target.value)" [matAutocomplete]="auto">
+                                                      <mat-option *ngFor="let c of filteredList6" [value]="c.Name">
+                                                        <mat-autocomplete
+                                                        #auto
+                                                        (optionSelected)="onOptionSelectedcountry1b($event)">
+        
+                                                    </mat-autocomplete>
+                                                          {{c.Name}}
+                                      
+                                                      </mat-option>
+                                      
+                                                  </mat-select>
+                                                  </div>
+                                                    </td>
+                                                    <td colspan="9">
+                                                      <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                        <mat-select [formControlName]="'glao42b'" (selectionChange)="ownershipandlegalfor1($event)" >
+            
+                                                          <mat-option *ngFor="let c of filteredList5" [value]="c.Name">
+                                          
+                                                              {{c.Name}}
+                                          
+                                                          </mat-option>
+                                          
+                                                      </mat-select>
+                                                        </div>
+                                                 
+                                                    </td>
+  
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                      
+                                    </div>
+                                   
+                             </div>
+  
+                             <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >11</button>
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'management205')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+                               
+                             
+                                <div class="col-xl-12 in-top "> 
+                                  <div class="box-body table-responsive">
+                                      
+                                      <table id="datatable" class="table table-striped table-bordered " style="width:100%;     border: 2px solid #1c75bc;  margin-top: 15px;">
+                                          <thead class="tableheader">
+                                            
+                                              <tr>
+                                                <th class="fptable" colspan="4"></th>
+                                              
+                                                  <th class="fptable">P1</th>
+                                                  <th class="fptable">P2</th>
+                                                  <th class="fptable">P3</th>
+                                                  <th class="fptable">P4</th>
+                                                  <th class="fptable">P5</th>
+                                                  <th class="fptable">P6</th>
+                                                  <th class="fptable">P7</th>
+                                                  <th class="fptable">P8</th>
+                                                  <th class="fptable">P9</th>
+                                                 
+                                          </tr>
+                                         
+                                          </thead>
+                                          <tbody>
+                                              <tr colspan="9" >
+                                    
+                                                <td colspan="4">
+                                                  Has the entity carried out independent assessment/ evaluation of the working of its policies by an external agency? (Yes/No). If yes, provide name of the agency. :
+                                                </td>
+                                           
+                                            <td >
+                                              <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                              <mat-select [formControlName]="'glao51'" (selectionChange)="ownershipandlegalfor($event)" >
+  
+                                                <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                
+                                                    {{c.Name}}
+                                
+                                                </mat-option>
+                                
+                                            </mat-select>
+                                              </div>
+                                                </td>
+                                                <td >
+                                                  <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                  <mat-select [formControlName]="'glao52'" (selectionChange)="ownershipandlegalfor($event)" >
+      
+                                                    <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                    
+                                                        {{c.Name}}
+                                    
+                                                    </mat-option>
+                                    
+                                                </mat-select>
+                                                  </div>
+                                                    </td>
+                                                    <td >
+                                                      <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                      <mat-select [formControlName]="'glao53'" (selectionChange)="ownershipandlegalfor($event)" >
+          
+                                                        <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                        
+                                                            {{c.Name}}
+                                        
+                                                        </mat-option>
+                                        
+                                                    </mat-select>
+                                                      </div>
+                                                        </td>
+                                                        <td >
+                                                          <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                          <mat-select [formControlName]="'glao54'" (selectionChange)="ownershipandlegalfor($event)" >
+              
+                                                            <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                            
+                                                                {{c.Name}}
+                                            
+                                                            </mat-option>
+                                            
+                                                        </mat-select>
+                                                          </div>
+                                                            </td>
+                                                            <td >
+                                                              <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                              <mat-select [formControlName]="'glao55'" (selectionChange)="ownershipandlegalfor($event)" >
+                  
+                                                                <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                                
+                                                                    {{c.Name}}
+                                                
+                                                                </mat-option>
+                                                
+                                                            </mat-select>
+                                                              </div>
+                                                                </td>
+                                                                <td >
+                                                                  <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                                  <mat-select [formControlName]="'glao56'" (selectionChange)="ownershipandlegalfor($event)" >
+                      
+                                                                    <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                                    
+                                                                        {{c.Name}}
+                                                    
+                                                                    </mat-option>
+                                                    
+                                                                </mat-select>
+                                                                  </div>
+                                                                    </td>
+                                                                    <td >
+                                                                      <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                                      <mat-select [formControlName]="'glao57'" (selectionChange)="ownershipandlegalfor($event)" >
+                          
+                                                                        <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                                        
+                                                                            {{c.Name}}
+                                                        
+                                                                        </mat-option>
+                                                        
+                                                                    </mat-select>
+                                                                      </div>
+                                                                        </td>
+                                                                        <td >
+                                                                          <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                                          <mat-select [formControlName]="'glao58'" (selectionChange)="ownershipandlegalfor($event)" >
+                              
+                                                                            <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                                            
+                                                                                {{c.Name}}
+                                                            
+                                                                            </mat-option>
+                                                            
+                                                                        </mat-select>
+                                                                          </div>
+                                                                            </td>
+                                                                            <td >
+                                                                              <div class="new-control form-control fpinput-01 flex flex-col md:flex-row gap-4">
+                                                                              <mat-select [formControlName]="'glao59'" (selectionChange)="ownershipandlegalfor($event)" >
+                                  
+                                                                                <mat-option *ngFor="let c of filteredList4" [value]="c.Name">
+                                                                
+                                                                                    {{c.Name}}
+                                                                
+                                                                                </mat-option>
+                                                                
+                                                                            </mat-select>
+                                                                              </div>
+                                                                                </td>
+                                                </tr>
+                                             
+                                          </tbody>
+                                      </table>
+                                      
+                                    </div>
+                                   
+                             </div>
+  
+                             <div class="row">
+                              <div class="col-xl-12">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <p
+                                          class="org-in-text text-muted mb-0">
+                                          <button type="button"
+                                              class="btn btn-sm btn-outline"
+                                              style="font-size: 13px;"
+                                             >12</button>
+                                      </p>
+                                     
+                                      <button type="button"
+                                          class="btn btn-sm btn-outline evidence-btn"
+                                          style="font-size: 13px; float: right"
+                                          (click)="openuploadimgcompo(this.reportid,this.codeval,this.orgId,'management206')">
+                                          Evidence
+                                          <i class="ri-file-upload-line"
+                                              style="font-size: 12px"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+  
+                            
+                             <div class="col-xl-12 in-top "> 
+                              <div class="box-body table-responsive">
+                                  
+                                  <table id="datatable" class="table table-striped table-bordered " style="width:100%;     border: 2px solid #1c75bc;  margin-top: 15px;">
+                                      <thead class="tableheader">
+                                        
+                                          <tr>
+                                            <th class="fptable"></th>
+                                              <th class="fptable">P1</th>
+                                              <th class="fptable">P2</th>
+                                              <th class="fptable">P3</th>
+                                              <th class="fptable">P4</th>
+                                              <th class="fptable">P5</th>
+                                              <th class="fptable">P6</th>
+                                              <th class="fptable">P7</th>
+                                              <th class="fptable">P8</th>
+                                              <th class="fptable">P9</th>
+                                             
+                                      </tr>
+                                     
+                                      </thead>
+                                      <tbody>
+                                          <tr colspan="9" >
+                                
+                                            <td>
+                                              The entity does not consider the Principles material to its business (Yes/No)
+                                            </td>
+                                       
+                                              <td colspan="9">
+                                                <input class="new-control form-control"
+                                                id="meassageInput"
+                                      style="  height: auto;
+                                      resize: vertical;"         placeholder="" formControlName="glao6" >
+                                           
+                                              </td>
+                                                                      
+                                            </tr>
+                                            <tr colspan="9" >
+                                
+                                              <td>
+                                                The entity is not at a stage where it is in a position to formulate and implement the policies on specified principles (Yes/No)
+                                              </td>
+                                         
+                                                <td colspan="9">
+                                                  <input  class="new-control form-control"
+                                                  id="meassageInput"
+                                        style="  height: auto;
+                                        resize: vertical;"         placeholder="" formControlName="glao7" >
+                                             
+                                                </td>
+                                                                        
+                                              </tr>
+                                              <tr colspan="9" >
+                                
+                                                <td>
+                                                  The entity does not have the financial or/human and technical resources available for the task (Yes/No)
+                                                </td>
+                                           
+                                                  <td colspan="9">
+                                                    <input class="new-control form-control"
+                                                    id="meassageInput"
+                                          style="  height: auto;
+                                          resize: vertical;"         placeholder="" formControlName="glao8" >
+                                               
+                                                  </td>
+                                                                          
+                                                </tr>
+                                                <tr colspan="9" >
+                                
+                                                  <td>
+                                                    It is planned to be done in the next financial year (Yes/No)
+                                                  </td>
+                                             
+                                                    <td colspan="9">
+                                                      <input class="new-control form-control"
+                                                      id="meassageInput"
+                                            style="  height: auto;
+                                            resize: vertical;"         placeholder="" formControlName="glao9" >
+                                                 
+                                                    </td>
+                                                                            
+                                                  </tr>
+                                                  <tr colspan="9" >
+                                
+                                                    <td>
+                                                      Any other reason (please specify)
+                                                    </td>
+                                               
+                                                      <td colspan="9">
+                                                        <input class="new-control form-control"
+                                                        id="meassageInput"
+                                              style="  height: auto;
+                                              resize: vertical;"         placeholder="" formControlName="glao10" >
+                                                   
+                                                      </td>
+                                                                              
+                                                    </tr>
+                                      </tbody>
+                                  </table>
+                                  
+                                </div>
+                               
+                         </div>
+                               
+                            </div>
+                        </div>
+                        <div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="mx-n3" >
+  <div data-simplebar data-simplebar-auto-hide="false" data-simplebar-track="success" style="max-height: 500px;" #scroll>
+      <ul class="list-group list-group-flush">
+          <li class="hero-line list-group-item py-3">
+              <div class="row">
+
+
+
+
+
+
+
+<div    class="row" >
+
+</div>
+</div></li></ul></div></div>

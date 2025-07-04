@@ -1,0 +1,130 @@
+
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+
+  <!-- Header -->
+  <div
+      class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between m-4" style="margin-top: 100px !important;">
+      <!-- Loader -->
+      <!-- <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+          <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+      </div> -->
+      <!-- Title -->
+      <div class="text-4xl font-extrabold tracking-tight " style="margin-left: 100Px;">Company Vehicles</div>
+      <!-- Actions -->
+      <div class="flex flex-shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+          <!-- Search -->
+          <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
+              <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:search'"></mat-icon>
+              <input matInput [formControl]="searchInputControl" [autocomplete]="'off'"
+                  [placeholder]="'Search '">
+          </mat-form-field>
+          <!-- Add menu button -->
+          <button class="ml-4" mat-flat-button [color]="'primary'" style="background-color:#1f13fc  !important;" (click)="createCompanyvehicle()">
+              <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+              <span class="ml-2 mr-1">Add</span>
+          </button>
+      </div>
+  </div>
+
+  <!-- Main -->
+  <div class="flex flex-auto overflow-hidden">
+      <!-- Menu Table -->
+      <div class="sm:col-span-6 flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto">
+          <div class="flex flex-col flex-auto overflow-x-auto">
+              <ng-container *ngIf="(companyvehiclesobs$ | async) as StatItem">
+                  <ng-container *ngIf="StatItem.length > 0; else noStatItems">
+                      <table mat-table [dataSource]="CompanyVehicledataSource"
+                          class="min-w-240 overflow-y-visible" matSort matSortActive="Fuel" matSortDirection="asc" style="margin-left: 100px;width: 100%;">
+
+                          <!-- Edit -->
+                          <!-- <ng-container matColumnDef="Edit" sticky>
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 50px;"></th>
+                              <td mat-cell *matCellDef="let StatItem" style="width: 50px;">
+                                  <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                                      (click)="onEditStationary(StatItem.Id)">
+                                      <mat-icon class="icon-size-5" svgIcon="mat_solid:edit">
+                                      </mat-icon>
+                                  </button>
+                              </td>
+                          </ng-container> -->
+
+
+                            <!-- Vehicle -->
+                            <ng-container matColumnDef="Vehicle">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 82px;">Vehicle</th>
+                              <td mat-cell *matCellDef="let StatItem">{{StatItem.Vehicle}}</td>
+                          </ng-container>
+
+                          <ng-container matColumnDef="Type">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+                            <td mat-cell *matCellDef="let StatItem">{{StatItem.Type}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Fuel">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel</th>
+                            <td mat-cell *matCellDef="let StatItem">{{StatItem.Fuel}}</td>
+                        </ng-container>
+
+
+                           <!-- EmissionFactor -->
+                           <ng-container matColumnDef="EmissionFactor">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 115px;">EmissionFactor</th>
+                              <td mat-cell *matCellDef="let StatItem">{{StatItem.EmissionFactor}}</td>
+                          </ng-container>
+
+                          <!-- Distance -->
+                          <ng-container matColumnDef="Distance">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 115px;">Distance</th>
+                            <td mat-cell *matCellDef="let StatItem">{{StatItem.Distance}}</td>
+                        </ng-container>
+
+                         <!-- tCO2e -->
+                         <ng-container matColumnDef="tCO2e">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 115px;">tCO2e</th>
+                          <td mat-cell *matCellDef="let StatItem">{{StatItem.tCO2e}}</td>
+                      </ng-container>
+
+                          <!-- Active -->
+                          <ng-container class="hidden lg:block" matColumnDef="IsAcive">
+                              <th mat-header-cell *matHeaderCellDef>Active</th>
+                              <td mat-cell *matCellDef="let StatItem">
+                                  <ng-container *ngIf="StatItem.IsActive">
+                                      <mat-icon class="text-green-400 icon-size-5" [svgIcon]="'heroicons_solid:check'"></mat-icon>
+                                  </ng-container>
+                                  <ng-container *ngIf="!StatItem.IsActive">
+                                      <mat-icon class="text-gray-400 icon-size-5" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+                                  </ng-container>
+                              </td>
+                          </ng-container>
+                          <ng-container class="hidden sm:block" matColumnDef="UpdatedDate">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Updated Date</th>
+                            <td mat-cell *matCellDef="let StackItem">{{StackItem.UpdatedDate| date:"dd-MMM-yyyy"}}</td>
+                        </ng-container>
+
+                          <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true" class="bg-gray-50"></tr>
+                          <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+                      </table>
+
+                      <mat-paginator
+                          class="sm:absolute sm:inset-x-0 sm:bottom-0 border-b sm:border-t sm:border-b-0 z-10 bg-gray-50 dark:bg-transparent"
+                          [ngClass]="{'pointer-events-none': isLoading}" [pageSize]="pageSize"
+                          [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons
+                          aria-label="Select page of menu items">
+                      </mat-paginator>
+
+                  </ng-container>
+              </ng-container>
+          </div>
+
+          <ng-template #noStatItems>
+              <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">
+                  There are no Company Vehicle details!
+              </div>
+          </ng-template>
+
+      </div>
+
+  </div>
+
+</div>

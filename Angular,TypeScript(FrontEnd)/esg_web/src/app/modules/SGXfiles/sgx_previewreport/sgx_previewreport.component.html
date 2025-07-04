@@ -1,0 +1,393 @@
+<div class="col-xl-12 page-content-1" >
+  <div class="container-fluid">
+
+      <!-- start page title -->
+
+
+      <div class="row">
+
+
+        
+
+          <!-- End Page-content -->
+
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="card-bro ">
+                      <div class="row mt-2">
+                          <div class="col-xl-12">
+                              <div class="row">
+                                  <div class="col-xl-12">
+                                      <div class="card">
+                                          <div class="card-body">
+                                              <div class=" card-header">
+                                                  <div class="row  pb-1">
+                                                      <div class="vi col-xl-2">
+                                                          <div
+                                                              class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                                              <div class="flex-grow-1">
+
+                                                                <h4 class="fs-16 mb-1"> {{reportname}} </h4>
+
+                                                                <h6> {{reportstartdate| date:"dd-MMM-yyyy"}} to{{reportenddate|date:"dd-MMM-yyyy"}} </h6>
+
+                                                            </div>
+                                                          </div>
+                                                      </div>
+
+                                                      <div class="col-xl-10">
+                                                        <div id="custom-progress-bar" class="progress-nav ">
+                                                            <div class="progress" >
+                                                                <div class="progress-bar" role="progressbar"
+                                                                    style="width: 0%;" aria-valuenow="0"
+                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+
+                                                            <ul class="nav nav-pills progress-bar-tab custom-nav"
+                                                                role="tablist" style="margin-top: 5px;">
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate nav-link rounded-pill active"
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-gen-info-tab"
+                                                                        data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-gen-info"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-gen-info"
+                                                                        aria-selected="true"><i
+                                                                            class="bx bx-check"></i>Asses</button>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate  nav-link rounded-pill active "
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-info-desc-tab"
+                                                                        data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-info-desc"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-info-desc"
+                                                                        aria-selected="false"><i
+                                                                            class="bx bx-check"></i>Define</button>
+                                                                </li>
+
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate  nav-link rounded-pill active"
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-gen-info-tab"
+                                                                        data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-gen-info"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-gen-info"
+                                                                        aria-selected="true"><i
+                                                                            class="bx bx-check"></i>Input
+                                                                        data & Collaborate</button>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate  nav-link rounded-pill active"
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-info-desc-tab"
+                                                                        data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-info-desc"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-info-desc"
+                                                                        aria-selected="false"><i
+                                                                        class="bx bx-check"></i>Design
+                                                                        Report</button>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate  nav-link rounded-pill active"
+                                                                        
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-success-tab" data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-success"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-success"
+                                                                        aria-selected="false"><i
+                                                                        class="bx bx-radio-circle"></i>Preview</button>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate  nav-link rounded-pill "
+                                                                        disabled
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-gen-info-tab"
+                                                                        data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-gen-info"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-gen-info"
+                                                                        aria-selected="true">Validate</button>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <button
+                                                                        class="btn btn-white btn-animate  nav-link rounded-pill"
+                                                                        disabled
+                                                                        data-progressbar="custom-progress-bar"
+                                                                        id="pills-info-desc-tab"
+                                                                        data-bs-toggle="pill"
+                                                                        data-bs-target="#pills-info-desc"
+                                                                        type="button" role="tab"
+                                                                        aria-controls="pills-info-desc"
+                                                                        aria-selected="false">Generate</button>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                              </div>
+
+
+
+
+                                          </div><!-- end card-body -->
+                                      </div><!-- end card -->
+                                  </div>
+                                  <!-- end col -->
+
+
+
+                                  
+
+
+
+
+                              </div>
+                              <!-- end row -->
+                          </div>
+                          <!-- end col -->
+                      </div>
+
+
+
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+
+
+
+      <div class="row"> 
+     
+        <!-- End Page-content -->
+      
+        <div class="row">
+          <div class="col-xl-12" style="margin: auto;">
+              <div class="">
+                  <div class="row mt-2">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                             
+      
+                                    <div class="card-body">
+                                     
+                                        
+                                        <div class="" style="text-align: center;">
+
+                                            <h3 style="    color: #1c75bc;
+                                          font-size: 25px;
+                                      ">PREVIEW REPORT</h3>
+
+                                            <h2 style="font-size: 15px;">Your report is completed, this is a preview of how the PDF report will look like.</h2>
+
+                                        </div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div>
+                            <!-- end col -->
+      
+      
+      
+      
+                    
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end col -->
+                </div>
+      
+      
+      
+            
+      
+      
+      
+      
+      
+                  
+              </div>
+            
+          </div>
+          
+      </div>
+      
+      </div>
+
+
+
+
+
+      <div class="row" > 
+     
+        <!-- End Page-content -->
+      
+        <div class="row" >
+          <div class="col-xl-12" style="margin: auto;">
+              <div class="">
+                  <div class="row mt-2">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card" >
+                             
+      
+                                    <div class="card-body" >
+                                     
+                                        <div class="row justify-content-center" >
+                                            <div class="col-lg-7">
+                                                <div class="">
+                                                  <div class="scrollbar" id="style-3">
+                                                    <div class="force-overflow">
+                                                      <div class="frame-card-1 card">
+
+                                                   
+
+                                                          <div class="card-body "
+                                                          style="    padding: 0rem !important;"
+                                                          id="pagenumber">
+                                                          <div class="text-center">
+                                                              <ng-container
+                                                                  *ngComponentOutlet="dynamicComponent">
+
+
+                                                              </ng-container>
+
+
+                                                              <ng-container
+                                                                  *ngComponentOutlet="dynamicComponent1">
+
+
+
+                                                              </ng-container>
+
+                                                              <ng-container
+                                                              *ngComponentOutlet="dynamicComponent2">
+
+
+
+                                                          </ng-container>
+
+                                                          <ng-container
+                                                          *ngComponentOutlet="dynamicComponent3">
+
+
+
+                                                      </ng-container>
+
+                                                      <ng-container
+                                                      *ngComponentOutlet="dynamicComponent4">
+
+
+
+                                                  </ng-container>
+                                                          </div>
+                                                      </div>
+                                                  
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                              
+                                                </div>
+                                            </div><!--end col-->
+                                        </div><!--end row-->
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div>
+                            <!-- end col -->
+      
+      
+      
+      
+                    
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end col -->
+                </div>
+      
+      
+      
+            
+      
+      
+      
+      
+      
+                  
+              </div>
+            
+          </div>
+          
+      </div>
+      
+      </div>
+
+
+
+      
+
+
+
+
+
+
+
+      <!--end row-->
+
+
+
+  </div>
+  <!-- END layout-wrapper -->
+
+
+  <div class="col-xl-12 copyrt" style="z-index: 99; text-align: center;    padding-left: 50px;
+
+padding-right: 50px;
+
+padding-bottom: 50px; font-size: 16px;  
+
+border-top: 1px solid #e6e8f2;
+
+">
+
+
+
+
+      <div class="d-flex align-items-start gap-3 mt-4">
+
+          <button type="button" class=" esg-prev-btn btn dash-btn-1 btn-label previestab" (click)="back()" data-previous="steparrow-gen-info-tab" ><i
+                  class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back </button>
+
+          <button type="button" class="esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab" (click)="next()"
+              data-nexttab="pills-experience-tab" ><i
+                  class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Next</button>
+
+
+
+
+      </div>
+
+
+
+  </div>
+
+</div>

@@ -1,0 +1,125 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+      style="background-color: #8cc540 !important;">
+      <div class="text-lg " style="font-weight: 900;">Scope emission of lessor</div>
+      <button mat-icon-button (click)="onClose()" [tabIndex]="-1">
+          <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+      </button>
+  </div>
+
+    <div class="col-xl-12 in-top overflow-y-auto" *ngIf="firstdrop">
+      <div class="col-xl-12 in-top overflow-y-auto">
+        <div class="box-body table-responsive">
+          <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+            <thead class="tableheader">
+              <tr>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Type of<br> fuel</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 2.6rem; border: 1px solid var(--border-color);">Unit</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">quantity of fuel<br> consumed (e.g., liter)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">EF for fuel source<br> (e.g., kg CO2e/liter)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">quantity of refrigerant<br> leakage (kg)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">EF for refrigerant<br> (kg CO2e/kg)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">process emissions<br> (kg)</th>
+                <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Scope 1 <br>emissions (t)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tpt of lookupdtl; let i=index">
+                <td>
+                  <mat-form-field class="flex flex-col min-w-50">                                                                         
+                    <mat-select  id="first{{i}}" (selectionChange)="fuelchange($event.value, i)" [(ngModel)]="tpt.first">
+                      <mat-option *ngFor="let c of fuel" [value]="c.Id">
+                    {{c.FuelType}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>  </td>
+                <td>
+                  <input id="second{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.second"  type="text" readonly>
+                </td>
+                <td>
+                  <input id="third{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.third"  type="text" inputWithComma>
+                </td>
+                <td>
+                  <input id="fourth{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.fourth"  type="text" readonly>
+                </td>
+                <td>
+                  <input id="fifth{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.fifth"  type="text" inputWithComma>
+                </td>
+                <td>
+                  <input id="sixth{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.sixth"  type="text" inputWithComma>
+                </td>
+                <td>
+                  <input id="seventh{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" (keyup)="firstcal(i, $event)" [(ngModel)]="tpt.seventh"  type="text" inputWithComma>
+                </td>
+                <td>
+                  <input id="eighth{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [value]="tpt.eighth" type="text" inputWithComma readonly>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <style>
+            .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+          </style>
+  </div>
+  </div></div>
+  <div class="col-xl-12 in-top overflow-y-auto" *ngIf="secdrop">
+    <div class="col-xl-12 in-top overflow-y-auto">
+      <div class="box-body table-responsive">
+        <table id="datatable" class="table table-striped table-bordered" style="width:100%; border: 2px solid #1978ac;">
+          <thead class="tableheader">
+            <tr>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Country list</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Quantity of electricity, steam,<br> heating, cooling consumed (e.g., kWh)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">EF for electricity, steam,<br> heating, cooling (e.g., kg CO2e/kWh)</th>
+              <th style="text-align: center; font-size: 15px; background-color: #1978ac; color: #fff; white-space: nowrap; padding: 0.75rem 0.6rem; border: 1px solid var(--border-color);">Scope 2 emissions (t)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tpt of lookupdtl1; let i=index">
+              <td>
+                <mat-form-field class="flex flex-col min-w-50">                                                                         
+                  <mat-select  id="first{{i}}" (selectionChange)="disposalchange($event.value, i)" [(ngModel)]="tpt.first">
+                    <mat-option *ngFor="let c of material" [value]="c.Id">
+                  {{c.Country}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>  </td>
+              <td>
+                <input id="second{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" (keyup)="seconcal(i, $event)" [(ngModel)]="tpt.second"  type="text" inputWithComma>
+              </td>
+              <td>
+                <input id="third{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [(ngModel)]="tpt.third"  type="text" readonly>
+              </td>
+              <td>
+                <input id="fourth{{i}}" class="form-control" style="height: 48px; width: 100%; border: 1px solid #1c75bc;" [value]="tpt.fourth"  type="text" inputWithComma readonly>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <style>
+          .table-bordered > :not(caption) >    {
+border-width: 0 0px;
+}
+        </style>
+</div>
+</div></div>
+
+
+
+  <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+    <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+
+       
+        <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+          style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+            Submit
+        </button>
+    </div>
+</div>
+
+</div>

@@ -1,0 +1,83 @@
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent" >
+
+    <!-- Header -->
+    <div class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+        <!-- Loader -->
+        <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+          <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+        </div>
+        <!-- Title -->
+        <div class="text-4xl font-extrabold tracking-tight">Stack Details</div>
+      
+        <div  class="card WareHouse">
+          <select class="selectpicker" data-style="btn-warning" [(ngModel)]="selectedWarehouse"  (change)="onSelect($event.target.value)">
+            <option value="0" disabled selected hidden>Select Warehouse</option>
+            <option *ngFor="let w of WareHouseData" value="{{w.Id}}">{{w.Name}}</option>
+          </select>
+        </div>
+        
+        <div  class="card WareHouse">
+          <select class="selectpicker1" data-style="btn-warning" (change)="onSelectStack($event.target.value)">
+            <option value="" disabled selected hidden>Select Stack</option>
+            <option *ngFor="let w of StackData" value="{{w.Id}}">{{w.Name}}</option>
+          </select>
+        </div>
+        
+        <!-- Button Group -->
+        <div class="button-group">
+          
+        </div>
+      </div>
+      
+   
+      <div  class="no-stacks-message m-2" *ngIf="NoStacks" >
+       <h2 style="margin-top: 25px;margin-left: 50px;">No stacks are available for the selected warehouse.</h2> 
+
+      </div>
+
+
+ 
+<div class="row" *ngIf="ShowDetails" style="height: auto;"> 
+    <div class="col-md-12"  style="height: 100% !important;"  >
+       
+               <div class="overflow-hidden overflow-y-auto" style="height: 350px !important;">
+                <table style="margin-top:10px;width: 100%;" class="table">
+                    <thead class="sticky-header">
+                        <tr >
+                            <th>Batch Id</th>
+                            <th>Stack</th>
+                            <th>Product</th>
+                            <th>WareHouse</th>
+                            <th>Stock</th>
+                            <th>Egg Qty</th>
+                            <th>Packed Date</th>
+                        </tr>
+                    </thead>
+                          <tbody style="font-size: 15px;">
+                          <tr *ngFor="let d of stackdetails"  [class.red-row]="d.DaysToExpire < 0"
+                          [class.white-row]="d.DaysToExpire >= 7"
+                          [class.pink-row]="d.DaysToExpire >= 0 && d.DaysToExpire <7"
+                >
+                          <td scope="col">{{d.BatchId}}</td>
+                          <td scope="col">{{d.StackName}}</td>
+                          <td scope="col">{{d.ProductName}}</td>
+                          <td scope="col">{{d.WareHouseName}}</td>
+                          <td scope="col">{{d.Stock}}</td>
+                          <td scope="col">{{d.EggQuantity}}</td>
+                          <td scope="col">{{d.PackedDate | date:"dd-MMM-yyyy"}}</td>
+                         
+                        </tr>
+                      </tbody>
+                </table>
+               </div>
+                   
+               
+                    
+    </div>
+</div>
+
+<div></div>
+
+
+
+</div>

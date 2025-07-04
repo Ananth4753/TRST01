@@ -1,0 +1,87 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary" style="background-color: #033f3d !important;">
+      <div class="text-lg font-medium">Request Data</div>
+      <button
+          mat-icon-button
+          (click)="onClose()"
+          [tabIndex]="-1">
+          <mat-icon
+              class="text-current"
+              [svgIcon]="'heroicons_outline:x'"></mat-icon>
+      </button>
+  </div>
+
+  <!-- Compose form -->
+  <form
+      class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto"
+      [formGroup]="ListForm">
+      <div class="text-lg font-medium">Request for</div><br>
+      <div class="flex flex-col  " >
+                                                                                                         
+          <!-- <mat-select   #mySel matInput [formControlName]="'selectdrop'" multiple>
+          <mat-option *ngFor="let u of listofarrayvalues" ></mat-option>
+          </mat-select> -->
+          <!-- <ul>
+            <li *ngFor="let u of listofarrayvalues">
+                <mat-checkbox [(ngModel)]="u.listofarrayvalues" [formControlName]="'selectdrop'">
+                              {{u.Label}}
+                </mat-checkbox>
+              </li>
+          </ul> -->
+          <div *ngFor="let item of items">
+            
+                    <label>
+                        <input type="checkbox" [id]="item.id" [(ngModel)]="item.selected" [formControlName]="'selectdrop'" style="line-break: auto;">
+                        {{item.Label}}
+                    </label>
+              
+       
+        </div>
+     
+    </div>
+      <div class="text-lg font-medium">Send Request To</div><br>
+      <div class="flex flex-col md:flex-row gap-4">
+          <!-- Name -->
+          <mat-form-field class="flex flex-col flex-auto">
+              <mat-label>Email</mat-label>
+              <input
+                  matInput
+                  [formControlName]="'EmailId'">
+          </mat-form-field>
+
+      </div>
+      <div class="flex flex-col md:flex-row gap-8">
+
+        <mat-form-field class="flex flex-col flex-auto">
+          <mat-label>Message</mat-label>
+          <textarea matInput   [formControlName]="'message'"></textarea>
+         
+      </mat-form-field>
+   
+    </div>
+
+  </form>
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+        <div class="flex items-center mt-4 sm:mt-0">
+            <!-- Save as draft -->
+            <button
+                class="sm:mx-3"
+                mat-stroked-button
+                mat-dialog-close=false
+                (click)="onCancel()">
+                <span>Cancel</span>
+            </button>
+            <!-- Send -->
+            <button
+                class="order-first sm:order-last"
+                mat-flat-button
+                [color]="'primary'" style="background-color: #033f3d !important;"
+                (click)="onSave()">
+                Save
+            </button>
+        </div>
+    </div>
+</div>

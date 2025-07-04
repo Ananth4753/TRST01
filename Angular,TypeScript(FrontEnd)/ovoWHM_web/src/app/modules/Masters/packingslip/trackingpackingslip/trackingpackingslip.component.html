@@ -1,0 +1,250 @@
+<div class="content">
+    <section class="content">
+      <div [ngClass]="!addedit ? 'col-md-12' : 'col-md-12 '">
+        <div class="card cardline">
+          <div class="card-header cardheadercolor">
+            <h5 class="box-title">
+              <font>
+                <b style="font-size:20px;">Tracking Packing Slip</b>
+              </font>
+  
+              <!-- <button class="btn pull-right addnew"  mat-flat-button [color]="'primary'" style="background-color:#FCB713!important;width:200px;" (click)="addedit=true;" *ngIf="!addedit"  title="Add lookupMaster"  >
+                <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                <span class="ml-2 mr-1">Add </span>
+            </button>-->
+            
+          
+  
+            <button class="btn pull-right addnew" title="Back to lookupMaster" (click)="addedit=false;getLookupMasterDetail(); onCancel()"
+            *ngIf="addedit">
+            <i class="fa fa-times"></i>
+          </button> 
+             
+            </h5>
+          </div>
+          <div class="card-body" style="padding-top: 10px;" *ngIf="!addedit">
+            <div class="box">
+              <div class="box-body table-responsive overflow-hidden overflow-y-auto "  style="height: 400px !important;">
+                <table id="datatable" class="table table-striped " style="width:100%" >
+                  <thead class="table-header sticky-header " >
+                    <tr>
+                      <th class="thead" scope="col" (click)="onSortClick($event)">WareHouse</th>
+                      <th class="thead" scope="col">Code</th>
+                     
+                      <th class="thead" scope="col">Status</th>
+                      <th class="thead" scope="col">Created Date</th>
+                      <th  class="thead" scope="col"></th>
+                    
+                    </tr>
+                  </thead>
+                  <tbody style="font-size: 15px;text-align: left;">
+                    
+                    <tr *ngFor="let d of packslipdetaisbyuserid"   >
+                      <td scope="col">{{d.WareHouse}}</td>
+                      <td scope="col">{{d.Code}}</td>
+                      
+                      <td scope="col">{{d.packingStatus}}</td>
+                      <td scope="col">{{d.CreatedDate | date:"dd-MMM-yyyy"}}</td>
+                      <td>   <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                        (click)="GetPackingSlipDetails(d.Id)" (click)="addedit=true;">
+                        <mat-icon>visibility</mat-icon>
+                    </button></td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="addedit">
+            <div class="card-body" style="padding-top: 10px;">
+              <form [formGroup]="LookupMasterForm" autocomplete="off">
+                <div class="row">
+            
+
+                  <div class="col-md-4">        
+                    <mat-form-field class="flex flex-col flex-auto">
+    
+                    <mat-label>WareHouse</mat-label>                    
+        
+                    <mat-select [disabled]="!Edit" matInput [formControlName]="'WareHouseId'">
+        
+                         <mat-option *ngFor="let w of Warehousedetails" [value]="w.Id">{{w.Name}}</mat-option>
+        
+                    </mat-select>
+        
+                </mat-form-field></div>
+                <div class="col-md-4">     
+                      
+                  <mat-form-field class="flex flex-col flex-auto">
+                    <mat-label>Code</mat-label>
+                    <input readonly
+                        matInput
+                        [formControlName]="'Code'">
+                       </mat-form-field>   
+                          </div>
+                          
+             
+                  
+    
+                  
+                    <div class="col-md-4">
+    
+                    
+                        <div class="flex flex-col md:flex-row gap-4">
+                       
+    
+                          
+                            <mat-form-field class="flex flex-col flex-auto">
+            
+                            <mat-label>Status</mat-label>                    
+                
+                            <mat-select [disabled]="!Edit"  matInput [formControlName]="'Status'" (selectionChange)="OnRoleChange($event)">
+                
+                                <mat-option *ngFor="let s of status" [value]="s.Id">{{s.Name}}</mat-option>
+                
+                            </mat-select>
+                
+                        </mat-form-field> </div>
+                          </div>
+                        
+                           
+                 
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 ">
+                  
+                        
+                          <h3>  GRN Confirmation :-  <strong *ngIf="editlookuphdr.GRNConfirmation === false"  >No</strong> <strong *ngIf="editlookuphdr.GRNConfirmation === true"  >Yes</strong>   </h3>
+
+                 
+                   
+                       </div>
+                       <div class="col-md-4">
+                  
+                        
+                        <h3>  Loss In Transit :-  <strong *ngIf="editlookuphdr.LossInTransit === false"  >No</strong> <strong *ngIf="editlookuphdr.LossInTransit === true"  >Yes</strong>   </h3>
+
+               
+                 
+                     </div>
+                  </div>
+              
+
+           
+
+
+
+
+
+
+<!--                 
+              <div class="form-group col-md-2" style="padding-top: 24px;margin-right: 5px">
+                <button type="submit" style="width: 100%;background-color: #FCB713;" class="form-control "  class="btn btn-success "
+                  (click)="onCreate()" 
+                   >Update Status</button> 
+              </div> -->
+             </form>
+
+
+              </div> 
+              </div>
+
+               <div id="snackbar"></div><div id="snackbarerror" ></div>
+
+ 
+       
+            </div>  
+      <div class="card" *ngIf="addedit">
+              <div class="card-body">
+                <div >
+                <table  class="table table-striped" style="width:100%">
+                  <thead class="table-header " ><tr>
+                     <th class="thead" scope="col">SKU Name</th>
+                     <th class="thead" scope="col">Product Name</th>
+                     <th class="thead" scope="col">Quantity</th>
+                     <!-- <th class="thead" scope="col">Damage Qty</th>
+                     <th class="thead" scope="col">Leakage Qty</th> -->
+                     <th class="thead" scope="col">Created Date</th>
+                     <th class="thead" scope="col">Loss In Transit Info</th>
+                    </tr></thead>
+                     <tbody style="font-size: 15px;">
+                      <tr *ngFor="let d of detailsHdrid" >
+                        <td scope="col">{{d.skuName}}</td>
+                        <td scope="col">{{d.ProductName}}</td>
+                        <td scope="col">{{d.Quantity}}</td>
+                        <!-- <td scope="col">{{d.DamageQty}}</td>
+                        <td scope="col">{{d.LeakageQty}}</td> -->
+                      <td scope="col">{{d.CreatedDate | date:"dd-MMM-yyyy"}}</td>
+                   
+                      <td scope="col" style="margin-left: 10px;" >
+                        <button [disabled]="editlookuphdr.LossInTransit === false" data-toggle="modal" data-target="#myModal" class="btn rounded-pill btn-warning" (click)="GetLeakageQtyByPSId(d.PackingSlipHDRId)" > <i class="fa fa-eye"></i></button>
+                      </td>
+                    </tr>
+                    
+                    
+                    </tbody></table></div></div>
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header" >
+                            <button type="button" class="close" data-dismiss="modal"></button>
+                            <h4 class="modal-title"><strong> Loss In Transit Details</strong> </h4>
+                          </div>
+                          <div class="modal-body">
+                            <table  class="table table-striped" style="width:100%">
+                              <thead class="table-header " >
+                                <tr style="background-color:#FCB713 ;">
+                                  <th scope="col">Product Name</th>
+                                  <th scope="col">Batch Id</th>
+                                  <th scope="col">Leakage Qty</th>
+                                  <th scope="col">Leakage Egg Qty</th>
+                                  <th scope="col">Damage Qty</th>
+                                  <th scope="col">Damage Egg Qty</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let k of DamageData">
+                                  <td scope="col">{{k.ProductName}}</td>
+                                  <td scope="col">{{k.BatchId}}</td>
+                                  <td scope="col">{{k.LeakageQty}}</td>
+                                  <td scope="col">{{k.LeakageEggQty}}</td>
+                                  <td scope="col">{{k.DamageQty}}</td>
+                                  <td scope="col">{{k.DamageEggQty}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+      </div>
+
+    
+          </div>
+          </section>
+
+
+       
+         </div>
+
+        
+
+                            
+       
+      
+                            
+              
+
+
+                
+            
+            
+        

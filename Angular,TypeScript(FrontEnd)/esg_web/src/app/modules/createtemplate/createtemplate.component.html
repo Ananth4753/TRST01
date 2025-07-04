@@ -1,0 +1,150 @@
+<div class="container-fluid h-100 align-items-center justify-content-center">
+
+
+
+  
+  <div class="hello row dash-nft h-100 " style="    padding: 150px;">
+    <div class="col-xl-6 mx-auto mt-5">
+        <div class="b-card  card" >
+            <div class="card-body form-steps">
+
+
+                    
+              <div class="">
+
+                <div class="row mt-2">
+                  <div class="col-lg-12">
+                    
+                      <div class="row">
+                         
+                          <div class="col-xl-12 col-md-6">
+                              <div class=" text-center ">
+                                  <div class=" p-4 pb-0">
+                                      <h5 class="mb-4">Template Name</h5>
+                                      
+                                      <div>
+                                          <button type="button" class="btn dash-btn-1 " data-bs-toggle="modal" data-bs-target="#loginModals">Click me</button>
+                                      </div>
+                
+                                     
+                                  </div><!-- end card body -->
+                              </div><!-- end card -->
+                              <div id="loginModals" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true" style="padding-left: 85px !important;">
+                                  <div class="modal-dialog modal-dialog-centered" >
+                                      <div class="modal-content border-0 overflow-hidden" >
+                                          <div class="modal-body login-modal p-5">
+                                              <h5 class="text-white fs-20">Enter Name</h5>
+                                             
+                                              <form [formGroup]="reportform">
+                                                <mat-form-field appearance="fill" style="width: 100%; text-align: center !important; ">
+                                                   
+                                                    <input matInput formControlName="TemplateName">
+                                                </mat-form-field>
+                                                  
+                                        
+                                                </form>  
+                                          </div>
+             
+                                      </div><!-- /.modal-content -->
+                                  </div><!-- /.modal-dialog -->
+                              </div><!-- /.modal -->
+                          </div><!-- end col -->
+                
+                
+                         
+                      </div><!-- end row -->
+                  </div><!-- end col -->
+                </div>
+              
+            </div>
+
+
+            
+
+            </div>
+        </div>
+    </div>       
+</div> 
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="col-xl-12 copyrt" style="z-index: 99; text-align: center;    padding-left: 50px;
+
+
+
+  padding-right: 50px;
+
+
+
+  padding-bottom: 50px; font-size: 16px;  
+
+
+
+  border-top: 1px solid #e6e8f2;
+
+
+
+  ">
+
+
+
+
+
+
+
+
+
+
+
+<div class="d-flex align-items-start gap-3 mt-4">
+
+
+
+  <button type="button" class="btn dash-btn-1 btn-label previestab"(click)="back()" data-previous="steparrow-gen-info-tab"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back </button>
+
+
+
+  <button type="button" class="btn dash-btn-1 btn-label right ms-auto nexttab nexttab" [disabled]="reportform.invalid" (click)="next()" data-nexttab="pills-experience-tab" ><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Next</button>
+
+
+
+ 
+
+
+
+</div>
+
+
+
+
+
+
+
+   </div>
+
+
+
+
+
+
+
+
+<!--start back-to-top-->
+
+<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+
+<i class="ri-arrow-up-line"></i>
+
+</button>
+
+<!--end back-to-top-->

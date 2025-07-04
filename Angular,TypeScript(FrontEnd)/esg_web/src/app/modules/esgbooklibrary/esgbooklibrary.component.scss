@@ -1,0 +1,19 @@
+.mat-ac-pannel{
+    padding:10px;
+    margin-bottom:20px;
+}
+mat-expansion-panel{
+    margin-bottom:20px !important; 
+}
+mat-panel-title {
+    color: #1c75bc !important;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+}
+mat-expansion-panel-body{
+    padding:0px !important;
+}
+mat-expansion-panel-body p{
+background: #00276d;
+color:#fff;
+}

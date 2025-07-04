@@ -1,0 +1,24 @@
+@page {
+
+  size: auto;
+  margin: 0;
+}
+
+@media print {
+
+          button {
+
+            display: none;
+
+          }
+
+        }
+
+        th.mat-header-cell {
+          color:black !important;
+          background-color:#FCB713  !important;
+        }
+        .content{
+          width: 100%;
+          margin-top: 10px;
+      }

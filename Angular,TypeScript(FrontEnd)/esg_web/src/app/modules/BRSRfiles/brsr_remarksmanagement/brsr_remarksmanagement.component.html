@@ -1,0 +1,582 @@
+ 
+<form [formGroup]="managementform">
+
+<div aria-label1="pdf-page-2" *ngIf="(qaaobject[7]['PolicyQuestion1'] !=undefined)">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+        <div class="card">
+
+          <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+          <div class="card-img-overlay p-0 d-flex flex-column">
+
+            <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+              <span class="float-end">{{reportname}}</span>
+            </div>
+
+         
+
+            <div class="row"  *ngIf="qaaobject[7]['PolicyQuestion1'] !=undefined">
+              <h3 class="brsr-title-sub2 brsrtext02 "><b >SECTION B: MANAGEMENT AND PROCESS DISCLOSURES </b></h3>
+            </div>
+
+         
+
+
+           
+              <div class="row"  *ngIf="qaaobject[7]['PolicyQuestion1'] !=undefined">
+              
+                              <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        
+                                        <h6 class="card-title mb-0 brsr-title-sub2">1. This section is aimed at helping businesses demonstrate the structures, policies and processes put in place towards adopting the NGRBC Principles and Core Elements.</h6>
+                                       
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline evidence-btn"
+                                            style="font-size: 13px; float: right"
+                                            (click)="openuploadimgcompo(this.reportid,'1. This section is aimed at helping businesses demonstrate the structures, policies and processes put in place towards adopting the NGRBC Principles and Core Elements.',this.orgId,'1. This section is aimed at helping businesses demonstrate the structures, policies and processes put in place towards adopting the NGRBC Principles and Core Elements.')">
+                                            
+                                            <i class="ri-file-upload-line"
+                                                style="font-size: 12px"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                              </div>
+                              </div>
+
+
+
+            <div class="box-body freport01" *ngIf="qaaobject[7]['PolicyQuestion1'] !=undefined">
+
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management1">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+      </div>
+      <footer class="footer sun col-xxl-12">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="">
+              <div class=" align-items-center d-flex">
+
+                <a style="display:flex;"><span class="mypower"
+                    style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+                    src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="page-break-before:always">&nbsp;</div>
+</div>
+
+
+<div aria-label1="pdf-page-9" *ngIf="((qaaobject[8]['Question1']!=undefined) || (qaaobject[8]['Question2']!=undefined) || (qaaobject[8]['Question6']!=undefined) || (qaaobject[8]['ten1']!=undefined))">
+
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+      <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+
+        <div class="card">
+
+ 
+
+          <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+
+          <div class="card-img-overlay p-0 d-flex flex-column">
+
+ 
+
+            <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+
+              <span class="float-end">{{reportname}}</span>
+
+            </div>
+
+ 
+
+            <div class="row">
+
+              <h3 class="brsr-title-sub2 brsrtext02 "><b >Govenance, leadership and oversight </b></h3>
+
+            </div>
+
+ 
+            <div class="row"  *ngIf="qaaobject[8]['Question1']!=undefined">
+            
+
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+                      
+                      <h6 class="card-title mb-0 brsr-title-sub2">7. Statement by director responsible for the business responsibility report, highlighting ESG related challenges, targets and achievements (listed entity has flexibility regarding the placement of this disclosure)</h6>
+                     
+                      <button type="button"
+                          class="btn btn-sm btn-outline evidence-btn"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Statement by director responsible for the business responsibility report, highlighting ESG related challenges, targets and achievements (listed entity has flexibility regarding the placement of this disclosure)',this.orgId,'Statement by director responsible for the business responsibility report, highlighting ESG related challenges, targets and achievements (listed entity has flexibility regarding the placement of this disclosure)')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+ 
+
+            <div class="box-body freport01" *ngIf="qaaobject[8]['Question1']!=undefined">
+
+                                   
+
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management2">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>
+
+             
+
+            </div>
+
+ 
+
+ 
+
+ 
+
+            <div class="row"  *ngIf="qaaobject[8]['Question2']!=undefined">
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+                      
+                      <h6 class="card-title mb-0 brsr-title-sub2">8. Details of the highest authority responsible for implementation and oversight of the Business Responsibility policy (ies).</h6>
+                     
+                      <button type="button"
+                          class="btn btn-sm btn-outline evidence-btn"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Details of the highest authority responsible for implementation and oversight of the Business Responsibility policy (ies)',this.orgId,'Details of the highest authority responsible for implementation and oversight of the Business Responsibility policy (ies)')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+            <div class="box-body freport01" *ngIf="qaaobject[8]['Question2']!=undefined">
+
+                                   
+
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management3">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>
+
+             
+
+            </div>
+
+ 
+
+ 
+            <div class="row"  *ngIf="qaaobject[8]['Question6']!=undefined">
+            
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+                      
+                      <h6 class="card-title mb-0 brsr-title-sub2">9. Does the entity have a specified Committee of the Board/ Director responsible for decision making on sustainability related issues? (Yes / No). If yes, provide details.</h6>
+                     
+                      <button type="button"
+                          class="btn btn-sm btn-outline evidence-btn"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Does the entity have a specified Committee of the Board/ Director responsible for decision making on sustainability related issues? (Yes / No). If yes, provide details',this.orgId,'Does the entity have a specified Committee of the Board/ Director responsible for decision making on sustainability related issues? (Yes / No). If yes, provide details')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+            <div class="box-body freport01" *ngIf="qaaobject[8]['Question6']!=undefined">
+
+                                   
+
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management4">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>
+
+             
+
+            </div>
+
+ 
+
+ 
+
+ 
+
+ 
+
+          <div class="row" *ngIf="qaaobject[8]['ten1']!=undefined">
+
+
+          
+
+          <div class="row">
+            <div class="col-xl-12">
+                <div class="d-flex align-items-center justify-content-between">
+                    
+                    <h6 class="card-title mb-0 brsr-title-sub2">10. a) Performance against above policies and follow up action b) Compliance with statutory requirements of relevance to the principles, and, rectification of any non-compliances.</h6>
+                   
+                    <button type="button"
+                        class="btn btn-sm btn-outline evidence-btn"
+                        style="font-size: 13px; float: right"
+                        (click)="openuploadimgcompo(this.reportid,'a) Performance against above policies and follow up action b) Compliance with statutory requirements of relevance to the principles, and, rectification of any non-compliances.',this.orgId,'a) Performance against above policies and follow up action b) Compliance with statutory requirements of relevance to the principles, and, rectification of any non-compliances.')">
+                        
+                        <i class="ri-file-upload-line"
+                            style="font-size: 12px"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+            <div class="box-body freport01" *ngIf="qaaobject[8]['ten1']!=undefined">
+
+               
+
+              <div class="row">
+  
+                <div class="col-md-8">
+
+                  <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management5">
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <button type="button"
+                    class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                    data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+
+                </div>
+
+              </div>
+
+               
+
+              </div>
+
+           
+
+      </div>
+
+      <footer class="footer sun col-xxl-12">
+
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="">
+
+              <div class=" align-items-center d-flex">
+
+ 
+
+                <a style="display:flex;"><span class="mypower"
+
+                    style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+
+                    src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+ 
+
+             
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div style="page-break-before:always">&nbsp;</div>
+
+</div>
+
+ 
+
+
+<div aria-label1="pdf-page-4" *ngIf="((qaaobject[8]['eleven1']!=undefined) || (qaaobject[8]['twelve1']!=undefined))">
+
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+      <div class="col-xxl-12 col-xl-12 col-md-12" style="padding-top: 50px; ">
+
+        <div class="card">
+
+ 
+
+          <img class="bg-preview  card-img img-fluid" [src]="imageUrl" alt="Card image" style="height: 1380px;">
+
+          <div class="card-img-overlay p-0 d-flex flex-column">
+
+ 
+
+            <div class="esg-head card-header" style="    background-color: rgba(0,0,0,.03);">
+
+              <span class="float-end">{{reportname}}</span>
+
+            </div>
+
+ 
+
+            <div class="row">
+
+              <h3 class="brsr-title-sub2 brsrtext02 "><b >Govenance, leadership and oversight </b></h3>
+
+            </div>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+            <div class="row"  *ngIf="qaaobject[8]['eleven1']!=undefined">
+            
+            <div class="row">
+              <div class="col-xl-12">
+                  <div class="d-flex align-items-center justify-content-between">
+                      
+                      <h6 class="card-title mb-0 brsr-title-sub2">11. Has the entity carried out independent assessment/ evaluation of the working of its policies by an external agency? (Yes/No). If yes, provide name of the agency.</h6>
+                     
+                      <button type="button"
+                          class="btn btn-sm btn-outline evidence-btn"
+                          style="font-size: 13px; float: right"
+                          (click)="openuploadimgcompo(this.reportid,'Has the entity carried out independent assessment/ evaluation of the working of its policies by an external agency? (Yes/No). If yes, provide name of the agency',this.orgId,'Has the entity carried out independent assessment/ evaluation of the working of its policies by an external agency? (Yes/No). If yes, provide name of the agency')">
+                          
+                          <i class="ri-file-upload-line"
+                              style="font-size: 12px"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+          </div>
+           
+
+              <div class="box-body freport01" *ngIf="qaaobject[8]['eleven1']!=undefined">
+
+                 
+
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management6">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>
+
+                 
+
+              </div>
+
+ 
+
+              <div class="row"  *ngIf="qaaobject[8]['twelve1']!=undefined">
+              
+              
+              <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex align-items-center justify-content-between">
+                        
+                        <h6 class="card-title mb-0 brsr-title-sub2"><b>12. </b></h6>
+                       
+                        <button type="button"
+                            class="btn btn-sm btn-outline evidence-btn"
+                            style="font-size: 13px; float: right"
+                            (click)="openuploadimgcompo(this.reportid,'12',this.orgId,'12')">
+                            
+                            <i class="ri-file-upload-line"
+                                style="font-size: 12px"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+              <div class="box-body freport01" *ngIf="qaaobject[8]['twelve1']!=undefined">
+
+                 
+
+                <div class="row">
+  
+                  <div class="col-md-8">
+  
+                    <input class="new-control form-control fpinput-01" id="meassageInput" formControlName="management7">
+  
+                  </div>
+  
+                  <div class="col-md-3">
+  
+                    <button type="button"
+                      class="save-btn esg-back-btn btn dash-btn-1 btn-label right ms-auto nexttab nexttab"
+                      data-nexttab="pills-experience-tab" (click)="Save()">Save</button>
+  
+                  </div>
+  
+                </div>
+
+               
+
+            </div>
+
+               
+
+         
+
+       
+
+      </div>
+
+      <footer class="footer sun col-xxl-12">
+
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="">
+
+              <div class=" align-items-center d-flex">
+
+ 
+
+                <a style="display:flex;"><span class="mypower"
+
+                    style="font-size:16px; margin-left: 25px;">Powered by</span><img class="mypower1"
+
+                    src="./assets/img/trst_color.png" style="width:10%; margin-left: 5px;"></a>
+
+ 
+
+             
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div style="page-break-before:always">&nbsp;</div>
+
+</div>
+</form>

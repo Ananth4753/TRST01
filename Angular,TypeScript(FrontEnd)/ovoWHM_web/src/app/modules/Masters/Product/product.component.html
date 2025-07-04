@@ -1,0 +1,133 @@
+
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+
+
+  <div
+      class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+      <!-- Loader -->
+      <div class="absolute inset-x-0 bottom-0">
+          
+      </div>
+      <!-- Title -->
+      <div class="text-4xl font-extrabold tracking-tight">Product</div>
+      <!-- Actions -->
+      <div class="flex flex-shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+          <!-- Search -->
+          <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
+              <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:search'"></mat-icon>
+              <input matInput [formControl]="searchInputControl" [autocomplete]="'off'"
+                  [placeholder]="'Search Product'">
+          </mat-form-field>
+          <!-- Add menu button -->
+          <button class="ml-4" mat-flat-button [color]="'primary'" style="background-color:#FCB713  !important;" (click)="createProduct()" >
+              <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+              <span class="ml-2 mr-1">Add</span>
+          </button>
+      </div>
+  </div>
+  
+  <div class="flex flex-auto overflow-hidden">
+      <!-- Menu Table -->
+      <div class="sm:col-span-6 flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto">
+          <div class="flex flex-col flex-auto overflow-x-auto">
+              <ng-container *ngIf="(productItems$ | async) as productItems">
+                  <ng-container *ngIf="productItems.length > 0; else noProductItems">
+                      <table mat-table [dataSource]="ProductdataSource"
+                          class="min-w-240 overflow-y-visible" matSort matSortActive="Name" matSortDirection="asc">
+
+                          <!-- Edit -->
+                          <ng-container matColumnDef="Edit" sticky>
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 50px;"></th>
+                              <td mat-cell *matCellDef="let productItem" style="width: 50px;">
+                                  <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button
+                                      (click)="onEditProduct(productItem.Id)">
+                                      <mat-icon class="icon-size-5" svgIcon="mat_solid:edit">
+                                      </mat-icon>
+                                  </button>
+                              </td>
+                          </ng-container>
+                          <ng-container matColumnDef="Classification">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Classification </th>
+                            <td mat-cell *matCellDef="let productItem">{{productItem.ClassificationName}}</td>
+                        </ng-container>
+                            <!--Code -->
+                            <ng-container matColumnDef="CategoryId">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header>Category Name</th>
+                              <td mat-cell *matCellDef="let productItem">{{productItem.CategoryName}}</td>
+                          </ng-container>
+
+                          <!-- Name -->
+                          <ng-container matColumnDef="Name">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header >Product Name</th>
+                              <td mat-cell *matCellDef="let productItem">{{productItem.Name}}</td>
+                          </ng-container>
+
+                          <ng-container matColumnDef="Description">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header >Description</th>
+                            <td mat-cell *matCellDef="let productItem">{{productItem.Description}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="BrandId">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header >Brand  </th>
+                            <td mat-cell *matCellDef="let productItem">{{productItem.Brand}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="ProductCode">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header >Product Code</th>
+                          <td mat-cell *matCellDef="let productItem">{{productItem.ProductCode}}</td>
+                      </ng-container>
+                        
+                      <!-- <ng-container matColumnDef="Qty">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header >Pcs</th>
+                        <td mat-cell *matCellDef="let productItem">{{productItem.Qty}}</td>
+                    </ng-container> -->
+
+
+  <!-- Active -->
+  <ng-container class="hidden lg:block" matColumnDef="IsActive">
+    <th mat-header-cell *matHeaderCellDef>Active</th>
+    <td mat-cell *matCellDef="let productItem">
+        <ng-container *ngIf="productItem.IsActive">
+            <mat-icon class="text-green-400 icon-size-5" [svgIcon]="'heroicons_solid:check'"></mat-icon>
+        </ng-container>
+        <ng-container *ngIf="!productItem.IsActive">
+            <mat-icon class="text-gray-400 icon-size-5" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+        </ng-container>
+    </td>
+</ng-container>
+  <!-- Created Date -->
+  <ng-container class="hidden sm:block" matColumnDef="UpdatedDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Updated Date</th>
+    <td mat-cell *matCellDef="let productItem">{{productItem.UpdatedDate| date:"dd-MMM-yyyy"}}</td>
+</ng-container>
+
+ 
+
+
+                          <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true" class="bg-gray-50"></tr>
+                          <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+                      </table>
+
+                      <mat-paginator
+                          class="sm:absolute sm:inset-x-0 sm:bottom-0 border-b sm:border-t sm:border-b-0 z-10 bg-gray-50 dark:bg-transparent"
+                          [ngClass]="{'pointer-events-none': isLoading}" [pageSize]="pageSize"
+                          [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons
+                          aria-label="Select page of menu items">
+                      </mat-paginator>
+
+                  </ng-container>
+              </ng-container>
+          </div>
+
+          <ng-template #noProductItems>
+              <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">
+                  There are no products!
+              </div>
+          </ng-template>
+
+      </div>
+
+  </div>
+
+
+</div>

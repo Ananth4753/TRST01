@@ -1,0 +1,116 @@
+<div class="flex flex-col max-w-600 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary" >
+    <div class="text-lg font-medium">Enter Stationary Combustion consumption details</div>
+    <button
+        mat-icon-button
+        (click)="onClose()"
+        [tabIndex]="-1">
+        <mat-icon
+            class="text-current"
+            [svgIcon]="'heroicons_outline:x'"></mat-icon>
+    </button>
+  </div>
+  
+  
+    <form
+        class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto"
+        [formGroup]="scope1vehicle">
+  
+        <div class="col-xl-12 in-top overflow-y-auto">
+          <div class="flex flex-col md:flex-row gap-4">
+              <mat-form-field class="flex flex-col flex-auto">
+                  <mat-label>Vehicle</mat-label>
+                  <mat-select matInput [formControlName]="'Vehicle'" (selectionChange)="unitchange1($event.value)">
+                      <mat-option *ngFor="let p of foods3" [value]="p.value">{{p.viewValue}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+  
+              <mat-form-field class="flex flex-col flex-auto">
+                  <mat-label>Type</mat-label>
+                 
+                  <mat-select matInput [formControlName]="'Type'" (selectionChange)="unitchange2($event.value)">
+                      <mat-option *ngFor="let p of store" [value]="p.value">{{p.viewValue}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+  
+          </div> 
+          <div class="flex flex-col md:flex-row gap-4">
+  
+              <mat-form-field class="flex flex-col flex-auto">
+                  <mat-label>Fuel</mat-label>
+                  <mat-select matInput [formControlName]="'Fuel'" (selectionChange)="unitchange3($event.value)">
+                      <mat-option *ngFor="let p of store1" [value]="p.value">{{p.viewValue}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+  
+              <mat-form-field class="flex flex-col flex-auto">
+                  <mat-label>Std. Emission Factors per km</mat-label>
+                  <input id="yolo1" matInput type="text" readonly [formControlName]="'EmissionFactor'">
+              </mat-form-field>
+  
+          </div>
+          <div class="flex flex-col md:flex-row gap-4">
+  
+              <mat-form-field class="flex flex-col flex-auto">
+                  <mat-label>Distance (km)</mat-label>
+                  <input matInput type="text" inputWithComma [formControlName]="'Distance'" (keyup)="Distance($event)">
+              </mat-form-field>
+  
+              <mat-form-field class="flex flex-col flex-auto">
+                  <mat-label>tCO2e</mat-label>
+                  <input matInput type="text" inputWithComma [formControlName]="'tCO2e'" style="text-align: right;">
+              </mat-form-field>
+  
+          </div>
+         
+          <!-- <div style="padding:10px">
+          
+              Note:<br>
+              1. Scope 1 emissions are direct greenhouse (GHG) emissions that occur from sources that are controlled or owned by an organization (e.g., emissions associated with fuel combustion in boilers, furnaces, vehicles).<br>
+              2. The emission factors utilized for Scope 1 calculations are sourced from the EPA (Environmental Protection Agency), while the GWP (Global Warming Potential) factors are extracted from the authoritative guidance provided by the IPCC (Intergovernmental Panel on Climate Change).
+            </div> -->
+      
+           <!-- <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+              <div class="flex items-center mt-4 sm:mt-0" style="margin: auto;">
+          
+                 
+                  <button class="esg-back-btn btn dash-btn-1 btn-label order-first sm:order-last" mat-flat-button [color]="'primary'"
+                    style="border: 1px solid; color: #1c75bc; border-color: #1c75bc !important; background-color: #fff !important; border-radius: 0px !important; border-radius: 5px !important;"  (click)="onSave()">
+                      Submit
+                  </button>
+              </div>
+          </div>  -->
+        </div>
+  
+  
+  </form>
+   <!-- Actions -->
+   <div class="flex flex-col sm:flex-row justify-end p-6 sm:p-8">
+    <div class="flex items-center mt-4 sm:mt-0">
+        <!-- Save as draft -->
+        <button
+            class="sm:mx-3"
+            mat-stroked-button
+            mat-dialog-close=false
+            (click)="onCancel()">
+            <span>Cancel</span>
+        </button>
+        <!-- Send -->
+        <button
+            class="order-first sm:order-last"
+            mat-flat-button
+            [color]="'primary'" style="background-color:#FCB713  !important;"
+            (click)="onSave()">
+            Save
+        </button>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  </div>
